@@ -37,7 +37,7 @@ public class registration extends AppCompatActivity {
         ColorDrawable cd = new ColorDrawable(0xFF8EB0B9);
         if (background==cd)
             tr.setBackgroundColor(Color.WHITE);
-        tr.setBackgroundColor(0xFF8EB0B9);
+        tr.setBackgroundColor(0xFF5F6EA9);
 
     }
 }
