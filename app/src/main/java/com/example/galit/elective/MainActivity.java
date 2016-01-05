@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,4 +25,11 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), registration.class));
     }
+    public void HomeClicked(View v)
+    {
+
+        ImageButton button = (ImageButton) v;
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
 }
