@@ -35,14 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="אי מייל"
-                android:id="@+id/textView9"
-                android:layout_weight="3" />
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,20 +43,20 @@
                 android:id="@+id/editText5"
                 android:layout_weight="1" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="אי מייל"
+                android:id="@+id/textView9"
+                android:layout_weight="3" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="סיסמה"
-                android:id="@+id/textView10"
-                android:layout_weight="3" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -73,6 +65,14 @@
                 android:ems="10"
                 android:id="@+id/editText6"
                 android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="סיסמה"
+                android:id="@+id/textView10"
+                android:layout_weight="3" />
 
         </LinearLayout>
 
@@ -88,7 +88,9 @@
                 android:id="@+id/button"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:background="#8EB0B9" />
+                android:background="#1E99DD"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
         </LinearLayout>
 
     </LinearLayout>
