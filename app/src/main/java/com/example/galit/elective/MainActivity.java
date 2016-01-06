@@ -8,11 +8,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
-    Intent sign_in;
 
-    public MainActivity() {
-        sign_in = new Intent(getApplicationContext(), SignIn.class);
-    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
