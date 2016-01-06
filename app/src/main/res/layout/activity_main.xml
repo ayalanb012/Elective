@@ -107,7 +107,9 @@
         android:id="@+id/textView"
         android:layout_below="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="#6372b6"
+        android:typeface="serif" />
 
 </RelativeLayout>
 </ScrollView>
