@@ -25,6 +25,7 @@ public class registration extends AppCompatActivity {
 
         ImageButton button = (ImageButton) v;
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
     }
 
     public void table_row_clicked(View v)

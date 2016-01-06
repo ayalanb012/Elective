@@ -19,5 +19,6 @@ public class SignIn extends AppCompatActivity {
     {
         ImageButton button = (ImageButton) v;
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
     }
 }
