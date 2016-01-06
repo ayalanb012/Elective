@@ -109,7 +109,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:textColor="#6372b6"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:textSize="28dp" />
 
 </RelativeLayout>
 </ScrollView>

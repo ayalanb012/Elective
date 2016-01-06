@@ -48,7 +48,8 @@
             android:text="הרשמה"
             android:id="@+id/textView2"
             android:layout_gravity="center"
-            android:textColor="#6271b8" />
+            android:textColor="#6271b8"
+            android:textSize="28dp" />
 
         <LinearLayout
             android:orientation="horizontal"
