@@ -1684,12 +1684,34 @@
 
                 </TableRow>
 
-
-
             </TableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15sp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="הירשם"
+                android:id="@+id/button_rgst"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#1E99DD"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:paddingTop="5sp" />
         </LinearLayout>
 
     </LinearLayout>
+
+
+
+
 
 </RelativeLayout>
 </ScrollView>
