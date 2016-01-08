@@ -15,10 +15,12 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
     }
 
+    //this method is activated when logo is clicked. the method return to main activity
     public void HomeClicked(View v)
     {
         ImageButton button = (ImageButton) v;
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
 
     }
 }

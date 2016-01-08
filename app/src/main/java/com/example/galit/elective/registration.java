@@ -19,26 +19,38 @@ public class registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
     }
 
-
+    //this method is activated when logo is clicked. the method return to main activity
     public void HomeClicked(View v)
     {
 
         ImageButton button = (ImageButton) v;
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+       // startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
+
+    //this method is activated when the user clickes a table row on the table
+    //the method changes the background color of the current tablerow
     public void table_row_clicked(View v)
     {
-
-
-         TableRow tr = (TableRow)v;
-        int color = Color.TRANSPARENT;
-        Drawable background = v.getBackground();
-        ColorDrawable cd = new ColorDrawable(0xFF8EB0B9);
-        if (background==cd)
-            tr.setBackgroundColor(Color.WHITE);
+        TableRow tr = (TableRow)v;
         tr.setBackgroundColor(0xFF5F6EA9);
+    }
 
+
+    public void whole_row_clicked(View v)
+    {
+        switch(v.getId()) {
+            case R.id.tr_sunday:
+
+                break;
+            case R.id.tr_monday:
+
+                break;
+            case R.id.tr_tuesday:
+            case R.id.tr_wednesday:
+            case R.id.tr_thursday:
+            case R.id.tr_friday:
+        }
     }
 }

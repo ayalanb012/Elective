@@ -17,26 +17,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    //this method is activated when sign in is clicked. the method opens signIn activity
     public void SignInClicked(View v)
     {
-
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), SignIn.class));
 
     }
 
+    //this method is activated when registration is clicked. the method opens registrarion activity
     public void RegisterClicked(View v)
     {
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), registration.class));
 
     }
+
+    //this method is activated when logo is clicked.
     public void HomeClicked(View v)
     {
 
-        ImageButton button = (ImageButton) v;
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        //ImageButton button = (ImageButton) v;
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
+    }
+
+    //this method is activated when search is clicked. the method opens Search activity
+    public void SearchClicked(View v)
+    {
+        Button button = (Button) v;
+        startActivity(new Intent(getApplicationContext(), Search.class));
     }
 
 }

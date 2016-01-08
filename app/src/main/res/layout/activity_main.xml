@@ -84,7 +84,9 @@
             android:layout_marginBottom="10dp"
             android:background="#1E99DD"
             android:textSize="24dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:onClick="SearchClicked"
+            android:nestedScrollingEnabled="false" />
 
         <Button
             android:layout_width="match_parent"
