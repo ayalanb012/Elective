@@ -35,19 +35,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //this method is activated when logo is clicked.
-    public void HomeClicked(View v)
-    {
+   // public void HomeClicked(View v)
+   // {
 
         //ImageButton button = (ImageButton) v;
         //startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
-    }
+   // }
 
     //this method is activated when search is clicked. the method opens Search activity
     public void SearchClicked(View v)
     {
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), Search.class));
+    }
+
+
+    public void recommandClicked(View v)
+    {
+        Button button = (Button) v;
+        startActivity(new Intent(getApplicationContext(), course_page.class));
+
     }
 
 }
