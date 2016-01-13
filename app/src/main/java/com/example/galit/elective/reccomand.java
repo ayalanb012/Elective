@@ -1,11 +1,14 @@
 package com.example.galit.elective;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class reccomand extends AppCompatActivity {
 
@@ -28,6 +31,13 @@ public class reccomand extends AppCompatActivity {
         ImageButton button = (ImageButton) v;
         // startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+    }
+
+    public void CourseClicked(View v) //------------------->>>>need to change this to the relevant course page, by inserting the course data into the page
+    {
+        //Button button = (Button) v;
+       TextView course = (TextView) v;
+        startActivity(new Intent(getApplicationContext(), course_page.class));
     }
 
 

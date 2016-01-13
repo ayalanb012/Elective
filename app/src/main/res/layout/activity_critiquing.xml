@@ -52,10 +52,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/grade_layout">
 
-            <RatingBar
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar" />
+                android:id="@+id/grade_slideBar"
+                android:layout_weight="1"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,7 +66,8 @@
                 android:text="ציון כללי"
                 android:id="@+id/textView220"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="3" />
 
         </LinearLayout>
 
@@ -74,10 +77,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/interest_layout">
 
-            <RatingBar
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar2" />
+                android:layout_weight="1"
+                android:id="@+id/interst_slidebar"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -86,7 +91,8 @@
                 android:text="עניין"
                 android:id="@+id/textView217"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="3" />
 
         </LinearLayout>
 
@@ -96,10 +102,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/difficulty_layout">
 
-            <RatingBar
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar3" />
+                android:layout_weight="1"
+                android:id="@+id/difficulty_slidebar"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,7 +116,8 @@
                 android:text="קושי"
                 android:id="@+id/textView218"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="3" />
 
         </LinearLayout>
 
@@ -119,10 +128,12 @@
             android:layout_marginBottom="10dp"
             android:id="@+id/lecture_layout">
 
-            <RatingBar
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar4" />
+                android:layout_weight="1"
+                android:id="@+id/lecture_slidebar"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -131,7 +142,8 @@
                 android:text="מרצה"
                 android:id="@+id/textView219"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="3" />
 
         </LinearLayout>
 

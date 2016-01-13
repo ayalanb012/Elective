@@ -11,6 +11,6 @@
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="#1E99DD"
 
-        />
+        android:onClick="CourseClicked" />
 
 </LinearLayout>
