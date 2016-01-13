@@ -33,7 +33,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -41,7 +42,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/textView207"
                 android:text="הקורס הנבחר: המוח 120 שנות מחקר"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,13 +51,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ציון כללי"
+                android:id="@+id/textView220"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar2" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="עניין"
                 android:id="@+id/textView217"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
 
@@ -63,6 +92,11 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar3" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -70,14 +104,21 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="קושי"
                 android:id="@+id/textView218"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar4" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -85,7 +126,27 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="מרצה"
                 android:id="@+id/textView219"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp" />
+
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="הצג תוצאות"
+                android:id="@+id/button2"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#1E99DD"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>

@@ -56,80 +56,101 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:gravity="right">
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:id="@+id/textView221"
+                android:text="5"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:id="@+id/textView222"
+                android:text="ציון כללי"
+                android:textColor="#6271b8"
+                android:paddingLeft="50dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView210"
                 android:text="5"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:layout_marginLeft="250dp" />
+                android:layout_gravity="right" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView209"
-                android:text="עניין"
+                android:text="רמת עניין"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="6"
-                android:textColor="#6271b8" />
+                android:textColor="#6271b8"
+                android:paddingLeft="41dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:gravity="right">
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView211"
                 android:text="3"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:layout_marginLeft="250dp" />
+                android:layout_gravity="center_horizontal" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView212"
-                android:text="קושי"
+                android:text="רמת קושי"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_weight="6"
-                android:textColor="#6271b8" />
+                android:textColor="#6271b8"
+                android:paddingLeft="39dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:gravity="right">
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView213"
                 android:text="3"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:layout_marginLeft="250dp" />
+                android:layout_gravity="center_horizontal" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/textView214"
-                android:text="מרצה"
+                android:text="דירוג מרצה"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="6"
-                android:textColor="#6271b8" />
+                android:textColor="#6271b8"
+                android:paddingLeft="26dp" />
         </LinearLayout>
 
         <LinearLayout

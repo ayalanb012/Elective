@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public void recommandClicked(View v)
     {
         Button button = (Button) v;
-        startActivity(new Intent(getApplicationContext(), course_page.class));
+        startActivity(new Intent(getApplicationContext(), reccomand.class));
 
     }
 

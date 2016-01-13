@@ -14,8 +14,8 @@ public class reccomand extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reccomand);
         ListView listView = (ListView)findViewById(R.id.listView);
-        String[] popular_courses = {"a","b","c"};
-        //   String[] popular_courses = {"היסטוריה","ספרות","מחשבים"};
+        //String[] popular_courses = {"a","b","c"};
+           String[] popular_courses = {"היסטוריה","ספרות","מחשבים"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_costume_layout,R.id.list_item,popular_courses);
 
         listView.setAdapter(adapter);
