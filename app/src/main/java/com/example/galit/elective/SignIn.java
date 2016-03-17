@@ -36,7 +36,6 @@ public class SignIn extends AppCompatActivity {
                 edata1 = (EditText) findViewById(R.id.txt_mail);
                 student = edata1.getText().toString();
 
-
                 edata2 = (EditText) findViewById(R.id.txt_password);
                 passwd = edata2.getText().toString();
 

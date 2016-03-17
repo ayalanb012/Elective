@@ -1,5 +1,6 @@
 package com.example.galit.elective;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -24,6 +25,7 @@ public class registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        Context ctx = getApplicationContext();
 
         email_text = (EditText) findViewById(R.id.txt_mail);
         password_text = (EditText) findViewById(R.id.txt_password);
