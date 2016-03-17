@@ -12,27 +12,96 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TableRow;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class registration extends AppCompatActivity {
 
-    EditText et1;
+    EditText email_text;
+    EditText password_text;
+    EditText conf_password_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-         et1 = (EditText) findViewById(R.id.txt_name);
-
-
-        et1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        email_text = (EditText) findViewById(R.id.txt_mail);
+        password_text = (EditText) findViewById(R.id.txt_password);
+        conf_password_text = (EditText) findViewById(R.id.txt_cnfrm_password);
+        email_text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    et1.setTextColor(Color.BLACK);
+                if (!hasFocus) {
+                    final String email = email_text.getText().toString();
+                    if (!isValidEmail(email)) {
+                        email_text.setError("Invalid Email");
+                    }
                 }
-                else
-                    et1.setTextColor(Color.GRAY);
+
+
             }
         });
+        password_text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    final String pass = password_text.getText().toString();
+                    if (!isValidPassword(pass)) {
+                        password_text.setError("password must be at least 5 characters");
+                    }
+                }
+            }
+        });
+
+
+        conf_password_text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    final String pass1 = password_text.getText().toString();
+                    final String pass2 = conf_password_text.getText().toString();
+                    if (!isConfirmedPassword(pass1, pass2)) {
+                        conf_password_text.setError("invalid confirmation of password");
+                    }
+                }
+            }
+        });
+
+    }
+
+    // validating email id
+    private boolean isValidEmail(String email) {
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    // validating password with retype password
+    private boolean isValidPassword(String pass) {
+        if (pass != null && pass.length() > 5) {
+            return true;
+        }
+        return false;
+    }
+//validating confirmed password
+    private boolean isConfirmedPassword(String pass1, String pass2) {
+        if (pass1.equals(pass2)) {
+            return true;
+        }
+        return false;
+    }
+
+    //this method checks if all the form is valid
+    public boolean validate_form()
+    {
+      if (email_text.getError()!=null || password_text.getError()!=null  || conf_password_text.getError()!=null)
+         return  false;
+      if (password_text.getText().toString().equals("") || email_text.getText().toString().equals("") || conf_password_text.getText().toString().equals(""))
+            return false;
+      return  true;
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -44,29 +113,33 @@ public class registration extends AppCompatActivity {
         finish();
     }
 
+    public  void SubmitClicked(View v)
+    {
+        if(validate_form()) {
+            Button button = (Button) v;
+
+            startActivity(new Intent(getApplicationContext(), SignIn.class));
+            finish();
+
+        }
+
+    }
 
     //this method is activated when the user clickes a table row on the table
     //the method changes the background color of the current tablerow
     public void table_row_clicked(View v)
     {
         TableRow tr = (TableRow)v;
-        tr.setBackgroundColor(0xFF5F6EA9);
+        int background = Color.parseColor("#6476B6");
+        ColorDrawable test = (ColorDrawable)tr.getBackground();
+        int current = (test).getColor();
+        if (current!=background)
+            tr.setBackgroundColor(Color.rgb(100, 118, 182));
+        else
+            tr.setBackgroundColor(Color.rgb(255, 255, 255));
+
     }
 
 
-    public void whole_row_clicked(View v)
-    {
-        switch(v.getId()) {
-            case R.id.tr_sunday:
 
-                break;
-            case R.id.tr_monday:
-
-                break;
-            case R.id.tr_tuesday:
-            case R.id.tr_wednesday:
-            case R.id.tr_thursday:
-            case R.id.tr_friday:
-        }
-    }
 }

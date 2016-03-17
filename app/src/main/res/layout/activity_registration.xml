@@ -342,7 +342,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_8"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -356,7 +357,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_8"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -370,7 +372,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_8"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -384,7 +387,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_8"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -398,7 +402,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_8"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -412,7 +417,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_8"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -433,7 +439,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="08:00"
-                            android:id="@+id/textView39" />
+                            android:id="@+id/tr_8" />
                     </TableRow>
                 </TableRow>
 
@@ -448,13 +454,15 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_9"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:id="@+id/textView82" />
+                            android:id="@+id/textView82"
+                            android:background="#ffffff" />
                     </TableRow>
 
                     <TableRow
@@ -462,7 +470,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_9"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -476,7 +485,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_9"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -490,7 +500,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_9"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -504,7 +515,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_9"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -518,7 +530,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_9"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -538,7 +551,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="09:00"
-                            android:id="@+id/textView81" />
+                            android:id="@+id/tr_9" />
                     </TableRow>
                 </TableRow>
 
@@ -553,13 +566,15 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_10"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:id="@+id/textView75" />
+                            android:id="@+id/textView75"
+                            android:background="#ffffff" />
                     </TableRow>
 
                     <TableRow
@@ -567,7 +582,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_10"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -581,7 +597,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_10"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -595,7 +612,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_10"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -609,7 +627,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_10"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -623,7 +642,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_10"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -643,7 +663,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="10:00"
-                            android:id="@+id/textView74" />
+                            android:id="@+id/tr_10" />
                     </TableRow>
                 </TableRow>
 
@@ -658,7 +678,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_11"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -672,7 +693,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_11"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -686,7 +708,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_11"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -700,7 +723,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_11"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -714,7 +738,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_11"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -728,7 +753,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_11"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -748,7 +774,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="11:00"
-                            android:id="@+id/textView67" />
+                            android:id="@+id/tr_11" />
                     </TableRow>
                 </TableRow>
 
@@ -763,7 +789,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_12"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -777,7 +804,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_12"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -791,7 +819,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_12"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -805,7 +834,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_12"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -819,7 +849,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_12"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -833,7 +864,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_12"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -853,7 +885,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="12:00"
-                            android:id="@+id/textView60" />
+                            android:id="@+id/tr_12" />
                     </TableRow>
                 </TableRow>
 
@@ -868,7 +900,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_13"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -882,7 +915,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_13"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -896,7 +930,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_13"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -910,7 +945,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_13"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -924,7 +960,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_13"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -938,7 +975,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/ttr_sun_13"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -958,7 +996,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="13:00"
-                            android:id="@+id/textView53" />
+                            android:id="@+id/tr_13" />
                     </TableRow>
                 </TableRow>
 
@@ -973,7 +1011,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_14"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -987,7 +1026,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_14"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1001,7 +1041,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_14"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1015,7 +1056,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_14"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1029,7 +1071,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_14"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1043,7 +1086,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_14"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1063,7 +1107,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="14:00"
-                            android:id="@+id/textView46" />
+                            android:id="@+id/tr_14" />
                     </TableRow>
                 </TableRow>
 
@@ -1078,7 +1122,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_15"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1093,7 +1138,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_15"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1108,7 +1154,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_15"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1123,7 +1170,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_15"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1138,7 +1186,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_15"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1153,7 +1202,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_15"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1174,7 +1224,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="15:00"
-                            android:id="@+id/textView17" />
+                            android:id="@+id/tr_15" />
                     </TableRow>
                 </TableRow>
 
@@ -1188,7 +1238,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_16"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1203,7 +1254,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_16"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1218,7 +1270,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_16"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1234,7 +1287,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_16"
                         android:nestedScrollingEnabled="false"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1249,7 +1303,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_16"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1264,7 +1319,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_16"
-                        android:onClick="table_row_clicked">
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1285,7 +1341,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="16:00"
-                            android:id="@+id/textView23" />
+                            android:id="@+id/tr_16" />
                     </TableRow>
                 </TableRow>
 
@@ -1299,7 +1355,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_fri_17">
+                        android:id="@+id/tr_fri_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1315,7 +1372,8 @@
                         android:layout_weight="1"
                         android:nestedScrollingEnabled="false"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_thu_17">
+                        android:id="@+id/tr_thu_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1330,7 +1388,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_wed_17">
+                        android:id="@+id/tr_wed_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1345,7 +1404,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_tue_17">
+                        android:id="@+id/tr_tue_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1360,7 +1420,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_mon_17">
+                        android:id="@+id/tr_mon_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1375,7 +1436,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:onClick="table_row_clicked"
-                        android:id="@+id/tr_sun_17">
+                        android:id="@+id/tr_sun_17"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1396,7 +1458,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="17:00"
-                            android:id="@+id/textView29" />
+                            android:id="@+id/tr_17" />
                     </TableRow>
                 </TableRow>
 
@@ -1411,7 +1473,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_18"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1425,7 +1488,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_18"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1439,7 +1503,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_18"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1453,7 +1518,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_18"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1467,7 +1533,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_18"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1481,7 +1548,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_18"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1501,7 +1569,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="18:00"
-                            android:id="@+id/textView108" />
+                            android:id="@+id/tr_18" />
                     </TableRow>
                 </TableRow>
 
@@ -1516,7 +1584,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_19"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1530,7 +1599,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_19"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1544,7 +1614,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_19"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1558,7 +1629,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_19"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1572,7 +1644,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_19"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1586,7 +1659,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_19"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1606,7 +1680,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="19:00"
-                            android:id="@+id/textView88" />
+                            android:id="@+id/tr_19" />
                     </TableRow>
                 </TableRow>
 
@@ -1621,7 +1695,8 @@
                         android:layout_weight="1"
                         android:id="@+id/tr_fri_20"
                         android:longClickable="false"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1635,7 +1710,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_thu_20"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1649,7 +1725,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_wed_20"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1663,7 +1740,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_tue_20"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1677,7 +1755,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_mon_20"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1691,7 +1770,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/tr_sun_20"
-                        android:onClick="table_row_clicked" >
+                        android:onClick="table_row_clicked"
+                        android:background="#ffffff">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -1711,7 +1791,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="20:00"
-                            android:id="@+id/textView95" />
+                            android:id="@+id/tr_20" />
                     </TableRow>
 
                 </TableRow>
@@ -1736,7 +1816,8 @@
                 android:background="#1E99DD"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:paddingTop="5sp" />
+                android:paddingTop="5sp"
+                android:onClick="SubmitClicked" />
         </LinearLayout>
 
     </LinearLayout>

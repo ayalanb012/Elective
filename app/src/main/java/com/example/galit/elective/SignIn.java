@@ -24,7 +24,7 @@ public class SignIn extends AppCompatActivity {
 
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
 
-    private static final String SOAP_ADDRESS = "address";
+    private static final String SOAP_ADDRESS = "http://WebService.asmx";
 
     TextView tvData1;
     EditText edata1;
