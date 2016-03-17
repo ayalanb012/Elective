@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TableRow;
 
 import java.util.regex.Matcher;
@@ -69,6 +70,8 @@ public class registration extends AppCompatActivity {
             }
         });
 
+        Spinner sp = (Spinner) findViewById(R.id.spinner1);
+       ServerCalls.getFacultiesCall(sp,ctx);
     }
 
     // validating email id

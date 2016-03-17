@@ -1,14 +1,18 @@
 package com.example.galit.elective;
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +21,10 @@ import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -28,7 +36,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
     public static void signInCall(String student,String passwd,TextView res) {
 
@@ -97,13 +105,30 @@ public class ServerCalls {
         protected void onPostExecute(String result) {
             //showResult.setText(result);
 
-            ArrayList<View> list = new ArrayList<View>();
-            FacultiesList.addTouchables(list);
+            try {
+                JSONObject Jlist = new JSONObject(result);
+                //JSONArray JList2 = Jlist.optJSONArray("Faculty_Name");
+                //ArrayList<String> list = new ArrayList<String>();
 
-            Toast toast = Toast.makeText(Appcontext, "succsess", Toast.LENGTH_LONG);
+               // Toast toast = Toast.makeText(Appcontext,Jlist.toString(), Toast.LENGTH_LONG);
+               // toast.show();
+                //for(int i = 0; i< JList2.length(); i++){
+                    //View T = new TextView(Appcontext);
+                   // list.add(JList2.get(i).toString());
+               // }
+               /* ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_list_item_1,list);
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                FacultiesList.setAdapter(dataAdapter);
+*/
+               // addListenerOnSpinnerItemSelection();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
             toast.show();
         }
-
 
     }
 
