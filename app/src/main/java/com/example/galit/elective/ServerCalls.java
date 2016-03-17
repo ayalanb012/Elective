@@ -1,5 +1,4 @@
 package com.example.galit.elective;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -17,63 +16,34 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class SignIn extends AppCompatActivity {
+/**
+ * Created by User on 17/03/2016.
+ */
+public class ServerCalls {
+
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
-
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
-
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
-    private static final String SOAP_ADDRESS = "address";
+    public static void signInCall(String student,String passwd,TextView res) {
 
-    TextView tvData1;
-    EditText edata1;
-    EditText edata2;
-    Button button;
-    String student;
-    String passwd;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
-        tvData1 = (TextView) findViewById(R.id.textView1);
-        button = (Button) findViewById(R.id.bttn_sign_in);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-
-                edata1 = (EditText) findViewById(R.id.txt_mail);
-                student = edata1.getText().toString();
-
-
-                edata2 = (EditText) findViewById(R.id.txt_password);
-                passwd = edata2.getText().toString();
-
-                myTask T = new myTask();
-                T.execute();
-
-                //tvData1 = (TextView) findViewById(R.id.textView1);
-
-            }
-        });
+        myTaskSignIn T = new myTaskSignIn(student,passwd, res);
+        T.execute();
     }
-
-    //this method is activated when logo is clicked. the method return to main activity
-    public void HomeClicked(View v) {
-        ImageButton button = (ImageButton) v;
-        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
-
-    }
-
 
     //first parameter is for doInbackground, the second for progressupdate, the third for the results
-    private class myTask extends AsyncTask<Void, Void, String> {
+    private static class myTaskSignIn extends AsyncTask<Void, Void, String> {
 
+        String student;
+        String passwd;
+        TextView showResult;
+
+        public myTaskSignIn(String s, String p, TextView tv){
+            student = s;
+            passwd = p;
+            showResult = tv;
+        }
         @Override
         protected void onProgressUpdate(Void... progress) {
             // setProgressPercent(progress[0]);
@@ -116,11 +86,8 @@ public class SignIn extends AppCompatActivity {
 
             try {
                 httpTransport.call(SOAP_ACTION, envelope);
-                System.out.println("--------------> got the object response !!!!!!<--------------");
-                Object response = envelope.getResponse();
 
-                // System.out.println("-------------->"+httpTransport.responseDump+"<--------------");
-                //   System.out.println(httpTransport.responseDump);
+                Object response = envelope.getResponse();
                 res = response.toString();
                 // tvData1.setText(response.toString());
                 httpTransport.getConnection().disconnect();
@@ -130,19 +97,20 @@ public class SignIn extends AppCompatActivity {
                 res = exception.toString();
             }
 
-            //tvData1 = (TextView) findViewById(R.id.textView1);--------------??????????
             return res;
         }
 
 
         @Override
         protected void onPostExecute(String result) {
-            tvData1.setText(result);
-            System.out.println("-------------->postExecute<--------------");
-            Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
-            toast.show();
+            showResult.setText(result);
+
+            //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
+            //toast.show();
         }
 
 
     }
+
+
 }
