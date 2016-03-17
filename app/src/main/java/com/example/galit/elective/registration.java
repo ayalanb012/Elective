@@ -44,7 +44,6 @@ public class registration extends AppCompatActivity {
         finish();
     }
 
-
     //this method is activated when the user clickes a table row on the table
     //the method changes the background color of the current tablerow
     public void table_row_clicked(View v)
@@ -54,19 +53,4 @@ public class registration extends AppCompatActivity {
     }
 
 
-    public void whole_row_clicked(View v)
-    {
-        switch(v.getId()) {
-            case R.id.tr_sunday:
-
-                break;
-            case R.id.tr_monday:
-
-                break;
-            case R.id.tr_tuesday:
-            case R.id.tr_wednesday:
-            case R.id.tr_thursday:
-            case R.id.tr_friday:
-        }
-    }
 }
