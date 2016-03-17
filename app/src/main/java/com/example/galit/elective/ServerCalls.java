@@ -46,6 +46,9 @@ public class ServerCalls {
         @Override
         protected void onProgressUpdate(Void... progress) {
             // setProgressPercent(progress[0]);
+
+
+
         }
 
         @Override
