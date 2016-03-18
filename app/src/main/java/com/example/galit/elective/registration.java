@@ -8,24 +8,29 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class registration extends AppCompatActivity {
+public class registration extends AppCompatActivity  {
 
     EditText email_text;
     EditText password_text;
     EditText conf_password_text;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
         Context ctx = getApplicationContext();
 
         email_text = (EditText) findViewById(R.id.txt_mail);
@@ -70,9 +75,32 @@ public class registration extends AppCompatActivity {
             }
         });
 
-        Spinner sp = (Spinner) findViewById(R.id.spinner1);
-       ServerCalls.getFacultiesCall(sp,ctx);
+        Spinner FacultySpinner = (Spinner) findViewById(R.id.spinner1);
+
+
+        ServerCalls.getFacultiesCall(FacultySpinner, ctx);
+
+        FacultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+               // Toast toast = Toast.makeText(getApplicationContext(), "selected faculty:" + item, Toast.LENGTH_LONG);
+                //toast.show();
+
+                Spinner DepartmentSpinner = (Spinner) findViewById(R.id.spinner2);
+                ServerCalls.setDepartments(DepartmentSpinner,getApplicationContext(),item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
     }
+
+
 
     // validating email id
     private boolean isValidEmail(String email) {
