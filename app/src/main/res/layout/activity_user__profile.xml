@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="הרשמה"
+                android:text="פרטים אישיים"
                 android:id="@+id/textView2"
                 android:layout_gravity="center"
                 android:textColor="#6271b8"
@@ -1804,13 +1804,41 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="15sp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Wish List"
+                    android:id="@+id/textView17" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/wish_list" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingTop="15sp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="הירשם"
-                    android:id="@+id/button_rgst"
+                    android:text="עדכן פרטים"
+                    android:id="@+id/button_update"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:background="#1E99DD"
@@ -1818,6 +1846,7 @@
                     android:textSize="24sp"
                     android:paddingTop="5sp"
                     android:onClick="SubmitClicked" />
+
             </LinearLayout>
 
         </LinearLayout>
