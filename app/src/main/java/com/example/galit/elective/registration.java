@@ -334,13 +334,21 @@ public class registration extends AppCompatActivity  {
         if(validate_form()) {
             Button button = (Button) v;
 
-           /* Spinner Faculty_sp = (Spinner) findViewById(R.id.spinner1);
-            String Faculty = Faculty_sp.getSelectedItem().toString();
+            Spinner Faculty_sp = (Spinner) findViewById(R.id.spinner1);
+            String Faculty;
+            if(Faculty_sp.getSelectedItem()!= null)
+                 Faculty = Faculty_sp.getSelectedItem().toString();
+            else
+                Faculty = "";
 
             Spinner Department_sp = (Spinner) findViewById(R.id.spinner2);
-            String Department = Department_sp.getSelectedItem().toString();
+            String Department;
+            if(Department_sp.getSelectedItem() != null)
+                 Department = Department_sp.getSelectedItem().toString();
+            else
+                Department="";
 
-          */   EditText name_ET =(EditText) findViewById(R.id.txt_name);
+             EditText name_ET =(EditText) findViewById(R.id.txt_name);
             String name = name_ET.getText().toString();
 
             EditText mail_ET =(EditText) findViewById(R.id.txt_mail);

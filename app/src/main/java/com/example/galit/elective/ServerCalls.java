@@ -62,8 +62,109 @@ public class ServerCalls {
         T.execute();
     }
 
+    public static void Search(String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check) {
+        myTaskSearch T = new myTaskSearch(name,number,cat1,cat2,cat3,schedule_JSON, check);
+        T.execute();
+    }
 
 
+    private static class myTaskSearch extends AsyncTask<Void, Void, String> {
+
+        String course_name;
+        String course_number;
+        String Category1;
+        String Category2;
+        String Category3;
+        String schedule;
+        Boolean mycheck;
+
+        public myTaskSearch(String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check ){
+            course_name = name;
+            course_number = number;
+            Category1 = cat1;
+            Category2=cat2;
+            Category3=cat3;
+            mycheck=check;
+            schedule =schedule_JSON;
+        }
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "Search");
+
+           /* PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "faculty";
+            propertyInfo1.setValue(Faculty);
+            request.addProperty(propertyInfo1); */
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
+
+            String res="=[";
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE+"/Search", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            //showResult.setText(result);
+
+           /* try {
+                JSONObject J0bject = new JSONObject(result);
+                JSONArray JList = J0bject.optJSONArray("Table");
+                List<String> list = new ArrayList<String>();
+
+
+                for(int i=0; i< JList.length(); i++){
+                    JSONObject JFaculty = JList.getJSONObject(i);
+                    String faculty = JFaculty.getString("Department_Name");
+                    list.add(faculty);
+                }
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_spinner_item,list);
+
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                DepartmentList.setAdapter(dataAdapter);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+                */
+            // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
+            //toast.show();
+        }
+    }
 
     private static class myTaskRegister extends AsyncTask<Void, Void, String> {
 
@@ -160,7 +261,6 @@ public class ServerCalls {
             //toast.show();
         }
     }
-
 
     private static class myTaskSetDepartments extends AsyncTask<Void, Void, String> {
 
