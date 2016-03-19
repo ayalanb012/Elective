@@ -16,6 +16,10 @@ import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +40,7 @@ public class registration extends AppCompatActivity  {
         email_text = (EditText) findViewById(R.id.txt_mail);
         password_text = (EditText) findViewById(R.id.txt_password);
         conf_password_text = (EditText) findViewById(R.id.txt_cnfrm_password);
+
         email_text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View v, boolean hasFocus) {
@@ -45,8 +50,6 @@ public class registration extends AppCompatActivity  {
                         email_text.setError("Invalid Email");
                     }
                 }
-
-
             }
         });
         password_text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -77,7 +80,6 @@ public class registration extends AppCompatActivity  {
 
         Spinner FacultySpinner = (Spinner) findViewById(R.id.spinner1);
 
-
         ServerCalls.getFacultiesCall(FacultySpinner, ctx);
 
         FacultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -96,8 +98,6 @@ public class registration extends AppCompatActivity  {
 
             }
         });
-
-
     }
 
 
@@ -148,10 +148,211 @@ public class registration extends AppCompatActivity  {
 
     public  void SubmitClicked(View v)
     {
+       JSONArray Sunday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_sun_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+           Sunday_Arr.put(hour);
+        }
+
+        JSONArray Monday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_mon_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            Monday_Arr.put(hour);
+        }
+
+        JSONArray Tuesday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_tue_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            Tuesday_Arr.put(hour);
+        }
+
+       JSONArray Wednesday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_wed_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            Wednesday_Arr.put(hour);
+        }
+
+        JSONArray Thursday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_thu_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            Thursday_Arr.put(hour);
+        }
+
+        JSONArray Friday_Arr = new JSONArray();
+        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+
+            JSONObject hour = new JSONObject();
+            String trID1="tr_fri_"+i;
+            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
+            TableRow tr =(TableRow) findViewById(trID2);
+
+            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            int background = Color.parseColor("#6476B6");
+            int current = (test).getColor();
+
+            if (current!=background) //if the cell is white
+                try {
+                    hour.put(String.valueOf(i),"false");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            else //the cell is blue
+                try {
+                    hour.put(String.valueOf(i), "true");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            Friday_Arr.put(hour);
+        }
+
+
+        JSONArray Schedule_Arr = new JSONArray(); //the whole schedule ---> we will add all the days
+
+        Schedule_Arr.put(Sunday_Arr);
+        Schedule_Arr.put(Monday_Arr);
+        Schedule_Arr.put(Tuesday_Arr);
+        Schedule_Arr.put(Wednesday_Arr);
+        Schedule_Arr.put(Thursday_Arr);
+        Schedule_Arr.put(Friday_Arr);
+
+        String Schedule_Json_str = Schedule_Arr.toString(); // a JSON string that contains the schedule
+
+        Toast toast = Toast.makeText(getApplicationContext(), Schedule_Json_str, Toast.LENGTH_LONG);
+        toast.show();
+
         if(validate_form()) {
             Button button = (Button) v;
 
-            startActivity(new Intent(getApplicationContext(), SignIn.class));
+           /* Spinner Faculty_sp = (Spinner) findViewById(R.id.spinner1);
+            String Faculty = Faculty_sp.getSelectedItem().toString();
+
+            Spinner Department_sp = (Spinner) findViewById(R.id.spinner2);
+            String Department = Department_sp.getSelectedItem().toString();
+
+          */   EditText name_ET =(EditText) findViewById(R.id.txt_name);
+            String name = name_ET.getText().toString();
+
+            EditText mail_ET =(EditText) findViewById(R.id.txt_mail);
+            String mail = mail_ET.getText().toString();
+
+            EditText pwd_ET =(EditText) findViewById(R.id.txt_password);
+            String pwd = pwd_ET.getText().toString();
+
+
+        //ServerCalls.Register(name, mail, pwd, Faculty, Department, Schedule_Json_str); //server call to register the user
+
+            startActivity(new Intent(getApplicationContext(), SignIn.class)); //move user to sign in page
             finish();
 
         }
@@ -159,17 +360,17 @@ public class registration extends AppCompatActivity  {
     }
 
     //this method is activated when the user clickes a table row on the table
-    //the method changes the background color of the current tablerow
+    //the method changes the background color of the current tablerow (a cell in the table)
     public void table_row_clicked(View v)
     {
         TableRow tr = (TableRow)v;
         int background = Color.parseColor("#6476B6");
         ColorDrawable test = (ColorDrawable)tr.getBackground();
         int current = (test).getColor();
-        if (current!=background)
-            tr.setBackgroundColor(Color.rgb(100, 118, 182));
-        else
-            tr.setBackgroundColor(Color.rgb(255, 255, 255));
+        if (current!=background) //if the cell is white
+            tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
+        else //the cell is blue
+            tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
 
     }
 
