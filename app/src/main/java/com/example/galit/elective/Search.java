@@ -1,5 +1,6 @@
 package com.example.galit.elective;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,12 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        Spinner Category_sp1 = (Spinner) findViewById(R.id.lst_category_1);
+        Spinner Category_sp2 = (Spinner) findViewById(R.id.lst_category_2);
+        Spinner Category_sp3 = (Spinner) findViewById(R.id.lst_category_3);
+        Context ctx = getApplicationContext();
+        ServerCalls.getCategories(Category_sp1,Category_sp2,Category_sp3, ctx); //put the categories in the spinners
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -216,8 +223,8 @@ public class Search extends AppCompatActivity {
 
         String Schedule_Json_str = Schedule_Arr.toString(); // a JSON string that contains the schedule
 
-        Toast toast = Toast.makeText(getApplicationContext(), Schedule_Json_str, Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(getApplicationContext(), Schedule_Json_str, Toast.LENGTH_LONG);
+        //toast.show();
 
         EditText name_ET =(EditText) findViewById(R.id.txt_course_name);
         String name = name_ET.getText().toString();
@@ -250,7 +257,7 @@ public class Search extends AppCompatActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox);
         Boolean isChecked = check.isChecked();
 
-        //ServerCalls.Search(name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
+        ServerCalls.Search(getApplicationContext(),name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
 
     }
 

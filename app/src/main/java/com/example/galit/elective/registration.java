@@ -148,10 +148,10 @@ public class registration extends AppCompatActivity  {
 
     public  void SubmitClicked(View v)
     {
-       JSONArray Sunday_Arr = new JSONArray();
+       JSONObject Sunday = new JSONObject();
         for(int i=8; i <= 20 ; i++){ //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
+            String hour = "";
             String trID1="tr_sun_"+i;
             int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
             TableRow tr =(TableRow) findViewById(trID2);
@@ -161,25 +161,21 @@ public class registration extends AppCompatActivity  {
             int current = (test).getColor();
 
             if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour="false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour= "true";
 
-           Sunday_Arr.put(hour);
+            try {
+                Sunday.put(String.valueOf(i),hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        JSONArray Monday_Arr = new JSONArray();
+        JSONObject Monday_Arr = new JSONObject();
         for(int i=8; i <= 20 ; i++){ //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
+            String hour = "";
             String trID1="tr_mon_"+i;
             int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
             TableRow tr =(TableRow) findViewById(trID2);
@@ -189,25 +185,21 @@ public class registration extends AppCompatActivity  {
             int current = (test).getColor();
 
             if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour="false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour= "true";
 
-            Monday_Arr.put(hour);
+            try {
+                Monday_Arr.put(String.valueOf(i),hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        JSONArray Tuesday_Arr = new JSONArray();
+        JSONObject Tuesday_Arr = new JSONObject();
         for(int i=8; i <= 20 ; i++){ //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
+            String hour = "";
             String trID1="tr_tue_"+i;
             int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
             TableRow tr =(TableRow) findViewById(trID2);
@@ -217,25 +209,21 @@ public class registration extends AppCompatActivity  {
             int current = (test).getColor();
 
             if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour="false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour= "true";
 
-            Tuesday_Arr.put(hour);
+            try {
+                Tuesday_Arr.put(String.valueOf(i),hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-       JSONArray Wednesday_Arr = new JSONArray();
+        JSONObject Wednesday_Arr = new JSONObject();
         for(int i=8; i <= 20 ; i++){ //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
+            String hour = "";
             String trID1="tr_wed_"+i;
             int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
             TableRow tr =(TableRow) findViewById(trID2);
@@ -245,25 +233,21 @@ public class registration extends AppCompatActivity  {
             int current = (test).getColor();
 
             if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour="false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour= "true";
 
-            Wednesday_Arr.put(hour);
+            try {
+                Wednesday_Arr.put(String.valueOf(i),hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        JSONArray Thursday_Arr = new JSONArray();
+        JSONObject Thursday_Arr = new JSONObject();
         for(int i=8; i <= 20 ; i++){ //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
+            String hour = "";
             String trID1="tr_thu_"+i;
             int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
             TableRow tr =(TableRow) findViewById(trID2);
@@ -273,53 +257,44 @@ public class registration extends AppCompatActivity  {
             int current = (test).getColor();
 
             if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour="false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour= "true";
 
-            Thursday_Arr.put(hour);
+            try {
+                Thursday_Arr.put(String.valueOf(i),hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        JSONArray Friday_Arr = new JSONArray();
-        for(int i=8; i <= 20 ; i++){ //for each hour in schedule
+        JSONObject Friday_Arr = new JSONObject();
+        for(int i=8; i <= 20 ; i++) { //for each hour in schedule
 
-            JSONObject hour = new JSONObject();
-            String trID1="tr_fri_"+i;
-            int trID2 = getResources().getIdentifier(trID1,"id","com.example.galit.elective");
-            TableRow tr =(TableRow) findViewById(trID2);
+            String hour = "";
+            String trID1 = "tr_fri_" + i;
+            int trID2 = getResources().getIdentifier(trID1, "id", "com.example.galit.elective");
+            TableRow tr = (TableRow) findViewById(trID2);
 
-            ColorDrawable test = (ColorDrawable)tr.getBackground();
+            ColorDrawable test = (ColorDrawable) tr.getBackground();
             int background = Color.parseColor("#6476B6");
             int current = (test).getColor();
 
-            if (current!=background) //if the cell is white
-                try {
-                    hour.put(String.valueOf(i),"false");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            if (current != background) //if the cell is white
+                hour = "false";
             else //the cell is blue
-                try {
-                    hour.put(String.valueOf(i), "true");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                hour = "true";
 
-            Friday_Arr.put(hour);
+            try {
+                Friday_Arr.put(String.valueOf(i), hour);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-
 
         JSONArray Schedule_Arr = new JSONArray(); //the whole schedule ---> we will add all the days
 
-        Schedule_Arr.put(Sunday_Arr);
+        Schedule_Arr.put(Sunday);
         Schedule_Arr.put(Monday_Arr);
         Schedule_Arr.put(Tuesday_Arr);
         Schedule_Arr.put(Wednesday_Arr);
@@ -328,8 +303,10 @@ public class registration extends AppCompatActivity  {
 
         String Schedule_Json_str = Schedule_Arr.toString(); // a JSON string that contains the schedule
 
-        Toast toast = Toast.makeText(getApplicationContext(), Schedule_Json_str, Toast.LENGTH_LONG);
-        toast.show();
+        System.out.println(Schedule_Json_str);
+
+       // Toast toast = Toast.makeText(getApplicationContext(), Schedule_Json_str, Toast.LENGTH_LONG);
+       // toast.show();
 
         if(validate_form()) {
             Button button = (Button) v;
@@ -357,8 +334,8 @@ public class registration extends AppCompatActivity  {
             EditText pwd_ET =(EditText) findViewById(R.id.txt_password);
             String pwd = pwd_ET.getText().toString();
 
-
-        //ServerCalls.Register(name, mail, pwd, Faculty, Department, Schedule_Json_str); //server call to register the user
+            Context ctx = getApplicationContext();
+            ServerCalls.Register(ctx,name, mail, pwd, Faculty, Department, Schedule_Json_str); //server call to register the user
 
             startActivity(new Intent(getApplicationContext(), SignIn.class)); //move user to sign in page
             finish();
