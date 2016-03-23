@@ -181,7 +181,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingTop="15sp" >
 
             <Button
@@ -196,6 +196,17 @@
                 android:textSize="24sp"
                 android:paddingTop="5sp"
                 android:onClick="CritiquingClicked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ExpandableListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/expandableListView" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -38,7 +38,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
 
     public static void signInCall(String student,String passwd,TextView res) {
 
