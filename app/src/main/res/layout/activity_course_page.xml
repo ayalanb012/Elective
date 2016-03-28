@@ -196,6 +196,19 @@
                 android:textSize="24sp"
                 android:paddingTop="5sp"
                 android:onClick="CritiquingClicked" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="הוספת תגובה"
+                android:id="@+id/bttn_comment"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#1E99DD"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:paddingTop="5sp"
+                android:onClick="CommentClicked" />
         </LinearLayout>
 
         <LinearLayout
@@ -203,10 +216,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ExpandableListView
+            <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/expandableListView" />
+                android:id="@+id/listView" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
