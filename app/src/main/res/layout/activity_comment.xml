@@ -176,8 +176,7 @@
                 android:background="#1E99DD"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:paddingTop="5sp"
-                android:onClick="onClick" />
+                android:paddingTop="5sp" />
 
         </LinearLayout>
 
