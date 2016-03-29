@@ -1,6 +1,7 @@
 package com.example.galit.elective;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 //The search class is for searching courses
 // by various types of search: by name, constraint of schedule or by category. can be combined
 public class Search extends AppCompatActivity {
@@ -30,7 +35,7 @@ public class Search extends AppCompatActivity {
         Spinner Category_sp2 = (Spinner) findViewById(R.id.lst_category_2);
         Spinner Category_sp3 = (Spinner) findViewById(R.id.lst_category_3);
         Context ctx = getApplicationContext();
-        ServerCalls.getCategories(Category_sp1,Category_sp2,Category_sp3, ctx); //put the categories in the spinners
+        ServerCalls.getCategories(Category_sp1, Category_sp2, Category_sp3, ctx); //put the categories in the spinners
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -257,7 +262,36 @@ public class Search extends AppCompatActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox);
         Boolean isChecked = check.isChecked();
 
-        ServerCalls.Search(getApplicationContext(),name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
+        String JSON_list = ServerCalls.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
+        //JSON_list is a  json string with the search results from server in this format: {"number1":"value1", "number2":"value2", "number3":"value3" }
+
+        JSONObject J0bject = null;
+        try {
+            J0bject = new JSONObject(JSON_list);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Iterator<String> iterator = J0bject.keys();
+        List<String> list = new ArrayList<String>();
+
+        while( iterator.hasNext()){
+
+            String course_num = iterator.next();
+            try{
+                String course_name = J0bject.getString(course_num);
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+
+       // Intent myintent = new Intent(this, reccomand.class);
+        //startActivity(myintent);
+        //finish();
 
     }
 

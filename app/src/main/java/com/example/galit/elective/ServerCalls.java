@@ -38,7 +38,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
     public static void signInCall(String student,String passwd,TextView res) {
 
@@ -62,9 +62,10 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static void Search(Context ctx, String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check) {
+    public static String Search(Context ctx, String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check) {
         myTaskSearch T = new myTaskSearch(ctx,name,number,cat1,cat2,cat3,schedule_JSON, check);
-        T.execute();
+         T.execute();
+        return T.search_result;
     }
 
     public static void getCategories(Spinner sp1,Spinner sp2,Spinner sp3, Context ctx) {
@@ -72,6 +73,7 @@ public class ServerCalls {
         T.execute();
     }
 
+//----------------------------------------------------------------------------------------------------------------------------------//
 
     private static class myTaskGetCourseCategories extends AsyncTask<Void, Void, String> {
 
@@ -138,16 +140,16 @@ public class ServerCalls {
 
                 //Toast toast = Toast.makeText(Appcontext,JList.toString(), Toast.LENGTH_LONG);
                 //toast.show();
-
+                list.add("");
                 for(int i=0; i< JList.length(); i++){
                     JSONObject JFaculty = JList.getJSONObject(i);
                     String faculty = JFaculty.getString("category_name");
                     list.add(faculty);
                 }
 
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_spinner_item,list);
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,R.layout.my_spinner_item,list);
 
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
 
                 Category1.setAdapter(dataAdapter);
                 Category2.setAdapter(dataAdapter);
@@ -173,6 +175,7 @@ public class ServerCalls {
         String schedule;
         Boolean mycheck;
         Context Appcontext;
+        String search_result;
 
         public myTaskSearch(Context ctx,String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check ){
             course_name = name;
@@ -294,9 +297,18 @@ public class ServerCalls {
                 e.printStackTrace();
             }
                 */
+
+
+           // startActivity(new Intent(Appcontext, reccomand.class));
+            //finish();
+            System.out.println(result);
              Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
             toast.show();
+            search_result = result;
+           // afterExecute(result);
         }
+
+
     }
 
     private static class myTaskRegister extends AsyncTask<Void, Void, String> {
@@ -477,9 +489,9 @@ public class ServerCalls {
                     list.add(faculty);
                 }
 
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_spinner_item,list);
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,R.layout.my_spinner_item,list);
 
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
 
                 DepartmentList.setAdapter(dataAdapter);
 
@@ -561,9 +573,9 @@ public class ServerCalls {
                     list.add(faculty);
                 }
 
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_spinner_item,list);
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,R.layout.my_spinner_item,list);
 
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
 
                 FacultiesList.setAdapter(dataAdapter);
 
