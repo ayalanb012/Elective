@@ -297,7 +297,6 @@ public class Search extends AppCompatActivity {
         }
 
         Intent myintent = new Intent(this, reccomand.class);
-
         myintent.putExtra("course_list",list);
         startActivity(myintent);
         //finish();------------------------------->> in some point we will need to close this activity

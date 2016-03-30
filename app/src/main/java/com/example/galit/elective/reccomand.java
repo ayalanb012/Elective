@@ -25,30 +25,29 @@ public class reccomand extends AppCompatActivity {
         setContentView(R.layout.activity_reccomand);
         ListView listView = (ListView)findViewById(R.id.search_results_listview);
 
-        Intent caller = getIntent(); //the activity that started this activity
+        Intent caller = getIntent(); //the activity that started this activity (search page)
 
-       // list = new ArrayList<HashMap<String,String>>();
-       // list = caller.getIntegerArrayListExtra("course_list");
         list =  (ArrayList<HashMap<String,String>>) caller.getSerializableExtra("course_list");
 
         ListViewAdapters adapter=new ListViewAdapters(this, list);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id)
-            {
-                int pos=position+1;
-                //Toast.makeText(MainActivity.this, Integer.toString(pos) + " Clicked", Toast.LENGTH_SHORT).show();
+       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+               int pos = position + 1;
+               HashMap<String, String> Selected_course = list.get(position);
+
+               Intent myintent = new Intent(getApplicationContext(), course_page.class);
+
+               myintent.putExtra("Selected_course",Selected_course);
+               myintent.putExtra("caller_activity","search_result");
+               startActivity(myintent);
             }
 
         });
 
     }
-       // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_costume_layout,R.id.list_item,popular_courses);
-
-       // listView.setAdapter(adapter);
 
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -60,12 +59,7 @@ public class reccomand extends AppCompatActivity {
         finish();
     }
 
-    public void CourseClicked(View v) //------------------->>>>need to change this to the relevant course page, by inserting the course data into the page
-    {
-        //Button button = (Button) v;
-       TextView course = (TextView) v;
-        startActivity(new Intent(getApplicationContext(), course_page.class));
-    }
+
 
 
 }
