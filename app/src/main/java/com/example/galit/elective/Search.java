@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -264,33 +265,41 @@ public class Search extends AppCompatActivity {
 
         String JSON_list = ServerCalls.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
         //JSON_list is a  json string with the search results from server in this format: {"number1":"value1", "number2":"value2", "number3":"value3" }
-        Toast toast = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);
-        toast.show();
 
-      /* JSONObject J0bject = null;
+        //Toast toast = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);
+       // toast.show();
+
+       JSONObject J0bject = null;
         try {
             J0bject = new JSONObject(JSON_list);
         } catch (JSONException e) {
-             Toast toast = Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_LONG);
             toast.show();
         }
 
         Iterator<String> iterator = J0bject.keys();
-        List<String> list = new ArrayList<String>();
+        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
 
         while( iterator.hasNext()){
 
             String course_num = iterator.next();
             try{
                 String course_name = J0bject.getString(course_num);
+                HashMap<String,String> temp=new HashMap<String, String>();
+                temp.put("First", course_num);
+                temp.put("Second", course_name);
+
+                list.add(temp);
             }
             catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-*/
-       // Intent myintent = new Intent(this, reccomand.class);
-        //startActivity(myintent);
+
+        Intent myintent = new Intent(this, reccomand.class);
+        //myintent.list = list;-------------------------------------------->> how to give list as parameter to intent
+        myintent.putExtra("course_list",list);
+        startActivity(myintent);
         //finish();------------------------------->> in some point we will need to close this activity
         //------------------------------------------->> for now we leave it open so the user can go back to the search results
 

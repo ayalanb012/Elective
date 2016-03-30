@@ -25,30 +25,10 @@ public class reccomand extends AppCompatActivity {
         setContentView(R.layout.activity_reccomand);
         ListView listView = (ListView)findViewById(R.id.search_results_listview);
 
+        Intent caller = getIntent(); //the activity that started this activity
+
         list = new ArrayList<HashMap<String,String>>();
 
-        //String[] popular_courses = {"a","b","c"};
-        String[] popular_courses = {"היסטוריה","ספרות","מחשבים"};
-
-        HashMap<String,String> temp=new HashMap<String, String>();
-        temp.put("First", "Ankit Karia");
-        temp.put("Second", "Male");
-
-        list.add(temp);
-
-        HashMap<String,String> temp2=new HashMap<String, String>();
-        temp2.put("First", "Rajat Ghai");
-        temp2.put("Second", "Male");
-
-        list.add(temp2);
-
-        HashMap<String,String> temp3=new HashMap<String, String>();
-        temp3.put("First", "Karina Kaif");
-        temp3.put("Second", "Female");
-
-        list.add(temp3);
-
-       // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_costume_layout,R.id.list_item,popular_courses);
         ListViewAdapters adapter=new ListViewAdapters(this, list);
         listView.setAdapter(adapter);
 
