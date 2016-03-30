@@ -1,6 +1,7 @@
 package com.example.galit.elective;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,10 @@ public class course_page extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
+        Context c = getApplicationContext();
+        ServerCalls.allcommentscall("121.1.0131",c);
+
+
 
 
         Intent caller = getIntent();

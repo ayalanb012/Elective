@@ -44,6 +44,9 @@ public class Comment extends Activity {
                // TextView tvData1 = (TextView) findViewById(R.id.textView23);
                 ServerCalls.commentCall(name_string,"121.1.0131", comment_string, interest_string, diff_string,grade_string,c);
 
+
+                startActivity(new Intent(getApplicationContext(), course_page.class));
+                finish();
             }
         });
     }

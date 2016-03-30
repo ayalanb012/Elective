@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -39,7 +40,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://------/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
     public static void signInCall(String student, String passwd, TextView res) {
 
@@ -84,6 +85,12 @@ public class ServerCalls {
     public static void commentCall(String mail, String course, String feedback, String interest, String diff, String rating,Context t) {
 
         myTaskComments T = new myTaskComments(mail, course, feedback,interest,diff,rating,t);
+        T.execute();
+    }
+
+    public  static void allcommentscall(String courseNum,Context context)
+    {
+        myTaskAllComments T = new myTaskAllComments(courseNum,context);
         T.execute();
     }
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -735,7 +742,7 @@ public class ServerCalls {
 
             HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
 
-            String res="=[";
+            String res="";
 
             try
             {
@@ -743,14 +750,14 @@ public class ServerCalls {
 
                 Object response = envelope.getResponse();
                 res = response.toString();
-                System.out.println("reukt:  "+res);
+
                 httpTransport.getConnection().disconnect();
 
             }
             catch (Exception exception)
             {
                 res = exception.toString();
-                System.out.print("========="+res);
+
             }
             return res;
 
@@ -764,6 +771,65 @@ public class ServerCalls {
             Toast toast = Toast.makeText(t, result, Toast.LENGTH_LONG);
             toast.show();
         }
+
+    }
+
+
+    public static class myTaskAllComments extends AsyncTask<Void, Void, String>
+    {
+        String courseNum;
+        Context context;
+        public  myTaskAllComments(String courseNum, Context context)
+        {
+            this.courseNum = courseNum;
+            this.context=context;
+        }
+        @Override
+        protected String doInBackground(Void... params) {
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getAllCommentsForCourse");
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "coursenumber";
+            propertyInfo1.setValue(courseNum);
+            request.addProperty(propertyInfo1);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
+
+            String res="";
+            try
+            {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/getAllCommentsForCourse", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+
+                httpTransport.getConnection().disconnect();
+
+            }
+            catch (Exception exception)
+            {
+                res = exception.toString();
+
+            }
+            return res;
+
+        }
+
+        protected void onPostExecute(String result) {
+            Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+            toast.show();
+            // t.setText(result);
+
+        }
+
 
     }
 }
