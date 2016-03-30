@@ -42,7 +42,7 @@ public class Comment extends Activity {
                 String comment_string = comment.getText().toString();
                 Context c = getApplicationContext();
                // TextView tvData1 = (TextView) findViewById(R.id.textView23);
-                ServerCalls.commentCall(name_string,"102.1.0359", comment_string, interest_string, diff_string,grade_string,c);
+                ServerCalls.commentCall(name_string,"121.1.0131", comment_string, interest_string, diff_string,grade_string,c);
 
             }
         });

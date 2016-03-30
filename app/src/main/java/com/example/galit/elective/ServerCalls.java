@@ -39,7 +39,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://------/WebService.asmx";
 
     public static void signInCall(String student, String passwd, TextView res) {
 
@@ -693,29 +693,30 @@ public class ServerCalls {
             propertyInfo1.setValue(mail);
 
             PropertyInfo propertyInfo2 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.STRING_CLASS;
-            propertyInfo1.name = "courseNum";
-            propertyInfo1.setValue(course);
-
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "courseNum";
+            propertyInfo2.setValue(course);
+            //System.out.print("course: "+course);
             PropertyInfo propertyInfo3 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.STRING_CLASS;
-            propertyInfo1.name = "feedback";
-            propertyInfo1.setValue(feedback);
+            propertyInfo3.type = PropertyInfo.STRING_CLASS;
+            propertyInfo3.name = "feedback";
+            propertyInfo3.setValue(feedback);
 
             PropertyInfo propertyInfo4 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.INTEGER_CLASS;
-            propertyInfo1.name = "interest";
-            propertyInfo1.setValue(Integer.parseInt(interest));
+            propertyInfo4.type = PropertyInfo.INTEGER_CLASS;
+            propertyInfo4.name = "interest";
+            propertyInfo4.setValue(Integer.parseInt(interest));
 
             PropertyInfo propertyInfo5 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.INTEGER_CLASS;
-            propertyInfo1.name = "diff";
-            propertyInfo1.setValue(Integer.parseInt(diff));
+            propertyInfo5.type = PropertyInfo.INTEGER_CLASS;
+            propertyInfo5.name = "diff";
+            int d = Integer.parseInt(diff);
+            propertyInfo5.setValue(Integer.parseInt(diff));
 
             PropertyInfo propertyInfo6 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.INTEGER_CLASS;
-            propertyInfo1.name = "rating";
-            propertyInfo1.setValue(Integer.parseInt(rating));
+            propertyInfo6.type = PropertyInfo.INTEGER_CLASS;
+            propertyInfo6.name = "rating";
+            propertyInfo6.setValue(Integer.parseInt(rating));
 
             request.addProperty(propertyInfo1);
             request.addProperty(propertyInfo2);
@@ -728,12 +729,13 @@ public class ServerCalls {
                     SoapEnvelope.VER11);
             envelope.dotNet = true;
 
+
             // envelope.setOutputSoapObject(request);
             envelope.bodyOut = request;
 
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
 
-            String res;
+            String res="=[";
 
             try
             {
@@ -741,12 +743,14 @@ public class ServerCalls {
 
                 Object response = envelope.getResponse();
                 res = response.toString();
+                System.out.println("reukt:  "+res);
                 httpTransport.getConnection().disconnect();
 
             }
             catch (Exception exception)
             {
                 res = exception.toString();
+                System.out.print("========="+res);
             }
             return res;
 
