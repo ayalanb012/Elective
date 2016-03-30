@@ -27,7 +27,9 @@ public class reccomand extends AppCompatActivity {
 
         Intent caller = getIntent(); //the activity that started this activity
 
-        list = new ArrayList<HashMap<String,String>>();
+       // list = new ArrayList<HashMap<String,String>>();
+       // list = caller.getIntegerArrayListExtra("course_list");
+        list =  (ArrayList<HashMap<String,String>>) caller.getSerializableExtra("course_list");
 
         ListViewAdapters adapter=new ListViewAdapters(this, list);
         listView.setAdapter(adapter);
