@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class course_page extends Activity {
@@ -21,12 +22,34 @@ public class course_page extends Activity {
     ArrayList<String> grades;
     ListView list;
     List<RowItem> rowItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
 
-        try {
+
+        Intent caller = getIntent();
+        String call = caller.getStringExtra("caller_activity");
+        if(call == "search_result"){ //the activity that started this activity was search results page
+            HashMap<String, String> Selected_course = (HashMap<String, String>) caller.getSerializableExtra("course_list");
+            String course_num = Selected_course.keySet().iterator().next();
+            String course_name = Selected_course.values().iterator().next();
+
+            Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"] , ["+course_name+"]", Toast.LENGTH_LONG);
+            toast2.show();
+
+        }
+        else {
+
+
+            Toast toast1 = Toast.makeText(getApplicationContext(),"in the else", Toast.LENGTH_LONG);
+            toast1.show();
+        }
+
+
+
+      /*  try {--------------------------------------->>>> Galit's code for comments! the caller activity is comment
             rowItems = new ArrayList<RowItem>();
 
             titles = new ArrayList<String>();
@@ -55,8 +78,6 @@ public class course_page extends Activity {
                         RowItem item = new RowItem(titles.get(i), descs.get(i),grades.get(i),interests.get(i),diffs.get(i));
                         rowItems.add(item);
                     }
-
-
                 }
             }
             list = (ListView) findViewById(R.id.listView);
@@ -69,7 +90,7 @@ public class course_page extends Activity {
             Toast t =Toast.makeText(getApplicationContext(),e.getStackTrace().toString(),Toast.LENGTH_LONG);
             t.show();
 
-        }
+        } */
     }
 
     //this method is activated when logo is clicked. the method return to main activity

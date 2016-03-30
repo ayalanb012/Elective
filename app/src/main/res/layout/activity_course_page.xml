@@ -47,7 +47,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:id="@+id/textView208"
+                android:id="@+id/course_name"
                 android:text="המוח 120 שנות מחקר"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#6271b8" />
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:id="@+id/textView221"
+                android:id="@+id/general_grade"
                 android:text="5"
                 android:layout_gravity="center_horizontal" />
 
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:id="@+id/textView210"
+                android:id="@+id/interest_grade"
                 android:text="5"
                 android:layout_gravity="right" />
 
@@ -113,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:id="@+id/textView211"
+                android:id="@+id/diff_grade"
                 android:text="3"
                 android:layout_gravity="center_horizontal" />
 
@@ -138,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:id="@+id/textView213"
+                android:id="@+id/lecture_grade"
                 android:text="3"
                 android:layout_gravity="center_horizontal" />
 
@@ -162,7 +162,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:id="@+id/textView215"
+                android:id="@+id/txt_discription"
                 android:text="הקורס יעסוק בפיזיולוגיה של המוח תוך הבאת הסיפור ההיסטורי של המחקר בנוירוביולוגיה. הקורס יתאר את אבני הבניין של מערכת העצבים, יספר את סיפור התגליות הגדולות של ה ? 100 שנים האחרונות, וידגיש את הניסתר והקשיים המחקריים כיום. הקורס יתאר את אבני הבניין של מערכת העצבים, יספר את סיפור התגליות הגדולות של 100 השנים האחרונות, וידגיש את הנסתר והקשיים המחקריים כיום"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1" />
