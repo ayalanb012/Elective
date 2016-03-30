@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by User on 17/03/2016.
@@ -65,7 +66,14 @@ public class ServerCalls {
     public static String Search(Context ctx, String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check) {
         myTaskSearch T = new myTaskSearch(ctx,name,number,cat1,cat2,cat3,schedule_JSON, check);
          T.execute();
-        return T.search_result;
+        try {
+            return T.get().toString();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return "error in search";
     }
 
     public static void getCategories(Spinner sp1,Spinner sp2,Spinner sp3, Context ctx) {
@@ -175,7 +183,7 @@ public class ServerCalls {
         String schedule;
         Boolean mycheck;
         Context Appcontext;
-        String search_result;
+
 
         public myTaskSearch(Context ctx,String name,String number, String cat1, String cat2, String cat3, String schedule_JSON,Boolean check ){
             course_name = name;
@@ -265,50 +273,16 @@ public class ServerCalls {
                 res = exception.toString();
             }
 
-
             return res;
         }
 
-
         @Override
         protected void onPostExecute(String result) {
-            //showResult.setText(result);
 
-           /* try {
-                JSONObject J0bject = new JSONObject(result);
-                JSONArray JList = J0bject.optJSONArray("Table");
-                List<String> list = new ArrayList<String>();
-
-
-                for(int i=0; i< JList.length(); i++){
-                    JSONObject JFaculty = JList.getJSONObject(i);
-                    String faculty = JFaculty.getString("Department_Name");
-                    list.add(faculty);
-                }
-
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext,android.R.layout.simple_spinner_item,list);
-
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                DepartmentList.setAdapter(dataAdapter);
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-                */
-
-
-           // startActivity(new Intent(Appcontext, reccomand.class));
-            //finish();
-            System.out.println(result);
-             Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
-            toast.show();
-            search_result = result;
-           // afterExecute(result);
+           // System.out.println(result);
+          //   Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
+            //toast.show();
         }
-
-
     }
 
     private static class myTaskRegister extends AsyncTask<Void, Void, String> {

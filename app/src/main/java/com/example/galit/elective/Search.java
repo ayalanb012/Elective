@@ -264,12 +264,15 @@ public class Search extends AppCompatActivity {
 
         String JSON_list = ServerCalls.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
         //JSON_list is a  json string with the search results from server in this format: {"number1":"value1", "number2":"value2", "number3":"value3" }
+        Toast toast = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);
+        toast.show();
 
-        JSONObject J0bject = null;
+      /* JSONObject J0bject = null;
         try {
             J0bject = new JSONObject(JSON_list);
         } catch (JSONException e) {
-            e.printStackTrace();
+             Toast toast = Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_LONG);
+            toast.show();
         }
 
         Iterator<String> iterator = J0bject.keys();
@@ -285,13 +288,11 @@ public class Search extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
-
-
-
+*/
        // Intent myintent = new Intent(this, reccomand.class);
         //startActivity(myintent);
-        //finish();
+        //finish();------------------------------->> in some point we will need to close this activity
+        //------------------------------------------->> for now we leave it open so the user can go back to the search results
 
     }
 
