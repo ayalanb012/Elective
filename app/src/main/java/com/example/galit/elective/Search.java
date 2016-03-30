@@ -286,8 +286,8 @@ public class Search extends AppCompatActivity {
             try{
                 String course_name = J0bject.getString(course_num);
                 HashMap<String,String> temp=new HashMap<String, String>();
-                temp.put("First", course_num);
-                temp.put("Second", course_name);
+                temp.put("Second", course_num);
+                temp.put("First", course_name);
 
                 list.add(temp);
             }
@@ -297,7 +297,7 @@ public class Search extends AppCompatActivity {
         }
 
         Intent myintent = new Intent(this, reccomand.class);
-        //myintent.list = list;-------------------------------------------->> how to give list as parameter to intent
+
         myintent.putExtra("course_list",list);
         startActivity(myintent);
         //finish();------------------------------->> in some point we will need to close this activity

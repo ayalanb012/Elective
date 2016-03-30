@@ -6,15 +6,16 @@
     <TextView
         android:id="@+id/course_name"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="240sp"
+
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/course_number"
+        android:paddingLeft="15sp"
+        android:layout_width="90sp"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1" />
+         />
 
 
 </LinearLayout>
