@@ -37,10 +37,9 @@ public class reccomand extends AppCompatActivity {
            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                int pos = position + 1;
                HashMap<String, String> Selected_course = list.get(position);
-
+               String course_num = Selected_course.values().iterator().next();
                Intent myintent = new Intent(getApplicationContext(), course_page.class);
-
-               myintent.putExtra("Selected_course",Selected_course);
+               myintent.putExtra("Selected_course_num",course_num);
                myintent.putExtra("caller_activity","search_result");
                startActivity(myintent);
             }

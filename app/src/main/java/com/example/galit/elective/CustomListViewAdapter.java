@@ -31,7 +31,6 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         TextView txtDiff;
         TextView txtGrade;
 
-
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {

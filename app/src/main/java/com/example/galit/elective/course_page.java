@@ -29,26 +29,21 @@ public class course_page extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
         Context c = getApplicationContext();
-        ServerCalls.allcommentscall("121.1.0131",c);
-
-
-
+        ServerCalls.allcommentscall("121.1.0131", c);
 
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
-        if(call == "search_result"){ //the activity that started this activity was search results page
-            HashMap<String, String> Selected_course = (HashMap<String, String>) caller.getSerializableExtra("course_list");
-            String course_num = Selected_course.keySet().iterator().next();
-            String course_name = Selected_course.values().iterator().next();
 
-            Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"] , ["+course_name+"]", Toast.LENGTH_LONG);
+        if(call.equals("search_result")){ //the activity that started this activity was search results page
+
+            String course_num  = caller.getStringExtra("Selected_course_num");
+            Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
             toast2.show();
 
         }
-        else {
+        else { //-------------->> check if we came from a different activity, comment, need to add code
 
-
-            Toast toast1 = Toast.makeText(getApplicationContext(),"in the else", Toast.LENGTH_LONG);
+            Toast toast1 = Toast.makeText(getApplicationContext(),"in the else: ["+ call+"]", Toast.LENGTH_LONG);
             toast1.show();
         }
 
