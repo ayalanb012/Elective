@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void userClicked(View v)
     {
         ImageButton button = (ImageButton) v;
-        startActivity(new Intent(getApplicationContext(), course_page.class));
+        startActivity(new Intent(getApplicationContext(), User_Profile.class));
     }
 
 }

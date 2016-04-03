@@ -47,6 +47,12 @@ public class Search extends AppCompatActivity {
         finish();
     }
 
+    public void userClicked(View v)
+    {
+        ImageButton button = (ImageButton) v;
+        startActivity(new Intent(getApplicationContext(), User_Profile.class));
+    }
+
     public  void SearchClicked(View v)
     {
         JSONArray Sunday_Arr = new JSONArray();

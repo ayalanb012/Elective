@@ -102,6 +102,12 @@ public class course_page extends Activity {
         finish();
     }
 
+    public void userClicked(View v)
+    {
+        ImageButton button = (ImageButton) v;
+        startActivity(new Intent(getApplicationContext(), User_Profile.class));
+    }
+
 
     public void CritiquingClicked(View v)
     {
