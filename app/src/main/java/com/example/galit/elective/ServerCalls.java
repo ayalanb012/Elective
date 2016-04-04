@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -28,7 +29,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
@@ -88,9 +92,9 @@ public class ServerCalls {
         T.execute();
     }
 
-    public  static void allcommentscall(String courseNum,Context context)
+    public  static void allcommentscall(String courseNum,Context context,ListView ls)
     {
-        myTaskAllComments T = new myTaskAllComments(courseNum,context);
+        myTaskAllComments T = new myTaskAllComments(courseNum,context,ls);
         T.execute();
     }
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -779,10 +783,12 @@ public class ServerCalls {
     {
         String courseNum;
         Context context;
-        public  myTaskAllComments(String courseNum, Context context)
+        ListView comments;
+        public  myTaskAllComments(String courseNum, Context context, ListView comments)
         {
             this.courseNum = courseNum;
             this.context=context;
+            this.comments = comments;
         }
         @Override
         protected String doInBackground(Void... params) {
@@ -824,8 +830,39 @@ public class ServerCalls {
         }
 
         protected void onPostExecute(String result) {
-            Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
-            toast.show();
+          //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+           // toast.show();
+            try {
+                JSONObject jObject = new JSONObject(result);
+
+                List<RowItem> rowItems = new ArrayList<RowItem>();
+
+                Iterator iter = jObject.keys();
+                while (iter.hasNext()) {
+                    String key = (String) iter.next();
+                    String value = jObject.getString(key);
+                    String feedback = jObject.getJSONObject(key).getString("feedback");
+                    String diff = jObject.getJSONObject(key).getString("diff");
+                    String interest = jObject.getJSONObject(key).getString("interest");
+                    String rating = jObject.getJSONObject(key).getString("rating");
+                    RowItem item = new RowItem(key, feedback,rating,interest,diff);
+                    rowItems.add(item);
+
+                 //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);
+
+                   // toast.show();
+
+                }
+                CustomListViewAdapter adapter = new CustomListViewAdapter(context, R.layout.list_view_comment, rowItems);
+                comments.setAdapter(adapter);
+            }
+            catch (Exception e)
+            {
+                Toast toast = Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_LONG);
+                toast.show();
+
+            }
+
             // t.setText(result);
 
         }
