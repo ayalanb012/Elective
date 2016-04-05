@@ -272,8 +272,8 @@ public class Search extends AppCompatActivity {
         String JSON_list = ServerCalls.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
         //JSON_list is a  json string with the search results from server in this format: {"number1":"value1", "number2":"value2", "number3":"value3" }
 
-        //Toast toast = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);
-       // toast.show();
+       // Toast toast1 = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);
+      // toast1.show();
 
        JSONObject J0bject = null;
         try {

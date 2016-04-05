@@ -44,6 +44,22 @@
                 android:onClick="userClicked" />
 
         </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:id="@+id/search_results_count"
+
+                android:layout_gravity="center_horizontal"
+                android:textColor="#6271b8" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="vertical"

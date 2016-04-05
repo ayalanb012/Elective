@@ -12,10 +12,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class reccomand extends AppCompatActivity {
+public class reccomand extends AppCompatActivity { //page with the search results
 
     private ArrayList<HashMap<String, String>> list;
 
@@ -28,6 +30,11 @@ public class reccomand extends AppCompatActivity {
         Intent caller = getIntent(); //the activity that started this activity (search page)
 
         list =  (ArrayList<HashMap<String,String>>) caller.getSerializableExtra("course_list");
+
+        int count = list.size();
+
+       TextView result_count = (TextView) findViewById(R.id.search_results_count);
+        result_count.setText(" נמצאו " + count + " תוצאות ");
 
         ListViewAdapters adapter=new ListViewAdapters(this, list);
         listView.setAdapter(adapter);
@@ -52,7 +59,6 @@ public class reccomand extends AppCompatActivity {
     //this method is activated when logo is clicked. the method return to main activity
     public void HomeClicked(View v)
     {
-
         ImageButton button = (ImageButton) v;
         // startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
