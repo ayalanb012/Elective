@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -81,6 +84,7 @@ public class course_page extends Activity {
         });
 
 
+
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -111,9 +115,11 @@ public class course_page extends Activity {
     {
         Intent myintent = new Intent(getApplicationContext(), Comment.class);
         myintent.putExtra("Selected_course_num",course_num);
-        myintent.putExtra("caller_activity","course_page");
+        myintent.putExtra("caller_activity", "course_page");
         startActivity(myintent);
         finish();
 
     }
+
+
 }
