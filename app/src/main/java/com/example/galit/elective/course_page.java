@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -33,13 +34,15 @@ public class course_page extends Activity {
     public static TextView description;
     public static TextView course_name;
     public static TextView credit_points;
+    public  static  ListView list_view;
+    public static   String course_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
         Context c = getApplicationContext();
-       // ServerCalls.allcommentscall("121.1.0131", c);
+
 
         interest =(TextView) findViewById(R.id.interest_grade);
         diff =(TextView) findViewById(R.id.diff_grade);
@@ -48,16 +51,16 @@ public class course_page extends Activity {
         description =(TextView) findViewById(R.id.txt_discription);
         course_name =(TextView) findViewById(R.id.course_name);
         credit_points =(TextView) findViewById(R.id.credit_points);
-
+        list_view =(ListView) findViewById(R.id.listView);
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
 
         if(call.equals("search_result")){ //the activity that started this activity was search results page
 
-            String course_num  = caller.getStringExtra("Selected_course_num");
+             course_num  = caller.getStringExtra("Selected_course_num");
            // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
             //toast2.show();
-
+            ServerCalls.allcommentscall(course_num, c, list_view);
             ServerCalls.getCourseDetails(course_num,c);
 
         }
@@ -67,49 +70,17 @@ public class course_page extends Activity {
             toast1.show();
         }
 
-
-      /*  try {--------------------------------------->>>> Galit's code for comments! the caller activity is comment
-            rowItems = new ArrayList<RowItem>();
-
-            titles = new ArrayList<String>();
-            descs = new ArrayList<String>();
-            diffs = new ArrayList<String>();
-            interests = new ArrayList<String>();
-            grades = new ArrayList<String>();
-
-
-            Intent extras = getIntent();
-            System.out.print("-------------" + extras.toString());
-            if (extras != null) {
-                Bundle bun = extras.getExtras();
-                if (bun != null) {
-                    String name = bun.getString("name");
-                    String desc = bun.getString("comment");
-                    String diff = bun.getString("diff");
-                    String interest = bun.getString("interest");
-                    String grade = bun.getString("grade");
-                    titles.add(name);
-                    descs.add(desc);
-                    grades.add(grade);
-                    interests.add(interest);
-                    diffs.add(diff);
-                    for (int i = 0; i < titles.size(); i++) {
-                        RowItem item = new RowItem(titles.get(i), descs.get(i),grades.get(i),interests.get(i),diffs.get(i));
-                        rowItems.add(item);
-                    }
-                }
+        list_view.setOnTouchListener(new View.OnTouchListener() {
+            // Setting on Touch Listener for handling the touch inside ScrollView
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Disallow the touch request for parent scroll on touch of child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
             }
-            list = (ListView) findViewById(R.id.listView);
-            CustomListViewAdapter adapter = new CustomListViewAdapter(this, R.layout.list_view_comment, rowItems);
-            list.setAdapter(adapter);
+        });
 
-        }
-        catch (Exception e)
-        {
-            Toast t =Toast.makeText(getApplicationContext(),e.getStackTrace().toString(),Toast.LENGTH_LONG);
-            t.show();
 
-        } */
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -135,12 +106,13 @@ public class course_page extends Activity {
 
     }
 
+    //this method is activted when add a comment button is clicked.
     public void CommentClicked(View v)
     {
-
-        Button button = (Button) v;
-
-        startActivity(new Intent(getApplicationContext(), Comment.class));
+        Intent myintent = new Intent(getApplicationContext(), Comment.class);
+        myintent.putExtra("Selected_course_num",course_num);
+        myintent.putExtra("caller_activity","course_page");
+        startActivity(myintent);
         finish();
 
     }
