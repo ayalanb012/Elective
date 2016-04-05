@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,32 +18,42 @@ import java.util.HashMap;
 import java.util.List;
 
 public class course_page extends Activity {
-
-    ListView Comments_list;
-
+    ArrayList<String> titles;
+    ArrayList<String> descs;
+    ArrayList<String> diffs;
+    ArrayList<String> interests;
+    ArrayList<String> grades;
+    ListView list;
+    List<RowItem> rowItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
         Context c = getApplicationContext();
+        ServerCalls.allcommentscall("121.1.0131", c);
 
-        Comments_list = (ListView) findViewById(R.id.listView);
         Intent caller = getIntent();
-
         String call = caller.getStringExtra("caller_activity");
 
         if(call.equals("search_result")){ //the activity that started this activity was search results page
 
             String course_num  = caller.getStringExtra("Selected_course_num");
-            ServerCalls.allcommentscall(course_num, c,Comments_list);
-            Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
-            toast2.show();
+           // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
+            //toast2.show();
+
+            TextView interest =(TextView) findViewById(R.id.interest_grade);
+            TextView diff =(TextView) findViewById(R.id.diff_grade);
+            TextView lecture =(TextView) findViewById(R.id.lecture_grade);
+            TextView general =(TextView) findViewById(R.id.general_grade);
+            TextView description =(TextView) findViewById(R.id.txt_discription);
+
+            ServerCalls.getCourseDetails(course_num,c ,interest,diff,lecture,general,description);
 
         }
         else { //-------------->> check if we came from a different activity, comment, need to add code
 
-            Toast toast1 = Toast.makeText(getApplicationContext(), "in the else: [" + call + "]", Toast.LENGTH_LONG);
+            Toast toast1 = Toast.makeText(getApplicationContext(),"in the else: ["+ call+"]", Toast.LENGTH_LONG);
             toast1.show();
         }
 

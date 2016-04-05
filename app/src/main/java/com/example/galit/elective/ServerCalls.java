@@ -97,6 +97,12 @@ public class ServerCalls {
         myTaskAllComments T = new myTaskAllComments(courseNum,context,ls);
         T.execute();
     }
+
+    public  static void getCourseDetails(String courseNum,Context context, TextView interest,TextView diff, TextView lecture,TextView general,TextView description)
+    {
+        myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum,context,interest,diff,lecture,general,description);
+        T.execute();
+    }
 //----------------------------------------------------------------------------------------------------------------------------------//
 
     private static class myTaskGetCourseCategories extends AsyncTask<Void, Void, String> {
@@ -179,6 +185,109 @@ public class ServerCalls {
                 Category1.setAdapter(dataAdapter);
                 Category2.setAdapter(dataAdapter);
                 Category3.setAdapter(dataAdapter);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
+            // toast.show();
+        }
+    }
+
+    private static class myTaskGetCourseDetails extends AsyncTask<Void, Void, String> {
+
+        Context Appcontext;
+        String course_number;
+        TextView c_interest;
+        TextView c_diff;
+        TextView c_lecture;
+        TextView c_general;
+        TextView c_description;
+
+        public myTaskGetCourseDetails(String courseNum, Context ctx, TextView interest,TextView diff, TextView lecture,TextView general,TextView description) {
+
+            course_number = courseNum;
+            Appcontext = ctx;
+             c_interest=interest;
+              c_diff=diff;
+              c_lecture=lecture;
+              c_general=general;
+              c_description=description;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "GetCourseDetails");
+
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "course_num";
+            propertyInfo1.setValue(course_number);
+
+            request.addProperty(propertyInfo1);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res;
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/GetCourseDetails", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            //showResult.setText(result);
+
+            try {
+                JSONObject J0bject = new JSONObject(result);
+                JSONArray JList = J0bject.optJSONArray("Table");
+                List<String> list = new ArrayList<String>();
+
+                //Toast toast = Toast.makeText(Appcontext,JList.toString(), Toast.LENGTH_LONG);
+                //toast.show();
+                list.add("");
+                for (int i = 0; i < JList.length(); i++) {
+                    JSONObject JFaculty = JList.getJSONObject(i);
+                    String faculty = JFaculty.getString("category_name");
+                    list.add(faculty);
+                }
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext, R.layout.my_spinner_item, list);
+
+                dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
+
+
 
 
             } catch (JSONException e) {
@@ -870,3 +979,7 @@ public class ServerCalls {
 
     }
 }
+
+
+
+//GetCourseDetails
