@@ -78,6 +78,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:id="@+id/credit_points"
+                android:text="5"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:id="@+id/c_textView222"
+                android:text="נקודות זכות"
+                android:textColor="#6271b8"
+                android:paddingLeft="26dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
                 android:id="@+id/general_grade"
                 android:text="5"
                 android:layout_gravity="center_horizontal" />

@@ -26,12 +26,28 @@ public class course_page extends Activity {
     ListView list;
     List<RowItem> rowItems;
 
+    public static TextView interest;
+    public static TextView diff;
+    public static TextView lecture;
+    public static TextView general;
+    public static TextView description;
+    public static TextView course_name;
+    public static TextView credit_points;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
         Context c = getApplicationContext();
-        ServerCalls.allcommentscall("121.1.0131", c);
+       // ServerCalls.allcommentscall("121.1.0131", c);
+
+        interest =(TextView) findViewById(R.id.interest_grade);
+        diff =(TextView) findViewById(R.id.diff_grade);
+        lecture =(TextView) findViewById(R.id.lecture_grade);
+        general =(TextView) findViewById(R.id.general_grade);
+        description =(TextView) findViewById(R.id.txt_discription);
+        course_name =(TextView) findViewById(R.id.course_name);
+        credit_points =(TextView) findViewById(R.id.credit_points);
 
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
@@ -42,13 +58,7 @@ public class course_page extends Activity {
            // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
             //toast2.show();
 
-            TextView interest =(TextView) findViewById(R.id.interest_grade);
-            TextView diff =(TextView) findViewById(R.id.diff_grade);
-            TextView lecture =(TextView) findViewById(R.id.lecture_grade);
-            TextView general =(TextView) findViewById(R.id.general_grade);
-            TextView description =(TextView) findViewById(R.id.txt_discription);
-
-            ServerCalls.getCourseDetails(course_num,c ,interest,diff,lecture,general,description);
+            ServerCalls.getCourseDetails(course_num,c);
 
         }
         else { //-------------->> check if we came from a different activity, comment, need to add code
@@ -56,7 +66,6 @@ public class course_page extends Activity {
             Toast toast1 = Toast.makeText(getApplicationContext(),"in the else: ["+ call+"]", Toast.LENGTH_LONG);
             toast1.show();
         }
-
 
 
       /*  try {--------------------------------------->>>> Galit's code for comments! the caller activity is comment

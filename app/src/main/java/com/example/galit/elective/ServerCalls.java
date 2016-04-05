@@ -98,9 +98,9 @@ public class ServerCalls {
         T.execute();
     }
 
-    public  static void getCourseDetails(String courseNum,Context context, TextView interest,TextView diff, TextView lecture,TextView general,TextView description)
+    public  static void getCourseDetails(String courseNum,Context context)
     {
-        myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum,context,interest,diff,lecture,general,description);
+        myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum,context);
         T.execute();
     }
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -200,21 +200,10 @@ public class ServerCalls {
 
         Context Appcontext;
         String course_number;
-        TextView c_interest;
-        TextView c_diff;
-        TextView c_lecture;
-        TextView c_general;
-        TextView c_description;
 
-        public myTaskGetCourseDetails(String courseNum, Context ctx, TextView interest,TextView diff, TextView lecture,TextView general,TextView description) {
-
+        public myTaskGetCourseDetails(String courseNum, Context ctx) {
             course_number = courseNum;
-            Appcontext = ctx;
-             c_interest=interest;
-              c_diff=diff;
-              c_lecture=lecture;
-              c_general=general;
-              c_description=description;
+            Appcontext =ctx;
         }
 
         @Override
@@ -260,35 +249,23 @@ public class ServerCalls {
             } catch (Exception exception) {
                 res = exception.toString();
             }
-
             return res;
         }
 
-
         @Override
         protected void onPostExecute(String result) {
-            //showResult.setText(result);
 
             try {
                 JSONObject J0bject = new JSONObject(result);
                 JSONArray JList = J0bject.optJSONArray("Table");
-                List<String> list = new ArrayList<String>();
+                JSONObject d = JList.getJSONObject(0);
 
-                //Toast toast = Toast.makeText(Appcontext,JList.toString(), Toast.LENGTH_LONG);
-                //toast.show();
-                list.add("");
-                for (int i = 0; i < JList.length(); i++) {
-                    JSONObject JFaculty = JList.getJSONObject(i);
-                    String faculty = JFaculty.getString("category_name");
-                    list.add(faculty);
-                }
-
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Appcontext, R.layout.my_spinner_item, list);
-
-                dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
-
-
-
+                course_page.course_name.setText(d.getString("COURSE_NAME"));
+                course_page.description.setText(d.getString("Course_Description"));
+                course_page.diff.setText(d.getString("DIFFICULTY_AVG"));
+                course_page.general.setText(d.getString("AVG_RATING"));
+                course_page.interest.setText(d.getString("INTEREST_AVG"));
+                course_page.credit_points.setText(d.getString("Credit_Points"));
 
             } catch (JSONException e) {
                 e.printStackTrace();
