@@ -42,7 +42,7 @@ public class Comment extends Activity {
                 if (!hasFocus) {
                     final String gr = grade.getText().toString();
                     if (!isValidGrade(gr)) {
-                        grade.setError("ציון צריך להיות מספר בין 1 ל 5");
+                        grade.setError("ציון צריך להיות מספר בין 1 ל 10");
                     }
                 }
             }
@@ -55,7 +55,7 @@ public class Comment extends Activity {
                 if (!hasFocus) {
                     final String gr = interest.getText().toString();
                     if (!isValidGrade(gr)) {
-                        interest.setError("עניין צריך להיות מספר בין 1 ל 5");
+                        interest.setError("עניין צריך להיות מספר מ1 עד 10");
                     }
                 }
             }
@@ -69,7 +69,7 @@ public class Comment extends Activity {
                 if (!hasFocus) {
                     final String gr = diff.getText().toString();
                     if (!isValidGrade(gr)) {
-                        diff.setError("קושי צריך להיות מספר בין 1 ל 5");
+                        diff.setError("קושי צריך להיות מספר בין 1 ל 10");
                     }
                 }
             }
@@ -106,7 +106,7 @@ public class Comment extends Activity {
             return true;
         }
         else if (isNumeric(grade) )
-            if (Integer.parseInt(grade)<6 && Integer.parseInt(grade)>0)
+            if (Integer.parseInt(grade)<11 && Integer.parseInt(grade)>0)
                 return  true;
         return false;
     }

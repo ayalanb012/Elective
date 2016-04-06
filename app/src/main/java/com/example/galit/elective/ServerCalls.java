@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -101,6 +102,12 @@ public class ServerCalls {
     public  static void getCourseDetails(String courseNum,Context context)
     {
         myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum,context);
+        T.execute();
+    }
+
+    public  static  void  getUserDetailsCall(String Email, EditText name, EditText password, TableLayout schedule,Spinner FacultiesList,  Spinner DepartmentList, Context context)
+    {
+        myTaskUserDetails T = new myTaskUserDetails(Email,name,password,schedule,FacultiesList,DepartmentList,context);
         T.execute();
     }
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -955,6 +962,101 @@ public class ServerCalls {
 
 
     }
+
+    public static class myTaskUserDetails extends AsyncTask<Void, Void, String> {
+        String Email;
+        EditText name;
+        EditText password;
+        TableLayout schedule;
+        Spinner FacultiesList;
+        Spinner DepartmentList;
+        Context context;
+
+
+        public myTaskUserDetails(String Email, EditText name, EditText password, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList, Context context) {
+            this.Email = Email;
+            this.name = name;
+            this.password = password;
+            this.schedule = schedule;
+            this.FacultiesList = FacultiesList;
+            this.DepartmentList = DepartmentList;
+            this.context = context;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getAllUserDetails");
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "email";
+            propertyInfo1.setValue(Email);
+            request.addProperty(propertyInfo1);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res = "";
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/getAllUserDetails", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+
+            }
+            return res;
+        }
+
+        protected void onPostExecute(String result) {
+            //System.out.println(result);
+          //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+          //  toast.show();
+            try {
+                JSONObject jObject = new JSONObject(result);
+                JSONArray array = new JSONArray(result) ;
+                List<String> myList = new ArrayList<String>();
+               // Iterator iter = jObject.keys();
+                int c = 0;
+                //while (iter.hasNext()) {
+                for (int i=0; i<array.length(); i++){
+                    //String key = (String) iter.next();
+                    //System.out.println("-----------------key " + key);
+                    String JFaculty = array.get(i).toString();
+
+                   // list.add(faculty);
+                  // String password = array.get(1).toString();
+                   // String name = jObject.getString("name");
+                   // String faculty = jObject.getString("faculty");
+                    //String department = jObject.getString("department");
+                    myList.add(JFaculty);
+                       Toast ts = Toast.makeText(context, myList.size(), Toast.LENGTH_LONG);
+
+                     ts.show();
+
+                }
+
+                Toast t = Toast.makeText(context,c, Toast.LENGTH_LONG);
+
+                t.show();
+            } catch (Exception e) {
+                   Toast t = Toast.makeText(context,e.getMessage(), Toast.LENGTH_LONG);
+
+                 t.show();
+
+            }
+
+        }
+    }
+
 }
 
 
