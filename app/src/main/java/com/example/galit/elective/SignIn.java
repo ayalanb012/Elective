@@ -25,7 +25,6 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        tvData1 = (TextView) findViewById(R.id.textView1);
         button = (Button) findViewById(R.id.bttn_sign_in);
 
         button.setOnClickListener(new View.OnClickListener() {
