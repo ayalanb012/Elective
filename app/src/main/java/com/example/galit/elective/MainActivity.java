@@ -7,17 +7,28 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
 
-
+    public static Session session = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        if(session==null)
+            session = new Session(getApplicationContext()); //first time - need to create session
+
+        else { //the user is logged in
+            TextView hello = (TextView) findViewById(R.id.hello_txt);
+            String name = ServerCalls.getNameCall(session.getusename());
+            hello.setText( " שלום " + name);
+        }
 
     }
 

@@ -39,7 +39,15 @@ public class SignIn extends AppCompatActivity {
                 edata2 = (EditText) findViewById(R.id.txt_password);
                 passwd = edata2.getText().toString();
 
-                ServerCalls.signInCall(student,passwd,tvData1);
+                String check =  ServerCalls.signInCall(student,passwd);
+
+                if(check.equals("True")) {
+
+                    MainActivity.session.setusename(student);
+                   // Toast toast = Toast.makeText(getApplicationContext(), "setting userName to: "+ student, Toast.LENGTH_LONG);
+                    //toast.show();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                }
 
             }
         });

@@ -47,11 +47,34 @@ public class ServerCalls {
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
     private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
-    public static void signInCall(String student, String passwd, TextView res) {
+    public static String signInCall(String student, String passwd) {
 
-        myTaskSignIn T = new myTaskSignIn(student, passwd, res);
+        myTaskSignIn T = new myTaskSignIn(student, passwd);
         T.execute();
+        try {
+            return T.get().toString();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return "error in signIn";
     }
+
+    public static String getNameCall(String student) {
+
+        myTaskgetUserName T = new myTaskgetUserName(student);
+        T.execute();
+        try {
+            return T.get().toString();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return "error in getName";
+    }
+
 
     public static void getFacultiesCall(Spinner list, Context ctx) {
 
@@ -681,12 +704,11 @@ public class ServerCalls {
 
         String student;
         String passwd;
-        TextView showResult;
 
-        public myTaskSignIn(String s, String p, TextView tv) {
+
+        public myTaskSignIn(String s, String p) {
             student = s;
             passwd = p;
-            showResult = tv;
         }
 
         @Override
@@ -748,7 +770,6 @@ public class ServerCalls {
 
         @Override
         protected void onPostExecute(String result) {
-            showResult.setText(result);
 
             //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
             //toast.show();
@@ -1057,6 +1078,74 @@ public class ServerCalls {
         }
     }
 
+
+    private static class myTaskgetUserName extends AsyncTask<Void, Void, String> {
+        String student_mail;
+
+        public myTaskgetUserName(String s) {
+            student_mail = s;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getName");
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "mail";
+            propertyInfo1.setValue(student_mail);
+
+            request.addProperty(propertyInfo1);
+
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res;
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE+"/getName", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                // tvData1.setText(response.toString());
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                // tvData1.setText(exception.toString() + "  Or enter number is not Available!");
+                res = exception.toString();
+            }
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
+            //toast.show();
+        }
+
+
+    }
 }
 
 
