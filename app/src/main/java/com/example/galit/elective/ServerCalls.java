@@ -45,7 +45,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
 
     public static String signInCall(String student, String passwd) {
 
@@ -1044,30 +1044,37 @@ public class ServerCalls {
             try {
                 JSONObject jObject = new JSONObject(result);
                 JSONArray array = new JSONArray(result) ;
+                Map<String, String> map = new HashMap<String, String>();
                 List<String> myList = new ArrayList<String>();
                // Iterator iter = jObject.keys();
-                int c = 0;
+                JSONArray temp = array.getJSONArray(1);
+               // JSONArray t2 = temp.getJSONArray(0);
                 //while (iter.hasNext()) {
                 for (int i=0; i<array.length(); i++){
                     //String key = (String) iter.next();
                     //System.out.println("-----------------key " + key);
-                    String JFaculty = array.get(i).toString();
+                    //JSONObject Jobject = array.getJSONObject(i);
+                   // JSONArray keys = jObject.names();
+                   // Iterator iter = Jobject.keys();
+                    //while (iter.hasNext())
+                    //{
 
+                    //    String value = Jobject.getString(keys.get(i).toString());
+                    //    map.put(keys.get(i).toString(),value);
+                   // }
                    // list.add(faculty);
                   // String password = array.get(1).toString();
                    // String name = jObject.getString("name");
                    // String faculty = jObject.getString("faculty");
                     //String department = jObject.getString("department");
-                    myList.add(JFaculty);
-                       Toast ts = Toast.makeText(context, myList.size(), Toast.LENGTH_LONG);
+
+                       Toast ts = Toast.makeText(context, temp.toString(), Toast.LENGTH_LONG);
 
                      ts.show();
 
                 }
 
-                Toast t = Toast.makeText(context,c, Toast.LENGTH_LONG);
 
-                t.show();
             } catch (Exception e) {
                    Toast t = Toast.makeText(context,e.getMessage(), Toast.LENGTH_LONG);
 
