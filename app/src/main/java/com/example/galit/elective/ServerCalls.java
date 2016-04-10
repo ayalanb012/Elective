@@ -1,7 +1,9 @@
 package com.example.galit.elective;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.DataSetObserver;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +48,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
     public static String signInCall(String student, String passwd) {
 
@@ -93,7 +96,7 @@ public class ServerCalls {
     }
 
     public static String Search(Context ctx, String name, String number, String cat1, String cat2, String cat3, String schedule_JSON, Boolean check) {
-        myTaskSearch T = new myTaskSearch(ctx,name,number,cat1,cat2,cat3,schedule_JSON, check);
+        myTaskSearch T = new myTaskSearch(ctx, name, number, cat1, cat2, cat3, schedule_JSON, check);
         T.execute();
         try {
             return T.get().toString();
@@ -110,27 +113,24 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static void commentCall(String mail, String course, String feedback, String interest, String diff, String rating,Context t) {
+    public static void commentCall(String mail, String course, String feedback, String interest, String diff, String rating, Context t) {
 
-        myTaskComments T = new myTaskComments(mail, course, feedback,interest,diff,rating,t);
+        myTaskComments T = new myTaskComments(mail, course, feedback, interest, diff, rating, t);
         T.execute();
     }
 
-    public  static void allcommentscall(String courseNum,Context context,ListView ls)
-    {
-        myTaskAllComments T = new myTaskAllComments(courseNum,context,ls);
+    public static void allcommentscall(String courseNum, Context context, ListView ls) {
+        myTaskAllComments T = new myTaskAllComments(courseNum, context, ls);
         T.execute();
     }
 
-    public  static void getCourseDetails(String courseNum,Context context)
-    {
-        myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum,context);
+    public static void getCourseDetails(String courseNum, Context context) {
+        myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum, context);
         T.execute();
     }
 
-    public  static  void  getUserDetailsCall(String Email, EditText name, EditText password, TableLayout schedule,Spinner FacultiesList,  Spinner DepartmentList, Context context)
-    {
-        myTaskUserDetails T = new myTaskUserDetails(Email,name,password,schedule,FacultiesList,DepartmentList,context);
+    public static void getUserDetailsCall(String Email, EditText name, EditText password, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList, Context context) {
+        myTaskUserDetails T = new myTaskUserDetails(Email, name, password, schedule, FacultiesList, DepartmentList, context);
         T.execute();
     }
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -233,7 +233,7 @@ public class ServerCalls {
 
         public myTaskGetCourseDetails(String courseNum, Context ctx) {
             course_number = courseNum;
-            Appcontext =ctx;
+            Appcontext = ctx;
         }
 
         @Override
@@ -421,7 +421,7 @@ public class ServerCalls {
         @Override
         protected void onPostExecute(String result) {
 
-          //  System.out.println(result);
+            //  System.out.println(result);
         }
     }
 
@@ -794,14 +794,14 @@ public class ServerCalls {
         Context t;
 
 
-        public myTaskComments(String mail, String course, String feedback, String interest, String diff, String rating,Context t) {
+        public myTaskComments(String mail, String course, String feedback, String interest, String diff, String rating, Context t) {
             this.mail = mail;
             this.course = course;
             this.feedback = feedback;
             this.interest = interest;
             this.diff = diff;
             this.rating = rating;
-            this.t= t;
+            this.t = t;
         }
 
         @Override
@@ -864,12 +864,11 @@ public class ServerCalls {
             // envelope.setOutputSoapObject(request);
             envelope.bodyOut = request;
 
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
 
-            String res="";
+            String res = "";
 
-            try
-            {
+            try {
                 httpTransport.call(WSDL_TARGET_NAMESPACE + "/addComment", envelope);
 
                 Object response = envelope.getResponse();
@@ -877,9 +876,7 @@ public class ServerCalls {
 
                 httpTransport.getConnection().disconnect();
 
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
                 res = exception.toString();
 
             }
@@ -891,7 +888,7 @@ public class ServerCalls {
         @Override
         protected void onPostExecute(String result) {
 
-           // t.setText(result);
+            // t.setText(result);
             Toast toast = Toast.makeText(t, result, Toast.LENGTH_LONG);
             toast.show();
         }
@@ -899,17 +896,17 @@ public class ServerCalls {
     }
 
 
-    public static class myTaskAllComments extends AsyncTask<Void, Void, String>
-    {
+    public static class myTaskAllComments extends AsyncTask<Void, Void, String> {
         String courseNum;
         Context context;
         ListView comments;
-        public  myTaskAllComments(String courseNum, Context context, ListView comments)
-        {
+
+        public myTaskAllComments(String courseNum, Context context, ListView comments) {
             this.courseNum = courseNum;
-            this.context=context;
+            this.context = context;
             this.comments = comments;
         }
+
         @Override
         protected String doInBackground(Void... params) {
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getAllCommentsForCourse");
@@ -927,11 +924,10 @@ public class ServerCalls {
             // envelope.setOutputSoapObject(request);
             envelope.bodyOut = request;
 
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS,60000);
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
 
-            String res="";
-            try
-            {
+            String res = "";
+            try {
                 httpTransport.call(WSDL_TARGET_NAMESPACE + "/getAllCommentsForCourse", envelope);
 
                 Object response = envelope.getResponse();
@@ -939,9 +935,7 @@ public class ServerCalls {
 
                 httpTransport.getConnection().disconnect();
 
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
                 res = exception.toString();
 
             }
@@ -950,8 +944,8 @@ public class ServerCalls {
         }
 
         protected void onPostExecute(String result) {
-          //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
-           // toast.show();
+            //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+            // toast.show();
             try {
                 JSONObject jObject = new JSONObject(result);
 
@@ -965,19 +959,17 @@ public class ServerCalls {
                     String diff = jObject.getJSONObject(key).getString("diff");
                     String interest = jObject.getJSONObject(key).getString("interest");
                     String rating = jObject.getJSONObject(key).getString("rating");
-                    RowItem item = new RowItem(key, feedback,rating,interest,diff);
+                    RowItem item = new RowItem(key, feedback, rating, interest, diff);
                     rowItems.add(item);
 
-                 //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);
+                    //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);
 
-                   // toast.show();
+                    // toast.show();
 
                 }
                 CustomListViewAdapter adapter = new CustomListViewAdapter(context, R.layout.list_view_comment, rowItems);
                 comments.setAdapter(adapter);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Toast toast = Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_LONG);
                 toast.show();
 
@@ -1008,6 +1000,7 @@ public class ServerCalls {
             this.FacultiesList = FacultiesList;
             this.DepartmentList = DepartmentList;
             this.context = context;
+
         }
 
         @Override
@@ -1045,120 +1038,147 @@ public class ServerCalls {
 
         protected void onPostExecute(String result) {
             //System.out.println(result);
-          //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
-          //  toast.show();
+            Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+            toast.show();
             try {
-                JSONObject jObject = new JSONObject(result);
-                JSONArray array = new JSONArray(result) ;
-                Map<String, String> map = new HashMap<String, String>();
-                List<String> myList = new ArrayList<String>();
-               // Iterator iter = jObject.keys();
-                JSONArray temp = array.getJSONArray(1);
-               // JSONArray t2 = temp.getJSONArray(0);
-                //while (iter.hasNext()) {
-                for (int i=0; i<array.length(); i++){
-                    //String key = (String) iter.next();
-                    //System.out.println("-----------------key " + key);
-                    //JSONObject Jobject = array.getJSONObject(i);
-                   // JSONArray keys = jObject.names();
-                   // Iterator iter = Jobject.keys();
-                    //while (iter.hasNext())
-                    //{
+                //  JSONObject jObject = new JSONObject(result);
+                JSONArray array = new JSONArray(result);
 
-                    //    String value = Jobject.getString(keys.get(i).toString());
-                    //    map.put(keys.get(i).toString(),value);
-                   // }
-                   // list.add(faculty);
-                  // String password = array.get(1).toString();
-                   // String name = jObject.getString("name");
-                   // String faculty = jObject.getString("faculty");
-                    //String department = jObject.getString("department");
+                // Iterator iter = jObject.keys();
+                JSONObject details = array.getJSONObject(0);
 
-                       Toast ts = Toast.makeText(context, temp.toString(), Toast.LENGTH_LONG);
+                String password = details.getString("password");
+                this.password.setText(password);
+                String name = details.getString("name");
+                this.name.setText(name);
+                String faculty = details.getString("faculty");
 
-                     ts.show();
+                String department = details.getString("department");
+                String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+                String[] short_days = {"sun", "mon", "tue", "wed", "thu", "fri"};
+                JSONObject schedule = array.getJSONObject(1);
+                String trID1 = "";
+                for (int i = 0; i < days.length; i++) {
+                    JSONObject object = schedule.getJSONObject(days[i]);
+                    Iterator<String> iter = object.keys();
+                    int hour = 8;
+                    while (iter.hasNext()) {
+                        String key = iter.next();
+                        String t = object.getString(key);
+                        //trID1 = "tr_" + short_days[i] + "_" + hour;
+                        trID1 = "tr_sun_8";
+                        //     int trID2 = context.getResources().getIdentifier(trID1, "id", "com.example.galit.elective");
+                        //   TableRow tr = (TableRow) this.schedule.findViewById(trID2);
+                        View view = this.schedule.getChildAt(i);
+                        if (view instanceof TableRow) {
+                            // then, you can remove the the row you want...
+                            // for instance...
+                            TableRow tr = (TableRow) view;
+
+                            Toast ts = Toast.makeText(context, trID1, Toast.LENGTH_LONG);
+
+                            ts.show();
+
+                            if (t == "True")
+                                tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
+                            else //the cell is blue
+                                tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
+                            hour++;
+                            break;
+
+                        }
+                        break;
+                    }
 
                 }
-
-
             } catch (Exception e) {
-                   Toast t = Toast.makeText(context,e.getMessage(), Toast.LENGTH_LONG);
+                Toast ts = Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
 
-                 t.show();
+                ts.show();
 
             }
+
+
+            //}
+
+
+        }
+
+
+        private static class myTaskgetUserName extends AsyncTask<Void, Void, String> {
+            String student_mail;
+
+            public myTaskgetUserName(String s) {
+                student_mail = s;
+            }
+
+            @Override
+            protected void onProgressUpdate(Void... progress) {
+                // setProgressPercent(progress[0]);
+            }
+
+            @Override
+            protected void onPreExecute() {
+                // TODO Auto-generated method stub
+                super.onPreExecute();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+
+                SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getName");
+                PropertyInfo propertyInfo1 = new PropertyInfo();
+                propertyInfo1.type = PropertyInfo.STRING_CLASS;
+                propertyInfo1.name = "mail";
+                propertyInfo1.setValue(student_mail);
+
+                request.addProperty(propertyInfo1);
+
+
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                        SoapEnvelope.VER11);
+                envelope.dotNet = true;
+
+                // envelope.setOutputSoapObject(request);
+                envelope.bodyOut = request;
+
+
+                HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+                String res;
+
+                try {
+                    httpTransport.call(WSDL_TARGET_NAMESPACE + "/getName", envelope);
+
+                    Object response = envelope.getResponse();
+                    res = response.toString();
+                    // tvData1.setText(response.toString());
+                    httpTransport.getConnection().disconnect();
+
+                } catch (Exception exception) {
+                    // tvData1.setText(exception.toString() + "  Or enter number is not Available!");
+                    res = exception.toString();
+                }
+
+                return res;
+            }
+
+
+            @Override
+            protected void onPostExecute(String result) {
+                //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
+                //toast.show();
+            }
+
 
         }
     }
 
 
-    private static class myTaskgetUserName extends AsyncTask<Void, Void, String> {
-        String student_mail;
-
-        public myTaskgetUserName(String s) {
-            student_mail = s;
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... progress) {
-            // setProgressPercent(progress[0]);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            // TODO Auto-generated method stub
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-
-            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getName");
-            PropertyInfo propertyInfo1 = new PropertyInfo();
-            propertyInfo1.type = PropertyInfo.STRING_CLASS;
-            propertyInfo1.name = "mail";
-            propertyInfo1.setValue(student_mail);
-
-            request.addProperty(propertyInfo1);
 
 
-            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-                    SoapEnvelope.VER11);
-            envelope.dotNet = true;
-
-            // envelope.setOutputSoapObject(request);
-            envelope.bodyOut = request;
 
 
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
-
-            String res;
-
-            try {
-                httpTransport.call(WSDL_TARGET_NAMESPACE+"/getName", envelope);
-
-                Object response = envelope.getResponse();
-                res = response.toString();
-                // tvData1.setText(response.toString());
-                httpTransport.getConnection().disconnect();
-
-            } catch (Exception exception) {
-                // tvData1.setText(exception.toString() + "  Or enter number is not Available!");
-                res = exception.toString();
-            }
-
-            return res;
-        }
-
-
-        @Override
-        protected void onPostExecute(String result) {
-            //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
-            //toast.show();
-        }
-
-
-    }
 }
 
 
