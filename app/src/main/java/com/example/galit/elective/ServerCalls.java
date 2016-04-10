@@ -1040,15 +1040,11 @@ public class ServerCalls {
 
         protected void onPostExecute(String result) {
             //System.out.println(result);
-            Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
-            toast.show();
+
             try {
-                //  JSONObject jObject = new JSONObject(result);
+
                 JSONArray array = new JSONArray(result);
-
-                // Iterator iter = jObject.keys();
                 JSONObject details = array.getJSONObject(0);
-
                 String password = details.getString("password");
                 this.password.setText(password);
                 String name = details.getString("name");
@@ -1057,39 +1053,31 @@ public class ServerCalls {
 
                 String department = details.getString("department");
                 String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-                String[] short_days = {"sun", "mon", "tue", "wed", "thu", "fri"};
                 JSONObject schedule = array.getJSONObject(1);
-                String trID1 = "";
+                getFacultiesCall(FacultiesList, context);
+                FacultiesList.setSelection(getIndex(FacultiesList, faculty));
+                //int j= getIndex(FacultiesList, faculty);
+                //FacultiesList.setSelection(((ArrayAdapter<String>)FacultiesList.getAdapter()).getPosition(faculty));
+
+
+
+               // FacultiesList.setSelection(getIndex(FacultiesList, faculty));
+
+
                 for (int i = 0; i < days.length; i++) {
                     JSONObject object = schedule.getJSONObject(days[i]);
                     Iterator<String> iter = object.keys();
-                    int hour = 8;
                     while (iter.hasNext()) {
                         String key = iter.next();
                         String t = object.getString(key);
-                        //trID1 = "tr_" + short_days[i] + "_" + hour;
-                        trID1 = "tr_sun_8";
-                        //     int trID2 = context.getResources().getIdentifier(trID1, "id", "com.example.galit.elective");
-                        //   TableRow tr = (TableRow) this.schedule.findViewById(trID2);
-                        View view = this.schedule.getChildAt(i);
-                        if (view instanceof TableRow) {
-                            // then, you can remove the the row you want...
-                            // for instance...
-                            TableRow tr = (TableRow) view;
+                        int hour= Integer.parseInt(key)-7;
+                        TableRow tr = (TableRow) this.schedule.getChildAt(hour);
+                        TableRow td = (TableRow)tr.getChildAt(days.length-1-i);
+                        if (t.equals("True"))
+                            td.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
+                        else //the cell is blue
+                            td.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
 
-                            Toast ts = Toast.makeText(context, trID1, Toast.LENGTH_LONG);
-
-                            ts.show();
-
-                            if (t == "True")
-                                tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
-                            else //the cell is blue
-                                tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
-                            hour++;
-                            break;
-
-                        }
-                        break;
                     }
 
                 }
@@ -1101,7 +1089,7 @@ public class ServerCalls {
             }
 
 
-            //}
+
 
 
         }
@@ -1174,7 +1162,22 @@ public class ServerCalls {
 
 
         }
+
+    private static int getIndex(Spinner spinner, String myString){
+
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++) {
+            if (spinner.getItemAtPosition(i).equals(myString)){
+                index = i;
+                System.out.print("index "+i);
+                break;
+            }
+        }
+        return index;
     }
+
+}
 
 
 

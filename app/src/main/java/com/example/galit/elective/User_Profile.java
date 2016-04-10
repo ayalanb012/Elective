@@ -30,7 +30,7 @@ public class User_Profile extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_wish_list_layout,R.id.list_item,popular_courses);
 
         listView.setAdapter(adapter);
-        ServerCalls.getUserDetailsCall("ccc@ccc.com", name, pass, schedule, faculty, department, context);
+        ServerCalls.getUserDetailsCall("galit.naim@gmail.com", name, pass, schedule, faculty, department, context);
 
     }
 }
