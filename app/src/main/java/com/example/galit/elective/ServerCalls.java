@@ -387,6 +387,12 @@ public class ServerCalls {
             propertyInfo7.setValue(mycheck);
             request.addProperty(propertyInfo7);
 
+            PropertyInfo propertyInfo8 = new PropertyInfo();
+            propertyInfo8.type = PropertyInfo.STRING_CLASS;
+            propertyInfo8.name = "username";
+            propertyInfo8.setValue(MainActivity.session.getusename());
+            request.addProperty(propertyInfo8);
+
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;
 
