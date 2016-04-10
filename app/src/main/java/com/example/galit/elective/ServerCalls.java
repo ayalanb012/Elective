@@ -390,7 +390,10 @@ public class ServerCalls {
             PropertyInfo propertyInfo8 = new PropertyInfo();
             propertyInfo8.type = PropertyInfo.STRING_CLASS;
             propertyInfo8.name = "username";
-            propertyInfo8.setValue(MainActivity.session.getusename());
+            if(MainActivity.session.isLoggedIn().equals("True"))
+                propertyInfo8.setValue(MainActivity.session.getusename());
+            else
+                propertyInfo8.setValue("");
             request.addProperty(propertyInfo8);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
@@ -895,7 +898,6 @@ public class ServerCalls {
 
     }
 
-
     public static class myTaskAllComments extends AsyncTask<Void, Void, String> {
         String courseNum;
         Context context;
@@ -1103,9 +1105,9 @@ public class ServerCalls {
 
 
         }
+    }
 
-
-        private static class myTaskgetUserName extends AsyncTask<Void, Void, String> {
+    private static class myTaskgetUserName extends AsyncTask<Void, Void, String> {
             String student_mail;
 
             public myTaskgetUserName(String s) {
@@ -1179,7 +1181,7 @@ public class ServerCalls {
 
 
 
-}
+
 
 
 
