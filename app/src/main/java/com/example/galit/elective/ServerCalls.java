@@ -48,7 +48,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
 
     public static String signInCall(String student, String passwd) {
 
@@ -79,14 +79,14 @@ public class ServerCalls {
     }
 
 
-    public static void getFacultiesCall(Spinner list, Context ctx) {
+    public static void getFacultiesCall(Spinner list, Context ctx, String defaultValue) {
 
-        myTaskGetFaculties T = new myTaskGetFaculties(list, ctx);
+        myTaskGetFaculties T = new myTaskGetFaculties(list, ctx, defaultValue);
         T.execute();
     }
 
-    public static void setDepartments(Spinner sp, Context ctx, String item) {
-        myTaskSetDepartments T = new myTaskSetDepartments(sp, ctx, item);
+    public static void setDepartments(Spinner sp, Context ctx, String item,String defaultValue) {
+        myTaskSetDepartments T = new myTaskSetDepartments(sp, ctx, item, defaultValue);
         T.execute();
     }
 
@@ -538,11 +538,13 @@ public class ServerCalls {
         Spinner DepartmentList;
         Context Appcontext;
         String Faculty;
+        String defaultValue;
 
-        public myTaskSetDepartments(Spinner sp, Context ctx, String item) {
+        public myTaskSetDepartments(Spinner sp, Context ctx, String item,String defaultValue) {
             DepartmentList = sp;
             Appcontext = ctx;
             Faculty = item;
+            this.defaultValue = defaultValue;
         }
 
         @Override
@@ -614,6 +616,8 @@ public class ServerCalls {
 
                 DepartmentList.setAdapter(dataAdapter);
 
+                if (defaultValue!=null)
+                    DepartmentList.setSelection((dataAdapter.getPosition(defaultValue)));
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -628,10 +632,12 @@ public class ServerCalls {
 
         Spinner FacultiesList;
         Context Appcontext;
+        String defaultValue;
 
-        public myTaskGetFaculties(Spinner sp, Context ctx) {
+        public myTaskGetFaculties(Spinner sp, Context ctx,String defaultValue) {
             FacultiesList = sp;
             Appcontext = ctx;
+            this.defaultValue = defaultValue;
         }
 
         @Override
@@ -698,6 +704,9 @@ public class ServerCalls {
                 dataAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown_item);
 
                 FacultiesList.setAdapter(dataAdapter);
+
+                if (defaultValue!=null)
+                    FacultiesList.setSelection((dataAdapter.getPosition(defaultValue)));
 
 
             } catch (JSONException e) {
@@ -1054,14 +1063,8 @@ public class ServerCalls {
                 String department = details.getString("department");
                 String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
                 JSONObject schedule = array.getJSONObject(1);
-                getFacultiesCall(FacultiesList, context);
-                FacultiesList.setSelection(getIndex(FacultiesList, faculty));
-                //int j= getIndex(FacultiesList, faculty);
-                //FacultiesList.setSelection(((ArrayAdapter<String>)FacultiesList.getAdapter()).getPosition(faculty));
-
-
-
-               // FacultiesList.setSelection(getIndex(FacultiesList, faculty));
+                getFacultiesCall(FacultiesList, context, faculty);
+                setDepartments(DepartmentList,context,faculty,department);
 
 
                 for (int i = 0; i < days.length; i++) {

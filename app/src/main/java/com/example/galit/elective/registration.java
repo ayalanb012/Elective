@@ -80,7 +80,7 @@ public class registration extends AppCompatActivity  {
 
         Spinner FacultySpinner = (Spinner) findViewById(R.id.spinner1);
 
-        ServerCalls.getFacultiesCall(FacultySpinner, ctx);
+        ServerCalls.getFacultiesCall(FacultySpinner, ctx,null);
 
         FacultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -90,7 +90,7 @@ public class registration extends AppCompatActivity  {
                 //toast.show();
 
                 Spinner DepartmentSpinner = (Spinner) findViewById(R.id.spinner2);
-                ServerCalls.setDepartments(DepartmentSpinner,getApplicationContext(),item);
+                ServerCalls.setDepartments(DepartmentSpinner,getApplicationContext(),item,null);
             }
 
             @Override
