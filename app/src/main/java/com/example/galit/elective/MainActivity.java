@@ -11,33 +11,47 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Button signInBttn;
 
-
+    TextView hello;
     public static Session session = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        signInBttn = (Button) findViewById(R.id.bttn_sign_in);
+
         setContentView(R.layout.activity_main);
-
-        if(session==null)
+        if(session==null) {
             session = new Session(getApplicationContext()); //first time - need to create session
+            //signInBttn.setText("התחברות");
 
-        else { //the user is logged in
-            TextView hello = (TextView) findViewById(R.id.hello_txt);
+        }
+        else if (session.isLoggedIn().equals("True")){ //the user is logged in
+            hello = (TextView) findViewById(R.id.hello_txt);
             String name = ServerCalls.getNameCall(session.getusename());
             hello.setText( " שלום " + name);
-        }
 
+         //   signInBttn.setText("התנתק");
+
+        }
+        else {
+          //  signInBttn.setText("התחברות");
+        }
     }
 
     //this method is activated when sign in is clicked. the method opens signIn activity
     public void SignInClicked(View v)
     {
         Button button = (Button) v;
-        startActivity(new Intent(getApplicationContext(), SignIn.class));
-
+        if(session.isLoggedIn().equals("False"))   //user wants to sign in
+            startActivity(new Intent(getApplicationContext(), SignIn.class));
+        else    //sign out user
+        {
+            session.logout();
+            hello.setText("שלום");
+        }
     }
 
     //this method is activated when registration is clicked. the method opens registrarion activity

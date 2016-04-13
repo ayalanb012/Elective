@@ -12,7 +12,9 @@ public class Session {
     private SharedPreferences prefs;
 
     public Session(Context cntx) {
+
         prefs = PreferenceManager.getDefaultSharedPreferences(cntx);
+//        prefs.edit().putString("loggedIn","False");
     }
 
     public void setusename(String usename) {

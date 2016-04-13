@@ -48,7 +48,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://132.72.65.103/WebService.asmx";
+    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
 
     public static String signInCall(String student, String passwd) {
 
@@ -743,7 +743,7 @@ public class ServerCalls {
         @Override
         protected String doInBackground(Void... params) {
 
-            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "isRegistered");
             PropertyInfo propertyInfo1 = new PropertyInfo();
             propertyInfo1.type = PropertyInfo.STRING_CLASS;
             propertyInfo1.name = "eid";
@@ -770,7 +770,8 @@ public class ServerCalls {
             String res;
 
             try {
-                httpTransport.call(SOAP_ACTION, envelope);
+               //httpTransport.call(SOAP_ACTION, envelope);
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/isRegistered", envelope);
 
                 Object response = envelope.getResponse();
                 res = response.toString();
@@ -1166,19 +1167,6 @@ public class ServerCalls {
 
         }
 
-    private static int getIndex(Spinner spinner, String myString){
-
-        int index = 0;
-
-        for (int i=0;i<spinner.getCount();i++) {
-            if (spinner.getItemAtPosition(i).equals(myString)){
-                index = i;
-                System.out.print("index "+i);
-                break;
-            }
-        }
-        return index;
-    }
 
 }
 
