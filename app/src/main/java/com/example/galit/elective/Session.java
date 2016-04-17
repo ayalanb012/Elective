@@ -24,6 +24,7 @@ public class Session {
     }
 
     public void logout(){
+        prefs.edit().putString("usename", "").commit();
         prefs.edit().putString("loggedIn","False").commit();
     }
 

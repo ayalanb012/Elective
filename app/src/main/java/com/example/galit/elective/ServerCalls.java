@@ -48,7 +48,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://----/webservice.asmx";
+    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
 
     public static String signInCall(String student, String passwd) {
 
@@ -90,8 +90,8 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static void Register(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON) {
-        myTaskRegister T = new myTaskRegister(ctx, name, mail, pwd, Fac, Dep, schedule_JSON);
+    public static void Register(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON, EditText mail_box) {
+        myTaskRegister T = new myTaskRegister(ctx, name, mail, pwd, Fac, Dep, schedule_JSON,mail_box);
         T.execute();
     }
 
@@ -437,8 +437,9 @@ public class ServerCalls {
         String user_Department;
         String schedule;
         Context myCtx;
+        EditText mail_box;
 
-        public myTaskRegister(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON) {
+        public myTaskRegister(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON, EditText mail_box) {
             user_name = name;
             user_mail = mail;
             user_pwd = pwd;
@@ -446,6 +447,8 @@ public class ServerCalls {
             user_Department = Dep;
             schedule = schedule_JSON;
             myCtx = ctx;
+            this.mail_box = mail_box;
+
         }
 
         @Override
@@ -463,6 +466,12 @@ public class ServerCalls {
         protected String doInBackground(Void... params) {
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "Register");
+            SoapObject request1 = new SoapObject(WSDL_TARGET_NAMESPACE, "isEmailValid");
+            PropertyInfo propertyInfo_validation = new PropertyInfo();
+            propertyInfo_validation.type = PropertyInfo.STRING_CLASS;
+            propertyInfo_validation.name = "email";
+            propertyInfo_validation.setValue(user_mail);
+            request1.addProperty(propertyInfo_validation);
 
             PropertyInfo propertyInfo1 = new PropertyInfo();
             propertyInfo1.type = PropertyInfo.STRING_CLASS;
@@ -500,6 +509,10 @@ public class ServerCalls {
             propertyInfo6.setValue(schedule);
             request.addProperty(propertyInfo6);
 
+            SoapSerializationEnvelope envelope1 = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope1.dotNet = true;
+            envelope1.bodyOut = request1;
+
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;
 
@@ -508,8 +521,24 @@ public class ServerCalls {
             HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
 
             String res = "=[";
-
             try {
+
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/isEmailValid", envelope1);
+
+                Object response = envelope1.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+
+            if (res.equals("true")) {
+                res="";
+                return "";
+            }
+            try {
+
                 httpTransport.call(WSDL_TARGET_NAMESPACE + "/Register", envelope);
 
                 Object response = envelope.getResponse();
@@ -527,7 +556,10 @@ public class ServerCalls {
         @Override
         protected void onPostExecute(String result) {
             //showResult.setText(result);
-
+            if(result.equals(""))
+            {
+                mail_box.setError("אימייל כבר בשימוש, נסה אימייל אחר");
+            }
             Toast toast = Toast.makeText(myCtx, result, Toast.LENGTH_LONG);
             toast.show();
         }

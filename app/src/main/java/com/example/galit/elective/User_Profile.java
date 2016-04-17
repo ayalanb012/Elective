@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
+import android.widget.Toast;
 
 public class User_Profile extends AppCompatActivity {
 
@@ -30,7 +31,9 @@ public class User_Profile extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_wish_list_layout,R.id.list_item,popular_courses);
 
         listView.setAdapter(adapter);
-        ServerCalls.getUserDetailsCall("galit.naim@gmail.com", name, pass, schedule, faculty, department, context);
+        Toast toast = Toast.makeText(getApplicationContext(), MainActivity.session.getusename(), Toast.LENGTH_LONG);
+        toast.show();
+        ServerCalls.getUserDetailsCall(MainActivity.session.getusename(), name, pass, schedule, faculty, department, context);
 
     }
 }

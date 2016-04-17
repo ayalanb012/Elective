@@ -130,6 +130,7 @@ public class registration extends AppCompatActivity  {
     //this method checks if all the form is valid
     public boolean validate_form()
     {
+        email_text = (EditText) findViewById(R.id.txt_mail);
         if (email_text.getError()!=null || password_text.getError()!=null  || conf_password_text.getError()!=null)
             return  false;
         if (password_text.getText().toString().equals("") || email_text.getText().toString().equals("") || conf_password_text.getText().toString().equals(""))
@@ -335,10 +336,11 @@ public class registration extends AppCompatActivity  {
             String pwd = pwd_ET.getText().toString();
 
             Context ctx = getApplicationContext();
-            ServerCalls.Register(ctx,name, mail, pwd, Faculty, Department, Schedule_Json_str); //server call to register the user
-
-            startActivity(new Intent(getApplicationContext(), SignIn.class)); //move user to sign in page
-            finish();
+            ServerCalls.Register(ctx,name, mail, pwd, Faculty, Department, Schedule_Json_str, email_text); //server call to register the user
+            if(validate_form()) {
+                startActivity(new Intent(getApplicationContext(), SignIn.class)); //move user to sign in page
+                finish();
+            }
 
         }
 
