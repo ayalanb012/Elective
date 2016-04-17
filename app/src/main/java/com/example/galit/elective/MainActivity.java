@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if(session==null) {
             session = new Session(getApplicationContext()); //first time - need to create session
+
             //signInBttn.setText("התחברות");
 
         }
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     //this method is activated when sign in is clicked. the method opens signIn activity
     public void SignInClicked(View v)
     {
-        Button button = (Button) v;
+
         if(session.isLoggedIn().equals("False"))   //user wants to sign in
             startActivity(new Intent(getApplicationContext(), SignIn.class));
         else    //sign out user
@@ -62,34 +63,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //this method is activated when logo is clicked.
-   // public void HomeClicked(View v)
-   // {
 
-        //ImageButton button = (ImageButton) v;
-        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
-   // }
 
     //this method is activated when search is clicked. the method opens Search activity
     public void SearchClicked(View v)
     {
-        Button button = (Button) v;
+      if (session.isLoggedIn().equals("True"))
         startActivity(new Intent(getApplicationContext(), Search.class));
+        else {
+          Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לבצע חיפוש", Toast.LENGTH_LONG);
+          toast.show();
+      }
     }
 
 
     public void recommandClicked(View v)
     {
-        Button button = (Button) v;
+        if (session.isLoggedIn().equals("True"))
         startActivity(new Intent(getApplicationContext(), reccomand.class));
-
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לקבל המלצה", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     public void userClicked(View v)
     {
-        ImageButton button = (ImageButton) v;
-        startActivity(new Intent(getApplicationContext(), User_Profile.class));
+        if(session.isLoggedIn().equals("True"))
+            startActivity(new Intent(getApplicationContext(), User_Profile.class));
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "אנא התחבר/הרשם על מנת לצפות בפרופיל", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
 }

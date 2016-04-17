@@ -90,9 +90,15 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static void Register(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON, EditText mail_box) {
-        myTaskRegister T = new myTaskRegister(ctx, name, mail, pwd, Fac, Dep, schedule_JSON,mail_box);
+    public static String Register(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON) {
+        myTaskRegister T = new myTaskRegister(ctx, name, mail, pwd, Fac, Dep, schedule_JSON);
         T.execute();
+        try {
+            return T.get().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error in register";
     }
 
     public static String Search(Context ctx, String name, String number, String cat1, String cat2, String cat3, String schedule_JSON, Boolean check) {
@@ -437,9 +443,9 @@ public class ServerCalls {
         String user_Department;
         String schedule;
         Context myCtx;
-        EditText mail_box;
 
-        public myTaskRegister(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON, EditText mail_box) {
+
+        public myTaskRegister(Context ctx, String name, String mail, String pwd, String Fac, String Dep, String schedule_JSON) {
             user_name = name;
             user_mail = mail;
             user_pwd = pwd;
@@ -447,7 +453,7 @@ public class ServerCalls {
             user_Department = Dep;
             schedule = schedule_JSON;
             myCtx = ctx;
-            this.mail_box = mail_box;
+
 
         }
 
@@ -534,8 +540,8 @@ public class ServerCalls {
             }
 
             if (res.equals("true")) {
-                res="";
-                return "";
+                res="invalidMail";
+                return res;
             }
             try {
 
@@ -556,10 +562,7 @@ public class ServerCalls {
         @Override
         protected void onPostExecute(String result) {
             //showResult.setText(result);
-            if(result.equals(""))
-            {
-                mail_box.setError("אימייל כבר בשימוש, נסה אימייל אחר");
-            }
+
             Toast toast = Toast.makeText(myCtx, result, Toast.LENGTH_LONG);
             toast.show();
         }

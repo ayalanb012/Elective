@@ -1,5 +1,6 @@
 package com.example.galit.elective;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -14,16 +15,19 @@ public class Session {
     public Session(Context cntx) {
 
         prefs = PreferenceManager.getDefaultSharedPreferences(cntx);
+
 //        prefs.edit().putString("loggedIn","False");
     }
 
     public void setusename(String usename) {
+        prefs.edit().clear().commit();
         prefs.edit().putString("usename", usename).commit();
         prefs.edit().putString("loggedIn","True").commit();
         //prefs.Commit();
     }
 
     public void logout(){
+        prefs.edit().clear().commit();
         prefs.edit().putString("usename", "").commit();
         prefs.edit().putString("loggedIn","False").commit();
     }
