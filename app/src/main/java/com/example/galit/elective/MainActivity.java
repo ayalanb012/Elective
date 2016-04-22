@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         if(session==null) {
             session = new Session(getApplicationContext()); //first time - need to create session
 
-            //signInBttn.setText("התחברות");
+          //  signInBttn.setText("התחברות");
 
         }
         else if (session.isLoggedIn().equals("True")){ //the user is logged in
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             String name = ServerCalls.getNameCall(session.getusename());
             hello.setText( " שלום " + name);
 
-         //   signInBttn.setText("התנתק");
+            //signInBttn.setText("התנתק");
 
         }
         else {
