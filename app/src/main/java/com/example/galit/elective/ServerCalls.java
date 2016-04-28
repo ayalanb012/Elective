@@ -1016,6 +1016,8 @@ public class ServerCalls {
                 }
                 CustomListViewAdapter adapter = new CustomListViewAdapter(context, R.layout.list_view_comment, rowItems);
                 comments.setAdapter(adapter);
+
+                User_Profile.setListViewHeightBasedOnItems(comments);
             } catch (Exception e) {
                 Toast toast = Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_LONG);
                 toast.show();

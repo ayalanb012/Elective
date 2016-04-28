@@ -33,7 +33,6 @@ public class Comment extends Activity {
         diff = (TextView) findViewById(R.id.diff);
         comment = (TextView) findViewById(R.id.comment);
         Intent caller = getIntent();
-
         final String  course_num  = caller.getStringExtra("Selected_course_num");
         //validation of grade
         grade.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -81,7 +80,7 @@ public class Comment extends Activity {
 
             @Override
             public void onClick(View v) {
-
+                String mail  =MainActivity.session.getusename();
                 String name_string = name.getText().toString();
                 String grade_string = grade.getText().toString();
                 String interest_string = interest.getText().toString();
@@ -91,11 +90,14 @@ public class Comment extends Activity {
                 String comment_string = comment.getText().toString();
                 Context c = getApplicationContext();
                // TextView tvData1 = (TextView) findViewById(R.id.textView23);
-                ServerCalls.commentCall(name_string,course_num, comment_string, interest_string, diff_string,grade_string,c);
-
-
-                startActivity(new Intent(getApplicationContext(), course_page.class));
+                ServerCalls.commentCall(mail, course_num, comment_string, interest_string, diff_string, grade_string, c);
+                Intent myintent = new Intent(getApplicationContext(), course_page.class);
+                myintent.putExtra("caller_activity", "Commment");
+                myintent.putExtra("Selected_course_num",course_num);
+                startActivity(myintent);
                 finish();
+
+
             }
         });
     }

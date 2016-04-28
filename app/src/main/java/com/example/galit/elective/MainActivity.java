@@ -1,6 +1,8 @@
 package com.example.galit.elective;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        signInBttn = (Button) findViewById(R.id.bttn_sign_in);
+
 
         setContentView(R.layout.activity_main);
+        signInBttn = (Button) findViewById(R.id.bttn_sign_in);
         if(session==null) {
             session = new Session(getApplicationContext()); //first time - need to create session
 
@@ -32,15 +35,21 @@ public class MainActivity extends AppCompatActivity {
         else if (session.isLoggedIn().equals("True")){ //the user is logged in
             hello = (TextView) findViewById(R.id.hello_txt);
             String name = ServerCalls.getNameCall(session.getusename());
-            hello.setText( " שלום " + name);
-
+            hello.setText(" שלום " + name);
+           // SetButtonText();
+            //myTaskChangetextInButtom task = new myTaskChangetextInButtom(signInBttn);
+            //task.execute();
             //signInBttn.setText("התנתק");
 
         }
         else {
+            //myTaskChangetextInButtom task = new myTaskChangetextInButtom(signInBttn);
+            //task.execute();
+         //   SetButtonText();
           //  signInBttn.setText("התחברות");
         }
-    }
+
+            }
 
     //this method is activated when sign in is clicked. the method opens signIn activity
     public void SignInClicked(View v)
@@ -94,6 +103,45 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast toast = Toast.makeText(getApplicationContext(), "אנא התחבר/הרשם על מנת לצפות בפרופיל", Toast.LENGTH_LONG);
             toast.show();
+        }
+    }
+
+    public void SetButtonText()
+    {
+        MainActivity.this.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(session!=null) {
+                    signInBttn = (Button) findViewById(R.id.bttn_sign_in);
+                    if (session.isLoggedIn().equals("True")) {
+                        signInBttn.setText("התנתק");
+                    }
+                    else {
+                        signInBttn.setText("התחברות");
+                    }
+                }
+            }
+        });
+
+    }
+
+    public static class myTaskChangetextInButtom extends AsyncTask<Void, Void, String> {
+        Button signInBttn;
+        public  myTaskChangetextInButtom(Button signInBttn){
+            this.signInBttn  = signInBttn;
+            if(session!=null) {
+                if (session.isLoggedIn().equals("True")) {
+                    signInBttn.setText("התנתק");
+                }
+                else {
+                    signInBttn.setText("התחברות");
+                }
+            }
+        }
+        @Override
+        protected String doInBackground(Void... params) {
+        return "";
         }
     }
 

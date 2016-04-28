@@ -58,7 +58,7 @@ public class course_page extends Activity {
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
 
-        if(call.equals("search_result")){ //the activity that started this activity was search results page
+        if(call.equals("search_result") || call.equals("Commment")){ //the activity that started this activity was search results page
 
              course_num  = caller.getStringExtra("Selected_course_num");
            // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
@@ -69,8 +69,8 @@ public class course_page extends Activity {
         }
         else { //-------------->> check if we came from a different activity, comment, need to add code
 
-            Toast toast1 = Toast.makeText(getApplicationContext(),"in the else: ["+ call+"]", Toast.LENGTH_LONG);
-            toast1.show();
+            //Toast toast1 = Toast.makeText(getApplicationContext(),"in the else: ["+ call+"]", Toast.LENGTH_LONG);
+            //toast1.show();
         }
 
         list_view.setOnTouchListener(new View.OnTouchListener() {

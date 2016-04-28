@@ -92,6 +92,65 @@
                 android:background="#1E99DD"
                 android:textColor="#ffffff"
                 android:textSize="24dp" />
-        </LinearLayout>   </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="שכחת סיסמה?"
+                android:id="@+id/txt_forgot_password"
+                android:layout_weight="3"
+                android:onClick="ForgotPasswordClicked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/et_forgot_mail"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="אי מייל"
+                android:id="@+id/txt_forgot_mail"
+                android:layout_weight="3"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="שלח אימייל לאיפוס"
+                android:id="@+id/bttn_forgot_mail"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#1E99DD"
+                android:textColor="#ffffff"
+                android:textSize="24dp"
+                android:visibility="invisible"
+                android:onClick="SubmitForgotPassword" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
