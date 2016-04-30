@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -125,31 +128,38 @@ public class SignIn extends AppCompatActivity {
     {
         EditText et = (EditText) findViewById(R.id.et_forgot_mail);
         if(et.getError()==null && isValidEmail(et.getText().toString())) {
-            myTaskSendMail t = new myTaskSendMail(et);
+            Set<PasswordGenerator.PasswordCharacterSet> values = new HashSet<PasswordGenerator.PasswordCharacterSet>(EnumSet.allOf(SummerCharacterSets.class));
+            PasswordGenerator pwGenerator = new PasswordGenerator(values, 6, 10);
+            String s = pwGenerator.generatePassword().toString();
+
+            myTaskSendMail t = new myTaskSendMail(et,s);
             t.execute();
             Toast toast = Toast.makeText(getApplicationContext(), "נשלחה סיסמה חדשה לאימייל שהקלדת", Toast.LENGTH_LONG);
             toast.show();
         }
-        Toast toast = Toast.makeText(getApplicationContext(),"הכנס מייל תקין" , Toast.LENGTH_LONG);
-        toast.show();
-
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "הכנס מייל תקין", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     //this class sends mail in background thread via async task
     public static class myTaskSendMail extends AsyncTask<Void, Void, String> {
         EditText Mail;
         String s;
-        public  myTaskSendMail(EditText Mail){
+        String password;
+        public  myTaskSendMail(EditText Mail,String password){
             this.Mail = Mail;
             s = Mail.getText().toString();
+            this.password = password;
         }
         @Override
         protected String doInBackground(Void... params) {
             try {
 
                 GMailSender sender = new GMailSender("elective.app@gmail.com", "password");
-                sender.sendMail("test",
-                        "This is a test",
+                sender.sendMail("אפליקציית קורסים כלליים- שחזור סיסמה",
+                        "שלום, סיסמתך החדשה היא: "+"\u202C"+"\n"+password+"\u202B",
                         "elective.app@gmail.com",
                         s);
 
@@ -159,4 +169,44 @@ public class SignIn extends AppCompatActivity {
             return "";
         }
     }
+
+
+    private enum SummerCharacterSets implements PasswordGenerator.PasswordCharacterSet {
+        ALPHA_UPPER(ALPHA_UPPER_CHARACTERS, 1),
+        ALPHA_LOWER(ALPHA_LOWER_CHARACTERS, 1),
+        NUMERIC(NUMERIC_CHARACTERS, 1),
+        SPECIAL(SPECIAL_CHARACTERS, 1);
+
+        private final char[] chars;
+        private final int minUsage;
+
+        private SummerCharacterSets(char[] chars, int minUsage) {
+            this.chars = chars;
+            this.minUsage = minUsage;
+        }
+
+        @Override
+        public char[] getCharacters() {
+            return chars;
+        }
+
+        @Override
+        public int getMinCharacters() {
+            return minUsage;
+        }
+    }
+
+    private static final char[] ALPHA_UPPER_CHARACTERS = { 'A', 'B', 'C', 'D',
+            'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+            'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+    private static final char[] ALPHA_LOWER_CHARACTERS = { 'a', 'b', 'c', 'd',
+            'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+            'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+    private static final char[] NUMERIC_CHARACTERS = { '0', '1', '2', '3', '4',
+            '5', '6', '7', '8', '9' };
+    private static final char[] SPECIAL_CHARACTERS = { '~', '`', '!', '@', '#',
+            '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', '{',
+            ']', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/',
+            '?' };
+
 }
