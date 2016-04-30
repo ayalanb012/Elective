@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
+
             //myTaskChangetextInButtom task = new myTaskChangetextInButtom(signInBttn);
             //task.execute();
          //   SetButtonText();
@@ -60,15 +61,22 @@ public class MainActivity extends AppCompatActivity {
         else    //sign out user
         {
             session.logout();
-            hello.setText("שלום");
+            hello = (TextView) findViewById(R.id.hello_txt);
+            hello.setText(" שלום " );
+           // startActivity(new Intent(getApplicationContext(), SignIn.class));
         }
     }
 
     //this method is activated when registration is clicked. the method opens registrarion activity
     public void RegisterClicked(View v)
     {
-        Button button = (Button) v;
-        startActivity(new Intent(getApplicationContext(), registration.class));
+        if(session.isLoggedIn().equals("False"))
+            startActivity(new Intent(getApplicationContext(), registration.class));
+        else
+        {
+            Toast toast = Toast.makeText(getApplicationContext(),"נא התנתק כדי להירשם", Toast.LENGTH_LONG);
+            toast.show();
+        }
 
     }
 

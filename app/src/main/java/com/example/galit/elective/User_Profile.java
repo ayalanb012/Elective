@@ -2,6 +2,8 @@ package com.example.galit.elective;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 public class User_Profile extends AppCompatActivity {
@@ -74,4 +77,16 @@ public class User_Profile extends AppCompatActivity {
         }
 
     }
+    public void table_row_clicked(View v)
+    {
+        TableRow tr = (TableRow)v;
+        int background = Color.parseColor("#6476B6");
+        ColorDrawable test = (ColorDrawable)tr.getBackground();
+        int current = (test).getColor();
+        if (current!=background) //if the cell is white
+            tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
+        else //the cell is blue
+            tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
+    }
+
 }

@@ -315,6 +315,12 @@ public class Search extends AppCompatActivity {
     public void table_row_clicked(View v)
     {
         TableRow tr = (TableRow)v;
-        tr.setBackgroundColor(0xFF5F6EA9);
+        int background = Color.parseColor("#6476B6");
+        ColorDrawable test = (ColorDrawable)tr.getBackground();
+        int current = (test).getColor();
+        if (current!=background) //if the cell is white
+            tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
+        else //the cell is blue
+            tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
     }
 }

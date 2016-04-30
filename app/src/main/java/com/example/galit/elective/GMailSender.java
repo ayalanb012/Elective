@@ -18,6 +18,7 @@ import java.util.Properties;
 /**
  * Created by Galit on 28/04/2016.
  */
+//this class role is to send automatic mail to user
 public class GMailSender extends javax.mail.Authenticator {
     private String mailhost = "smtp.gmail.com";
     private String user;

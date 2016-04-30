@@ -46,7 +46,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-
+//when log in button is pressed
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -66,6 +66,11 @@ public class SignIn extends AppCompatActivity {
                    // Toast toast = Toast.makeText(getApplicationContext(), "setting userName to: "+ student, Toast.LENGTH_LONG);
                     //toast.show();
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                }
+                else
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(), "שם משתמש או סיסמה לא נכונים", Toast.LENGTH_LONG);
+                    toast.show();
                 }
 
             }
@@ -90,7 +95,7 @@ public class SignIn extends AppCompatActivity {
 
     }
 
-
+//method that shows relevant control after user forgot his password
     public void ForgotPasswordClicked(View v)
     {
         tv_forgot = (TextView) findViewById(R.id.txt_forgot_mail);
@@ -115,7 +120,7 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
-
+//sends mail to the user with new password
     public void SubmitForgotPassword(View v)
     {
         EditText et = (EditText) findViewById(R.id.et_forgot_mail);
@@ -130,6 +135,7 @@ public class SignIn extends AppCompatActivity {
 
     }
 
+    //this class sends mail in background thread via async task
     public static class myTaskSendMail extends AsyncTask<Void, Void, String> {
         EditText Mail;
         String s;
