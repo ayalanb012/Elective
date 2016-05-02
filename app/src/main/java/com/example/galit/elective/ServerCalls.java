@@ -48,7 +48,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
+    private static final String SOAP_ADDRESS = "http://---/webservice.asmx";
 
     static String signInCall(String student, String passwd) {
 
@@ -144,6 +144,12 @@ public class ServerCalls {
         myTaskUserDetails T = new myTaskUserDetails(Email, name, password, schedule, FacultiesList, DepartmentList, context);
         T.execute();
     }
+
+    public static void addCourseToWishList(String Email, String courseNum, Context context) {
+        myTaskAddToWishList T = new myTaskAddToWishList(Email, courseNum, context);
+        T.execute();
+    }
+
 //----------------------------------------------------------------------------------------------------------------------------------//
 
     private static class myTaskGetCourseCategories extends AsyncTask<Void, Void, String> {
@@ -1172,7 +1178,7 @@ public class ServerCalls {
             //System.out.println(result);
 
             try {
-
+                System.out.print(result);
                 JSONArray array = new JSONArray(result);
                 JSONObject details = array.getJSONObject(0);
                 String password = details.getString("password");
@@ -1203,6 +1209,18 @@ public class ServerCalls {
                             td.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
 
                     }
+
+                }
+
+                if(array.length()==3) {
+                    List<String> list = new ArrayList<>();
+                    JSONArray WishList = array.getJSONArray(2);
+                   // for (int i=0; i<WishList.length();i++)
+                    {
+                     //   JSONObject course = WishList.getJSONObject(i);
+                   //     list.add(course.);
+                    }
+                   // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_wish_list_layout,R.id.list_item,popular_courses);
 
                 }
             } catch (Exception e) {
@@ -1286,6 +1304,91 @@ public class ServerCalls {
 
 
         }
+
+
+    public static class myTaskAddToWishList extends AsyncTask<Void, Void, String> {
+        String mail;
+        String courseNum;
+        Context t;
+
+
+        public myTaskAddToWishList(String mail, String courseNum, Context t) {
+            this.mail = mail;
+            this.courseNum=courseNum;
+            this.t = t;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "addToWishList");
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "username";
+            propertyInfo1.setValue(mail);
+
+            PropertyInfo propertyInfo2 = new PropertyInfo();
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "course_num";
+            propertyInfo2.setValue(courseNum);
+            //System.out.print("course: "+course);
+
+            request.addProperty(propertyInfo1);
+            request.addProperty(propertyInfo2);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res = "";
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/addToWishList", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+
+            }
+            return res;
+
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast toast;
+            if(result.equals("Course Added to Wish List"))
+            // t.setText(result);
+                toast = Toast.makeText(t, "הקורס נוסף לרשימת הקורסים האהובים", Toast.LENGTH_LONG);
+            else if(result.equals("duplicate"))
+                toast = Toast.makeText(t, "הקורס כבר נמצא בקורסים אהובים", Toast.LENGTH_LONG);
+            else
+                toast = Toast.makeText(t, "error", Toast.LENGTH_LONG);
+            toast.show();
+        }
+
+    }
 
 
 }

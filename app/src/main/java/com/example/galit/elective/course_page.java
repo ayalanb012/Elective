@@ -125,5 +125,12 @@ public class course_page extends Activity {
 
     }
 
+    public void AddToWishListClicked(View v)
+    {
+        String mail = MainActivity.session.getusename();
+        Context c = getApplicationContext();
+        ServerCalls.addCourseToWishList(mail,course_num,c);
+    }
+
 
 }
