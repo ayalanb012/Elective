@@ -1,5 +1,6 @@
 package com.example.galit.elective;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -131,9 +132,13 @@ public class SignIn extends AppCompatActivity {
             Set<PasswordGenerator.PasswordCharacterSet> values = new HashSet<PasswordGenerator.PasswordCharacterSet>(EnumSet.allOf(SummerCharacterSets.class));
             PasswordGenerator pwGenerator = new PasswordGenerator(values, 6, 10);
             String s = pwGenerator.generatePassword().toString();
-
-            myTaskSendMail t = new myTaskSendMail(et,s);
+            String newPwd = s.substring(1);
+            myTaskSendMail t = new myTaskSendMail(et,newPwd);
             t.execute();
+
+            //server call to change the password in the DB
+            ServerCalls.changeUserPassword(newPwd, et.getText().toString(), getApplicationContext());
+
             Toast toast = Toast.makeText(getApplicationContext(), "נשלחה סיסמה חדשה לאימייל שהקלדת", Toast.LENGTH_LONG);
             toast.show();
         }
@@ -157,7 +162,7 @@ public class SignIn extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             try {
 
-                GMailSender sender = new GMailSender("elective.app@gmail.com", "password");
+                GMailSender sender = new GMailSender("elective.app@gmail.com", "galitAyala");
                 sender.sendMail("אפליקציית קורסים כלליים- שחזור סיסמה",
                         "שלום, סיסמתך החדשה היא: "+"\u202C"+"\n"+password+"\u202B",
                         "elective.app@gmail.com",

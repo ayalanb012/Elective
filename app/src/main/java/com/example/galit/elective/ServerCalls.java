@@ -48,9 +48,9 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/webservice.asmx";
+    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
 
-    public static String signInCall(String student, String passwd) {
+    static String signInCall(String student, String passwd) {
 
         myTaskSignIn T = new myTaskSignIn(student, passwd);
         T.execute();
@@ -132,6 +132,11 @@ public class ServerCalls {
 
     public static void getCourseDetails(String courseNum, Context context) {
         myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum, context);
+        T.execute();
+    }
+
+    public static void changeUserPassword(String newPassword, String userMail,Context context) {
+        myTaskchangeUserPassword T = new myTaskchangeUserPassword(newPassword, userMail,context);
         T.execute();
     }
 
@@ -431,6 +436,81 @@ public class ServerCalls {
         protected void onPostExecute(String result) {
 
             //  System.out.println(result);
+        }
+    }
+
+    private static class myTaskchangeUserPassword extends AsyncTask<Void, Void, String> {
+
+        String user_mail;
+        String user_pwd;
+        Context myCtx;
+
+        public myTaskchangeUserPassword(String newPassword, String userMail,Context context) {
+
+            user_mail = userMail;
+            user_pwd = newPassword;
+            myCtx = context;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "changeUserPassword");
+
+            PropertyInfo propertyInfo2 = new PropertyInfo();
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "email";
+            propertyInfo2.setValue(user_mail);
+            request.addProperty(propertyInfo2);
+
+            PropertyInfo propertyInfo3 = new PropertyInfo();
+            propertyInfo3.type = PropertyInfo.STRING_CLASS;
+            propertyInfo3.name = "pwd";
+            propertyInfo3.setValue(user_pwd);
+            request.addProperty(propertyInfo3);
+
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res = "=[";
+
+            try {
+
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/changeUserPassword", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            //Toast toast = Toast.makeText(myCtx, result, Toast.LENGTH_LONG);
+            //toast.show();
         }
     }
 

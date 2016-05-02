@@ -241,6 +241,7 @@
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
+
                     android:onClick="CritiquingClicked" />
 
                 <Button
@@ -254,6 +255,7 @@
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
+                    android:layout_marginLeft="12dp"
                     android:onClick="CommentClicked" />
             </LinearLayout>
 
