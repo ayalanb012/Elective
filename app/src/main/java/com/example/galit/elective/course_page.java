@@ -36,9 +36,11 @@ public class course_page extends Activity {
     public static TextView general;
     public static TextView description;
     public static TextView course_name;
+    public static TextView location;
+    public static TextView lecture_name;
     public static TextView credit_points;
     public  static  ListView list_view;
-    public static   String course_num;
+    public static  String course_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class course_page extends Activity {
         course_name =(TextView) findViewById(R.id.course_name);
         credit_points =(TextView) findViewById(R.id.credit_points);
         list_view =(ListView) findViewById(R.id.listView);
+        location = (TextView) findViewById(R.id.location_txt);
+        lecture_name = (TextView) findViewById(R.id.lecture_name);
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
 

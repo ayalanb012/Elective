@@ -307,6 +307,9 @@ public class ServerCalls {
                 course_page.general.setText(d.getString("AVG_RATING"));
                 course_page.interest.setText(d.getString("INTEREST_AVG"));
                 course_page.credit_points.setText(d.getString("Credit_Points"));
+                course_page.location.setText(d.getString("Location"));
+                course_page.lecture_name.setText(d.getString("lecture_name"));
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
