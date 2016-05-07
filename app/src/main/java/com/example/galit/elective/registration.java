@@ -29,7 +29,6 @@ public class registration extends AppCompatActivity  {
     EditText password_text;
     EditText conf_password_text;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

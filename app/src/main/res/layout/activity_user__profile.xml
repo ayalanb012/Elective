@@ -151,62 +151,110 @@
                     android:text="מחלקה"
                     android:id="@+id/textView6"
                     android:layout_weight="3" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:ems="10"
-                    android:id="@+id/txt_password"
-                    android:layout_weight="1" />
+                android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="סיסמה"
-                    android:id="@+id/textView7"
-                    android:layout_weight="3" />
-
+                    android:text="לחץ לעדכון סיסמא"
+                    android:id="@+id/txt_update_password"
+                    android:layout_weight="3"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="UpdatePasswordClicked" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="wrap_content" >
 
                 <EditText
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/txt_cnfrm_password"
+                    android:inputType="textPassword"
+                    android:id="@+id/et_update_pass"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal" />
+                    android:visibility="gone" />
 
-                <ScrollView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="סיסמא חדשה"
+                    android:id="@+id/txt_update_pass"
+                    android:layout_weight="3"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:id="@+id/et_update_pass_validate"
+                    android:layout_weight="1"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="הקלד אימות סיסמא"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/txt_update_pass_validate"
+                    android:layout_weight="3"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/scrollView" />
+                    android:text="עדכן סיסמא"
+                    android:id="@+id/bttn_update_pass"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#1E99DD"
+                    android:textColor="#ffffff"
+                    android:textSize="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    android:onClick="SubmitUpdatePassword" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="אימות סיסמה"
-                    android:id="@+id/textView8"
-                    android:layout_weight="3" />
-
-
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="מערכת שעות"
+                    android:id="@+id/txt_111"
+                    android:layout_weight="2"
+                    android:textColor="#6271b8"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
             <LinearLayout

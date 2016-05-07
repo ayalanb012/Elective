@@ -162,7 +162,7 @@ public class SignIn extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             try {
 
-                GMailSender sender = new GMailSender("elective.app@gmail.com", "password");
+                GMailSender sender = new GMailSender("elective.app@gmail.com", "galitAyala");
                 sender.sendMail("אפליקציית קורסים כלליים- שחזור סיסמה",
                         "שלום, סיסמתך החדשה היא: "+"\u202C"+"\n"+password+"\u202B",
                         "elective.app@gmail.com",

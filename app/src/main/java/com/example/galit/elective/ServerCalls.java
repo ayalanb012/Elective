@@ -1,4 +1,5 @@
 package com.example.galit.elective;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -48,7 +49,7 @@ public class ServerCalls {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://---/webservice.asmx";
+    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
 
     static String signInCall(String student, String passwd) {
 
@@ -140,8 +141,8 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static void getUserDetailsCall(String Email, EditText name, EditText password, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList, Context context) {
-        myTaskUserDetails T = new myTaskUserDetails(Email, name, password, schedule, FacultiesList, DepartmentList, context);
+    public static void getUserDetailsCall(String Email,EditText mail ,EditText name, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList,ListView wishList, Context context, Activity u) {
+        myTaskUserDetails T = new myTaskUserDetails(Email,mail, name, schedule, FacultiesList, DepartmentList,wishList, context,u);
         T.execute();
     }
 
@@ -1123,22 +1124,26 @@ public class ServerCalls {
     public static class myTaskUserDetails extends AsyncTask<Void, Void, String> {
         String Email;
         EditText name;
-        EditText password;
+        EditText mail;
+       // EditText password;
         TableLayout schedule;
         Spinner FacultiesList;
         Spinner DepartmentList;
         Context context;
+        ListView wishList;
+        Activity user_profile;
 
-
-        public myTaskUserDetails(String Email, EditText name, EditText password, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList, Context context) {
+        public myTaskUserDetails(String Email, EditText mail, EditText name, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList,ListView wishList, Context context,Activity u) {
             this.Email = Email;
             this.name = name;
-            this.password = password;
+            this.mail= mail;
+          //  this.password = password;
             this.schedule = schedule;
             this.FacultiesList = FacultiesList;
             this.DepartmentList = DepartmentList;
             this.context = context;
-
+            this.wishList = wishList;
+            user_profile=u;
         }
 
         @Override
@@ -1169,8 +1174,8 @@ public class ServerCalls {
 
             } catch (Exception exception) {
                 res = exception.toString();
-
             }
+
             return res;
         }
 
@@ -1181,8 +1186,9 @@ public class ServerCalls {
                 System.out.print(result);
                 JSONArray array = new JSONArray(result);
                 JSONObject details = array.getJSONObject(0);
-                String password = details.getString("password");
-                this.password.setText(password);
+                //String password = details.getString("password");
+               // this.password.setText(password);
+                this.mail.setText(Email);
                 String name = details.getString("name");
                 this.name.setText(name);
                 String faculty = details.getString("faculty");
@@ -1207,33 +1213,35 @@ public class ServerCalls {
                             td.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
                         else //the cell is blue
                             td.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
-
                     }
-
                 }
 
-                if(array.length()==3) {
-                    List<String> list = new ArrayList<>();
-                    JSONArray WishList = array.getJSONArray(2);
-                   // for (int i=0; i<WishList.length();i++)
-                    {
-                     //   JSONObject course = WishList.getJSONObject(i);
-                   //     list.add(course.);
-                    }
-                   // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,R.layout.list_view_wish_list_layout,R.id.list_item,popular_courses);
+                JSONObject JSON_wishList = array.getJSONObject(2);
+                Iterator<String> iterator = JSON_wishList.keys();
+                ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
+                while( iterator.hasNext()){
 
+                    String course_num = iterator.next();
+                    try{
+                        String course_name = JSON_wishList.getString(course_num);
+                        HashMap<String,String> temp=new HashMap<String, String>();
+                        temp.put("Second", course_num);
+                        temp.put("First", course_name);
+                        list.add(temp);
+                    }
+                    catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+
+                ListViewAdapters adapter;
+                adapter = new ListViewAdapters(user_profile, list);
+                wishList.setAdapter(adapter);
+
             } catch (Exception e) {
                 Toast ts = Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
-
                 ts.show();
-
             }
-
-
-
-
-
         }
     }
 
