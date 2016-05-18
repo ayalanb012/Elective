@@ -36,7 +36,7 @@ public class Search extends AppCompatActivity {
         Spinner Category_sp2 = (Spinner) findViewById(R.id.lst_category_2);
         Spinner Category_sp3 = (Spinner) findViewById(R.id.lst_category_3);
         Context ctx = getApplicationContext();
-        ServerCalls.getCategories(Category_sp1, Category_sp2, Category_sp3, ctx); //put the categories in the spinners
+        courses_controller.getCategories(Category_sp1, Category_sp2, Category_sp3, ctx); //put the categories in the spinners
     }
 
     //this method is activated when logo is clicked. the method return to main activity
@@ -269,7 +269,7 @@ public class Search extends AppCompatActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox);
         Boolean isChecked = check.isChecked();
 
-        String JSON_list = ServerCalls.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
+        String JSON_list = courses_controller.Search(getApplicationContext(), name, number, Cat1, Cat2, Cat3, Schedule_Json_str, isChecked);
         //JSON_list is a  json string with the search results from server in this format: {"number1":"value1", "number2":"value2", "number3":"value3" }
 
        // Toast toast1 = Toast.makeText(getApplicationContext(),"got server call of search "+JSON_list, Toast.LENGTH_LONG);

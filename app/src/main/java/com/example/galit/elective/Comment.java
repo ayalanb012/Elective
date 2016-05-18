@@ -90,7 +90,7 @@ public class Comment extends Activity {
                 String comment_string = comment.getText().toString();
                 Context c = getApplicationContext();
                // TextView tvData1 = (TextView) findViewById(R.id.textView23);
-                ServerCalls.commentCall(mail, course_num, comment_string, interest_string, diff_string, grade_string, c);
+                courses_controller.commentCall(mail, course_num, comment_string, interest_string, diff_string, grade_string, c);
                 Intent myintent = new Intent(getApplicationContext(), course_page.class);
                 myintent.putExtra("caller_activity", "Commment");
                 myintent.putExtra("Selected_course_num",course_num);

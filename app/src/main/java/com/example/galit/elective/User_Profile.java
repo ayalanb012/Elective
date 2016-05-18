@@ -59,6 +59,9 @@ public class User_Profile extends AppCompatActivity {
         //toast.show();
         ServerCalls.getUserDetailsCall(MainActivity.session.getusename(),mail, name, schedule, faculty, department,listView, context,user_profile);
 
+
+
+
      /*   et_update.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View v, boolean hasFocus) {

@@ -67,8 +67,8 @@ public class course_page extends Activity {
              course_num  = caller.getStringExtra("Selected_course_num");
            // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
             //toast2.show();
-            ServerCalls.allcommentscall(course_num, c, list_view);
-            ServerCalls.getCourseDetails(course_num,c);
+            courses_controller.allcommentscall(course_num, c, list_view);
+            courses_controller.getCourseDetails(course_num,c);
 
         }
         else { //-------------->> check if we came from a different activity, comment, need to add code
@@ -129,7 +129,7 @@ public class course_page extends Activity {
     {
         String mail = MainActivity.session.getusename();
         Context c = getApplicationContext();
-        ServerCalls.addCourseToWishList(mail,course_num,c);
+        courses_controller.addCourseToWishList(mail,course_num,c);
     }
 
 
