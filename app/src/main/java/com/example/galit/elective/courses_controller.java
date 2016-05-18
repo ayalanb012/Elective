@@ -62,10 +62,17 @@ public class courses_controller {
         T.execute();
     }
 
-    public static void allcommentscall(String courseNum, Context context, ListView ls) {
+    public static String allcommentscall(String courseNum, Context context, ListView ls) {
         myTaskAllComments T = new myTaskAllComments(courseNum, context, ls);
         T.execute();
+        try {
+            return T.get().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
     } //
+
 
     public static void getCourseDetails(String courseNum, Context context) {
         myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum, context);
@@ -550,30 +557,7 @@ public class courses_controller {
             //  Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
             // toast.show();
             try {
-                JSONObject jObject = new JSONObject(result);
 
-                List<RowItem> rowItems = new ArrayList<RowItem>();
-
-                Iterator iter = jObject.keys();
-                while (iter.hasNext()) {
-                    String key = (String) iter.next();
-                    String value = jObject.getString(key);
-                    String feedback = jObject.getJSONObject(key).getString("feedback");
-                    String diff = jObject.getJSONObject(key).getString("diff");
-                    String interest = jObject.getJSONObject(key).getString("interest");
-                    String rating = jObject.getJSONObject(key).getString("rating");
-                    RowItem item = new RowItem(key, feedback, rating, interest, diff);
-                    rowItems.add(item);
-
-                    //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);
-
-                    // toast.show();
-
-                }
-                CustomListViewAdapter adapter = new CustomListViewAdapter(context, R.layout.list_view_comment, rowItems);
-                comments.setAdapter(adapter);
-
-                User_Profile.setListViewHeightBasedOnItems(comments);
             } catch (Exception e) {
                 Toast toast = Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_LONG);
                 toast.show();

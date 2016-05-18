@@ -17,8 +17,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class course_page extends Activity {
@@ -67,7 +71,13 @@ public class course_page extends Activity {
              course_num  = caller.getStringExtra("Selected_course_num");
            // Toast toast2 = Toast.makeText(getApplicationContext(), "[" + course_num +"]", Toast.LENGTH_LONG);
             //toast2.show();
-            courses_controller.allcommentscall(course_num, c, list_view);
+            String json = courses_controller.allcommentscall(course_num, c, list_view);
+            list_view.setVisibility(View.INVISIBLE);
+            try {
+                parseJson(json);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             courses_controller.getCourseDetails(course_num,c);
 
         }
@@ -129,8 +139,49 @@ public class course_page extends Activity {
     {
         String mail = MainActivity.session.getusename();
         Context c = getApplicationContext();
-        courses_controller.addCourseToWishList(mail,course_num,c);
+        courses_controller.addCourseToWishList(mail, course_num, c);
     }
 
 
+    public void ShowCommentsClicked(View v)
+    {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if (list_view.getVisibility() == View.INVISIBLE) {
+                    list_view.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+        });
+    }
+public void parseJson (String json) throws JSONException {
+    JSONObject jObject = new JSONObject(json);
+
+    List<RowItem> rowItems = new ArrayList<RowItem>();
+
+    Iterator iter = jObject.keys();
+    while (iter.hasNext()) {
+        String key = (String) iter.next();
+        String value = jObject.getString(key);
+        String feedback = jObject.getJSONObject(key).getString("feedback");
+        String diff = jObject.getJSONObject(key).getString("diff");
+        String interest = jObject.getJSONObject(key).getString("interest");
+        String rating = jObject.getJSONObject(key).getString("rating");
+        RowItem item = new RowItem(key, feedback, rating, interest, diff);
+        rowItems.add(item);
+
+        //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);
+
+        // toast.show();
+
+    }
+    CustomListViewAdapter adapter = new CustomListViewAdapter(getApplicationContext(), R.layout.list_view_comment, rowItems);
+    list_view.setAdapter(adapter);
+
+    User_Profile.setListViewHeightBasedOnItems(list_view);
+}
 }

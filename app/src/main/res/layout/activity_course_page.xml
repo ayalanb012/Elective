@@ -286,30 +286,17 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="לדיוק התוצאות"
-                    android:id="@+id/button"
+                    android:text="הוספה למשאלות"
+                    android:id="@+id/button4"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:background="#1E99DD"
-                    android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:paddingTop="5sp"
-
-                    android:onClick="CritiquingClicked" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="הוספת תגובה"
-                    android:id="@+id/bttn_comment"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
                     android:background="#1E99DD"
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
                     android:layout_marginLeft="12dp"
-                    android:onClick="CommentClicked" />
+                    android:nestedScrollingEnabled="true"
+                    android:layout_weight="0.21"
+                    android:onClick="AddToWishListClicked" />
             </LinearLayout>
 
             <LinearLayout
@@ -329,22 +316,21 @@
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
-                    android:onClick="CritiquingClicked" />
+                    android:onClick="ShowCommentsClicked" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="הוספה למשאלות"
-                    android:id="@+id/bttn_addWishList"
+                    android:text="הוספת תגובה"
+                    android:id="@+id/button"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
                     android:background="#1E99DD"
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
                     android:layout_marginLeft="12dp"
-                    android:nestedScrollingEnabled="true"
-                    android:layout_weight="0.21"
-                    android:onClick="AddToWishListClicked" />
+                    android:onClick="CommentClicked" />
 
             </LinearLayout>
 
