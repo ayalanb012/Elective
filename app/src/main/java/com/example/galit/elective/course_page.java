@@ -26,13 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class course_page extends Activity {
-    ArrayList<String> titles;
-    ArrayList<String> descs;
-    ArrayList<String> diffs;
-    ArrayList<String> interests;
-    ArrayList<String> grades;
-    ListView list;
-    List<RowItem> rowItems;
+
 
     public static TextView interest;
     public static TextView diff;
@@ -45,7 +39,8 @@ public class course_page extends Activity {
     public static TextView credit_points;
     public  static  ListView list_view;
     public static  String course_num;
-
+    public TextView CommentCount;
+    public static TextView load_avg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +58,8 @@ public class course_page extends Activity {
         list_view =(ListView) findViewById(R.id.listView);
         location = (TextView) findViewById(R.id.location_txt);
         lecture_name = (TextView) findViewById(R.id.lecture_name);
+        CommentCount = (TextView) findViewById(R.id.tv_commentCount);
+        load_avg = (TextView) findViewById(R.id.load_avg);
         Intent caller = getIntent();
         String call = caller.getStringExtra("caller_activity");
 
@@ -73,8 +70,11 @@ public class course_page extends Activity {
             //toast2.show();
             String json = courses_controller.allcommentscall(course_num, c, list_view);
             list_view.setVisibility(View.INVISIBLE);
+            int count=0;
             try {
-                parseJson(json);
+                count = parseJson(json);
+                CommentCount.setText("יש "+"\u202A"+count+"\u202C"+" תגובות");
+                CommentCount.setVisibility(View.INVISIBLE);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -152,19 +152,22 @@ public class course_page extends Activity {
 
                 if (list_view.getVisibility() == View.INVISIBLE) {
                     list_view.setVisibility(View.VISIBLE);
+                    CommentCount.setVisibility(View.VISIBLE);
 
                 }
 
             }
         });
     }
-public void parseJson (String json) throws JSONException {
+public int parseJson (String json) throws JSONException {
     JSONObject jObject = new JSONObject(json);
 
     List<RowItem> rowItems = new ArrayList<RowItem>();
 
     Iterator iter = jObject.keys();
+    int count=0;
     while (iter.hasNext()) {
+        count++;
         String key = (String) iter.next();
         String value = jObject.getString(key);
         String feedback = jObject.getJSONObject(key).getString("feedback");
@@ -183,5 +186,6 @@ public void parseJson (String json) throws JSONException {
     list_view.setAdapter(adapter);
 
     User_Profile.setListViewHeightBasedOnItems(list_view);
+    return count;
 }
 }
