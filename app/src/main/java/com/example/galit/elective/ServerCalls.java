@@ -106,8 +106,8 @@ public class ServerCalls {
         T.execute();
     }
 
-    public static String getUserDetailsCall(String Email,EditText mail ,EditText name, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList,ListView wishList, Context context, Activity u) {
-        myTaskUserDetails T = new myTaskUserDetails(Email,mail, name, schedule, FacultiesList, DepartmentList,wishList, context,u);
+    public static String getUserDetailsCall(String Email) {
+        myTaskUserDetails T = new myTaskUserDetails(Email);
         T.execute();
         try {
             return T.get().toString();
@@ -117,6 +117,17 @@ public class ServerCalls {
             e.printStackTrace();
         }
         return "error in signIn";
+    }
+
+    public static String updateDetails(Context ctx, String name, String mail, String Fac, String Dep, String schedule_JSON) {
+        myTaskUpdateDetails T = new myTaskUpdateDetails(ctx, name, mail, Fac, Dep, schedule_JSON);
+        T.execute();
+        try {
+            return T.get().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error in updateDetails";
     }
 
 //----------------------------------------------------------------------------------------------------------------------------------//
@@ -596,27 +607,9 @@ public class ServerCalls {
 
     public static class myTaskUserDetails extends AsyncTask<Void, Void, String> {
         String Email;
-        EditText name;
-        EditText mail;
-       // EditText password;
-        TableLayout schedule;
-        Spinner FacultiesList;
-        Spinner DepartmentList;
-        Context context;
-        ListView wishList;
-        Activity user_profile;
 
-        public myTaskUserDetails(String Email, EditText mail, EditText name, TableLayout schedule, Spinner FacultiesList, Spinner DepartmentList,ListView wishList, Context context,Activity u) {
+         public myTaskUserDetails(String Email) {
             this.Email = Email;
-            this.name = name;
-            this.mail= mail;
-          //  this.password = password;
-            this.schedule = schedule;
-            this.FacultiesList = FacultiesList;
-            this.DepartmentList = DepartmentList;
-            this.context = context;
-            this.wishList = wishList;
-            user_profile=u;
         }
 
         @Override
@@ -654,67 +647,6 @@ public class ServerCalls {
 
         protected void onPostExecute(String result) {
             //System.out.println(result);
-
-            try {
-                System.out.print(result);
-                JSONArray array = new JSONArray(result);
-                JSONObject details = array.getJSONObject(0);
-                //String password = details.getString("password");
-               // this.password.setText(password);
-                this.mail.setText(Email);
-                String name = details.getString("name");
-                this.name.setText(name);
-                String faculty = details.getString("faculty");
-
-                String department = details.getString("department");
-                String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-                JSONObject schedule = array.getJSONObject(1);
-                getFacultiesCall(FacultiesList, context, faculty);
-                setDepartments(DepartmentList,context,faculty,department);
-
-
-                for (int i = 0; i < days.length; i++) {
-                    JSONObject object = schedule.getJSONObject(days[i]);
-                    Iterator<String> iter = object.keys();
-                    while (iter.hasNext()) {
-                        String key = iter.next();
-                        String t = object.getString(key);
-                        int hour= Integer.parseInt(key)-7;
-                        TableRow tr = (TableRow) this.schedule.getChildAt(hour);
-                        TableRow td = (TableRow)tr.getChildAt(days.length-1-i);
-                        if (t.equals("True"))
-                            td.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
-                        else //the cell is blue
-                            td.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
-                    }
-                }
-
-                JSONObject JSON_wishList = array.getJSONObject(2);
-                Iterator<String> iterator = JSON_wishList.keys();
-                ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
-                while( iterator.hasNext()){
-
-                    String course_num = iterator.next();
-                    try{
-                        String course_name = JSON_wishList.getString(course_num);
-                        HashMap<String,String> temp=new HashMap<String, String>();
-                        temp.put("Second", course_num);
-                        temp.put("First", course_name);
-                        list.add(temp);
-                    }
-                    catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                ListViewAdapters adapter;
-                adapter = new ListViewAdapters(user_profile, list);
-                wishList.setAdapter(adapter);
-
-            } catch (Exception e) {
-                Toast ts = Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
-                ts.show();
-            }
         }
     }
 
@@ -786,6 +718,104 @@ public class ServerCalls {
 
         }
 
+
+    private static class myTaskUpdateDetails extends AsyncTask<Void, Void, String> {
+
+        String user_name;
+        String user_mail;
+        String user_Faculty;
+        String user_Department;
+        String schedule;
+        Context myCtx;
+
+        public myTaskUpdateDetails(Context ctx, String name, String mail, String Fac, String Dep, String schedule_JSON) {
+            user_name = name;
+            user_mail = mail;
+            user_Faculty = Fac;
+            user_Department = Dep;
+            schedule = schedule_JSON;
+            myCtx = ctx;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "updateUserDetails");
+
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "name";
+            propertyInfo1.setValue(user_name);
+            request.addProperty(propertyInfo1);
+
+            PropertyInfo propertyInfo2 = new PropertyInfo();
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "Email";
+            propertyInfo2.setValue(user_mail);
+            request.addProperty(propertyInfo2);
+
+            PropertyInfo propertyInfo4 = new PropertyInfo();
+            propertyInfo4.type = PropertyInfo.STRING_CLASS;
+            propertyInfo4.name = "Faculty";
+            propertyInfo4.setValue(user_Faculty);
+            request.addProperty(propertyInfo4);
+
+            PropertyInfo propertyInfo5 = new PropertyInfo();
+            propertyInfo5.type = PropertyInfo.STRING_CLASS;
+            propertyInfo5.name = "Department";
+            propertyInfo5.setValue(user_Department);
+            request.addProperty(propertyInfo5);
+
+            PropertyInfo propertyInfo6 = new PropertyInfo();
+            propertyInfo6.type = PropertyInfo.STRING_CLASS;
+            propertyInfo6.name = "schedule_JSON";
+            propertyInfo6.setValue(schedule);
+            request.addProperty(propertyInfo6);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res = "=[";
+
+            try {
+
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/updateUserDetails", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            //showResult.setText(result);
+
+            Toast toast = Toast.makeText(myCtx, result, Toast.LENGTH_LONG);
+            toast.show();
+        }
+    }
 
 
 

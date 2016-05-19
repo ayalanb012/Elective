@@ -89,6 +89,7 @@
                     android:inputType="textEmailAddress"
                     android:ems="10"
                     android:id="@+id/txt_mail"
+                    android:editable="false"
                     android:layout_weight="1"
                     android:layout_gravity="center" />
 
@@ -1024,7 +1025,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:id="@+id/ttr_sun_13"
+                            android:id="@+id/tr_sun_13"
                             android:background="#ffffff"
                             android:onClick="table_row_clicked">
 
@@ -1895,7 +1896,7 @@
                     android:textColor="#ffffff"
                     android:textSize="24sp"
                     android:paddingTop="5sp"
-                    android:onClick="SubmitClicked" />
+                    android:onClick="updatelicked" />
 
             </LinearLayout>
 
