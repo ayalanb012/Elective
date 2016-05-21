@@ -257,35 +257,36 @@ public class courses_controller {
                 course_page.course_name.setText(d.getString("COURSE_NAME"));
 
                 course_page.description.setText(d.getString("Course_Description"));
-                if(!d.getString("DIFFICULTY_AVG").equals(null))
+                if(!d.getString("DIFFICULTY_AVG").equals("null"))
                     course_page.diff.setText(d.getString("DIFFICULTY_AVG")+"/10");
                 else
                     course_page.diff.setText("לא ידוע");
-                if(!d.getString("AVG_RATING").equals(null))
+                if(!d.getString("AVG_RATING").equals("null"))
                     course_page.general.setText(d.getString("AVG_RATING")+"/10");
                 else
                     course_page.general.setText("לא ידוע");
-                if(!d.getString("INTEREST_AVG").equals(null))
+                if(!d.getString("INTEREST_AVG").equals("null"))
                     course_page.interest.setText(d.getString("INTEREST_AVG")+"/10");
                 else
                     course_page.interest.setText("לא ידוע");
-                if(!d.getString("Credit_Points").equals(null))
+                if(!d.getString("Credit_Points").equals("null"))
                     course_page.credit_points.setText(d.getString("Credit_Points"));
                 else
                     course_page.credit_points.setText("לא ידוע");
-                if(!d.getString("Location").equals(null))
+                String s = d.getString("Location");
+                if(!d.getString("Location").equals("null"))
                     course_page.location.setText(d.getString("Location"));
                 else
-                    course_page.location.setText("לא ידוע");
-                if(!d.getString("lecture_name").equals(null))
+                    course_page.location.setText("             לא ידוע");
+                if(!d.getString("lecture_name").equals("null"))
                     course_page.lecture_name.setText(d.getString("lecture_name"));
                 else
                     course_page.lecture_name.setText("לא ידוע");
-                if(!d.getString("load_AVG").equals(null))
+                if(!d.getString("load_AVG").equals("null"))
                     course_page.load_avg.setText(d.getString("load_AVG"));
                 else
                     course_page.load_avg.setText("לא ידוע");
-                if(!d.getString("lecture_AVG").equals(null))
+                if(!d.getString("lecture_AVG").equals("null"))
                     course_page.lecture.setText(d.getString("lecture_AVG"));
                 else
                     course_page.lecture.setText("לא ידוע");
