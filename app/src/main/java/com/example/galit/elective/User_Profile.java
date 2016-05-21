@@ -143,7 +143,7 @@ public class User_Profile extends AppCompatActivity {
             }
         });
 
-     /*   et_update.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        et_update.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -166,7 +166,7 @@ public class User_Profile extends AppCompatActivity {
                     }
                 }
             }
-        }); */
+        });
 
     }
 

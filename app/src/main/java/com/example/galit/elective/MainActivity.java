@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             hello = (TextView) findViewById(R.id.hello_txt);
             String name = ServerCalls.getNameCall(session.getusename());
             hello.setText(" שלום " + name);
-           // SetButtonText();
+            //SetButtonText();
             //myTaskChangetextInButtom task = new myTaskChangetextInButtom(signInBttn);
             //task.execute();
             //signInBttn.setText("התנתק");
@@ -51,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
             }
+
+    @Override
+    protected  void onStart(){
+        super.onStart();
+        SetButtonText();
+    }
+
 
     //this method is activated when sign in is clicked. the method opens signIn activity
     public void SignInClicked(View v)
