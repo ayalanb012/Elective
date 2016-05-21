@@ -52,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-    @Override
-    protected  void onStart(){
-        super.onStart();
-        SetButtonText();
-    }
 
 
     //this method is activated when sign in is clicked. the method opens signIn activity

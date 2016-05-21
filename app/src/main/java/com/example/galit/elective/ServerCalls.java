@@ -346,13 +346,13 @@ public class ServerCalls {
         Spinner DepartmentList;
         Context Appcontext;
         String Faculty;
-        String defaultValue;
+        String DefaultValue;
 
         public myTaskSetDepartments(Spinner sp, Context ctx, String item,String defaultValue) {
             DepartmentList = sp;
             Appcontext = ctx;
             Faculty = item;
-            this.defaultValue = defaultValue;
+            DefaultValue = defaultValue;
         }
 
         @Override
@@ -424,8 +424,8 @@ public class ServerCalls {
 
                 DepartmentList.setAdapter(dataAdapter);
 
-                if (defaultValue!=null)
-                    DepartmentList.setSelection((dataAdapter.getPosition(defaultValue)));
+                if (DefaultValue!=null)
+                    DepartmentList.setSelection((dataAdapter.getPosition(DefaultValue)));
 
             } catch (JSONException e) {
                 e.printStackTrace();

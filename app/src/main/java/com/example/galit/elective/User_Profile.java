@@ -50,11 +50,14 @@ public class User_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_user__profile);
         EditText name = (EditText)findViewById(R.id.txt_name);
         EditText mail = (EditText)findViewById(R.id.txt_mail);
-        EditText pass = (EditText)findViewById(R.id.txt_password);
         faculty = (Spinner)findViewById(R.id.spinner1);
         department = (Spinner)findViewById(R.id.spinner2);
         ListView wishList = (ListView)findViewById(R.id.wish_list);
         TableLayout schedule = (TableLayout)findViewById(R.id.schedule);
+
+        et_update = (EditText)findViewById(R.id.et_update_pass);
+        et_update_v = (EditText)findViewById(R.id.et_update_pass_validate);
+
 
         user_profile = this;
 
