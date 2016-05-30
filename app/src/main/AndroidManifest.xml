@@ -18,15 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".registration"></activity>
-        <activity android:name=".SignIn"></activity>
-        <activity android:name=".Search"></activity>
-        <activity android:name=".reccomand"></activity>
-        <activity android:name=".course_page"></activity>
-        <activity android:name=".critiquing"></activity>
-        <activity android:name=".User_Profile"></activity>
-        <activity android:name=".Comment"></activity>
-        <activity android:name=".recommendMain"></activity>
+        <activity android:name=".registration" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".Search" />
+        <activity android:name=".reccomand" />
+        <activity android:name=".course_page" />
+        <activity android:name=".critiquing" />
+        <activity android:name=".User_Profile" />
+        <activity android:name=".Comment" />
+        <activity android:name=".recommendMain" />
+        <activity android:name=".critiqueCourse"></activity>
     </application>
 
 </manifest>
