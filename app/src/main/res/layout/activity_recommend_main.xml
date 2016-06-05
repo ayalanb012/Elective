@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    tools:context="com.example.galit.elective.recommendMain">
+    android:background="#fff"
+    >
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
+    <com.example.galit.elective.RecommandSearchAdapter
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
-
-
-        >
-
-
-    </HorizontalScrollView>
-
+        android:background="#ddd"
+        />
 
 </LinearLayout>
