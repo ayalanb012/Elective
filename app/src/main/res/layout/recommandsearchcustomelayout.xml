@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:gravity="center_horizontal"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/grade"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="ציון"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/interest"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/textView81"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="עניין"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/diff"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/textView95"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="קושי"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/textView74"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/textView88"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="עומס"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/textView108"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/textView109"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="מרצה"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
