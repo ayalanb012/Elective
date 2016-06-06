@@ -24,9 +24,9 @@ public class recommendMain extends Activity {
 
     }
 
-    private static String[] dataObjects = new String[]{ "Text #1",
-            "Text #2",
-            "Text #3","Text #4","Text #5","Text #6","Text #7","Text #8","Text #9","Text #10" };
+    private static String[] dataObjects = new String[]{ "קורס 1",
+            "קןרס 2",
+            "קורס 3"};
 
     private BaseAdapter mAdapter = new BaseAdapter() {
 
@@ -61,8 +61,10 @@ public class recommendMain extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
-            Button button = (Button) retval.findViewById(R.id.clickbutton);
-            button.setOnClickListener(mOnButtonClicked);
+            TextView grade = (TextView) retval.findViewById(R.id.grade);
+            TextView diff = (TextView) retval.findViewById(R.id.diff);
+            grade.setText("3");
+            diff.setText("4");
             title.setText(dataObjects[position]);
 
             return retval;
