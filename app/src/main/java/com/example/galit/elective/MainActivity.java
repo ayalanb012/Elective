@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לקבל המלצה", Toast.LENGTH_LONG);
             toast.show();
         }
+        
     }
 
     public void userClicked(View v)
