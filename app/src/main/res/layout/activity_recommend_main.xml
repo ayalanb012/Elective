@@ -7,11 +7,47 @@
     android:background="#fff"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="המעניינים"
+        android:id="@+id/textView110"
+        android:textColor="#6271b8" />
+
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ddd"
-        />
+        android:background="#ffff"
+        android:layout_weight="1" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="הקלים"
+        android:id="@+id/textView111"
+        android:textColor="#6271b8" />
+
+    <com.example.galit.elective.RecommandSearchAdapter
+        android:id="@+id/listview1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:layout_weight="1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="ספורט"
+        android:id="@+id/textView112"
+        android:textColor="#6271b8" />
+
+    <com.example.galit.elective.RecommandSearchAdapter
+        android:id="@+id/listview2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:layout_weight="1" />
 </LinearLayout>

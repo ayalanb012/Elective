@@ -20,14 +20,22 @@ public class recommendMain extends Activity {
         setContentView(R.layout.activity_recommend_main);
 
         RecommandSearchAdapter listview = (RecommandSearchAdapter) findViewById(R.id.listview);
+        RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
+        RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
+
         listview.setAdapter(mAdapter);
-
+        listview1.setAdapter(mAdapter);
+        listview2.setAdapter(mAdapter);
     }
-
-    private static String[] dataObjects = new String[]{ "קורס 1",
+    private static String[] dataObjects_interest = new String[]{ "קורס 1",
             "קןרס 2",
             "קורס 3"};
-
+    private static String[] dataObjects_easy = new String[]{ "קורס 1",
+            "קןרס 2",
+            "קורס 3"};
+    private static String[] dataObjects_sports = new String[]{ "קורס 1",
+            "קןרס 2",
+            "קורס 3"};
     private BaseAdapter mAdapter = new BaseAdapter() {
 
         private OnClickListener mOnButtonClicked = new OnClickListener() {
@@ -44,7 +52,7 @@ public class recommendMain extends Activity {
 
         @Override
         public int getCount() {
-            return dataObjects.length;
+            return dataObjects_interest.length;
         }
 
         @Override
@@ -65,7 +73,7 @@ public class recommendMain extends Activity {
             TextView diff = (TextView) retval.findViewById(R.id.diff);
             grade.setText("3");
             diff.setText("4");
-            title.setText(dataObjects[position]);
+            title.setText(dataObjects_interest[position]);
 
             return retval;
         }
