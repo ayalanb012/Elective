@@ -36,9 +36,11 @@ public class recommendMain extends Activity {
             "כדורעף מעורב","קט רגל","סייף","חדר כושר"};
     private static String[] getDataObjects_sports_grade = new String[]{"7.6/10","8.2/10","8.8/10","8.3/10","9.4/10","8.5/10" };
 
-    private static String[] dataObjects_easy = new String[]{ "זוגיות ופרישות בספרות היהודית והנוצרית הקדומה",
-            "המוח 120 שנות מחקר",
-            "הנגב:מספר ההתיישבות לארץ מושב","אפריקה בתקופה הקולוניאלית"};
+    private static String[] dataObjects_easy = new String[]
+            { "המקרא בשירה העברית המודרנית",
+                    "ספרות של עולמות אפשריים",
+                    "הנגב:מספר ההתיישבות לארץ מושב",
+                    "אפריקה בתקופה הקולוניאלית"};
     private static String[] getDataObjects_easy_grade = new String[]{"8.2/10","8.7/10","8.9/10","8.3/10" };
 
     private BaseAdapter interestAdapter = new BaseAdapter() {
