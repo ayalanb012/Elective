@@ -27,7 +27,8 @@
         <activity android:name=".User_Profile" />
         <activity android:name=".Comment" />
         <activity android:name=".recommendMain" />
-        <activity android:name=".critiqueCourse"></activity>
+        <activity android:name=".critiqueCourse" />
+        <activity android:name=".recommend_results"></activity>
     </application>
 
 </manifest>
