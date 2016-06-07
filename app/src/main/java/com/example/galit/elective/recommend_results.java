@@ -18,7 +18,7 @@ public class recommend_results extends AppCompatActivity {
         setContentView(R.layout.activity_recommend_results);
 
         ListView listView = (ListView)findViewById(R.id.recommend_results_list);
-        listView.setAdapter(new yourAdapter(this, new String[] { "data1", "data2","data3" }));
+        listView.setAdapter(new yourAdapter(getApplicationContext(), new String[] { "המוח 120 שנות מחקר", "יצירות מופת מעולם הספות","כדורעף מעורב" },new String[] { "7.3/10", "5.5/10","6.8/10" },new String[] { "7.3/10", "5.5/10","6.8/10" },new String[] { "7.3/10", "5.5/10","6.8/10" },new String[] { "7.3/10", "5.5/10","6.8/10" } ,new String[] { "7.3/10", "5.5/10","6.8/10" },new String[] { "7.3/10", "5.5/10","6.8/10" }));
 
 
     }
