@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#fff"
-    >
+    android:gravity="right">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +13,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="המעניינים"
         android:id="@+id/textView110"
-        android:textColor="#6271b8" />
+        android:textColor="#6271b8"
+        android:padding="10dp" />
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview"
@@ -28,7 +29,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="הקלים"
         android:id="@+id/textView111"
-        android:textColor="#6271b8" />
+        android:textColor="#6271b8"
+        android:padding="10dp" />
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview1"
@@ -42,7 +44,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="ספורט"
         android:id="@+id/textView112"
-        android:textColor="#6271b8" />
+        android:textColor="#6271b8"
+        android:padding="10dp" />
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview2"
