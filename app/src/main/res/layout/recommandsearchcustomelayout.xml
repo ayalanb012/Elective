@@ -114,7 +114,7 @@
         android:layout_width="100dp"
         android:layout_height="match_parent" >
         <TextView
-            android:id="@+id/textView108"
+            android:id="@+id/lecturer"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="#6271b8"
