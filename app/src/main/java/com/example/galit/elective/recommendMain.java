@@ -2,6 +2,7 @@ package com.example.galit.elective;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,7 @@ public class recommendMain extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
+            title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             TextView grade = (TextView) retval.findViewById(R.id.grade);
             TextView load = (TextView) retval.findViewById(R.id.load);
             TextView diff = (TextView) retval.findViewById(R.id.diff);
@@ -108,6 +110,8 @@ public class recommendMain extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
+            title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
             TextView grade = (TextView) retval.findViewById(R.id.grade);
             TextView load = (TextView) retval.findViewById(R.id.load);
             TextView diff = (TextView) retval.findViewById(R.id.diff);
@@ -146,6 +150,8 @@ public class recommendMain extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
+            title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
             TextView grade = (TextView) retval.findViewById(R.id.grade);
             TextView load = (TextView) retval.findViewById(R.id.load);
             TextView diff = (TextView) retval.findViewById(R.id.diff);

@@ -20,7 +20,7 @@
             android:id="@+id/title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
     </LinearLayout>
@@ -34,7 +34,7 @@
             android:id="@+id/grade"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/textView113"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:text="ציון"
             android:layout_weight="1" />
@@ -56,14 +56,14 @@
             android:id="@+id/interest"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/textView81"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:text="עניין"
             android:layout_weight="1" />
@@ -76,14 +76,14 @@
             android:id="@+id/diff"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/textView95"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:text="קושי"
             android:layout_weight="1" />
@@ -96,14 +96,14 @@
             android:id="@+id/load"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/textView88"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
 
             android:text="עומס"
@@ -117,14 +117,14 @@
             android:id="@+id/lecturer"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/textView109"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:gravity="center_horizontal"
             android:text="מרצה"
             android:layout_weight="1" />
