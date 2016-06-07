@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="100dp"
-    android:layout_height="match_parent"
-    android:background="@drawable/selector"
+    android:layout_height="fill_parent"
+    android:background="@drawable/selector2"
     android:padding="7dp"
     android:paddingLeft="7dp"
     android:paddingTop="7dp"
@@ -24,7 +24,152 @@
             android:gravity="center_horizontal"
             android:layout_weight="1" />
     </LinearLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:background="#efefef"
+        android:layout_height="wrap_content">
 
+        <TableRow
+            android:gravity="right"
+            android:padding="3dp">
+
+            <TextView
+                android:text="2"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+
+            <TextView
+                android:text="תגובות"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#8e8e8e"
+                android:padding="2dip" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="7/10"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+
+            <TextView
+                android:text="ציון"
+                android:textColor="#6271b8" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#8e8e8e"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:gravity="right"
+            android:padding="3dp">
+            <TextView
+                android:text="2/10"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+            <TextView
+                android:text="קושי"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#8e8e8e"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+            android:text="8/10"
+            android:padding="3dp"
+            android:textColor="#6271b8" />
+            <TextView
+                android:text="עניין"
+                android:padding="3dp"
+                android:textColor="#6271b8" /></TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#8e8e8e"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:gravity="right"
+            android:padding="3dp">
+            <TextView
+                android:text="5/10"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+            <TextView
+                android:text="עומס"
+                android:padding="3dp"
+                android:textColor="#6271b8" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+        <View
+            android:id="@+id/line5"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_weight="1"
+            android:background="#8e8e8e"
+            android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+        android:gravity="right"
+        android:padding="3dp">
+
+        <TextView
+            android:text="6/10"
+            android:padding="3dp"
+            android:textColor="#6271b8" />
+        <TextView
+            android:text="מרצה"
+            android:padding="3dp"
+            android:textColor="#6271b8" />
+
+</TableRow>
+
+    </TableLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="100dp"
