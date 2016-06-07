@@ -89,7 +89,7 @@
                 android:id="@+id/bttn_sign_in"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:background="#1E99DD"
+                android:background="@drawable/btnshade"
                 android:textColor="#ffffff"
                 android:textSize="24dp" />
         </LinearLayout>

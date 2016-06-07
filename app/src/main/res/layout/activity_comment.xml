@@ -185,7 +185,7 @@
                 android:id="@+id/button3"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:background="#1E99DD"
+                android:background="@drawable/btnshade"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
                 android:paddingTop="5sp" />
