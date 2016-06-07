@@ -18,7 +18,7 @@
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffff"
         android:layout_weight="1" />
@@ -34,7 +34,7 @@
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview1"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffff"
         android:layout_weight="1" />
@@ -49,7 +49,7 @@
 
     <com.example.galit.elective.RecommandSearchAdapter
         android:id="@+id/listview2"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffff"
         android:layout_weight="1" />

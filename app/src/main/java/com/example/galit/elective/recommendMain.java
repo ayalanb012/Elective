@@ -37,11 +37,12 @@ public class recommendMain extends Activity {
     private static String[] getDataObjects_sports_grade = new String[]{"7.6/10","8.2/10","8.8/10","8.3/10","9.4/10","8.5/10" };
 
     private static String[] dataObjects_easy = new String[]
-            { "המקרא בשירה העברית המודרנית",
+            { "שמואל הנגיד: קצין וג'נטלמן",
                     "ספרות של עולמות אפשריים",
-                    "הנגב:מספר ההתיישבות לארץ מושב",
+                    "המוח 120 שנות מחקר",
                     "אפריקה בתקופה הקולוניאלית"};
     private static String[] getDataObjects_easy_grade = new String[]{"8.2/10","8.7/10","8.9/10","8.3/10" };
+    private static String[] getDataObjects_load_grade = new String[]{"7.1/10","5.5/10","6.0/10","3.3/10" };
 
     private BaseAdapter interestAdapter = new BaseAdapter() {
 
@@ -66,10 +67,12 @@ public class recommendMain extends Activity {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
             TextView grade = (TextView) retval.findViewById(R.id.grade);
+            TextView load = (TextView) retval.findViewById(R.id.load);
             TextView diff = (TextView) retval.findViewById(R.id.diff);
             grade.setText(getDataObjects_interest_grade[position]);
-            diff.setText("4");
+            diff.setText("4/10");
             title.setText(dataObjects_interest[position]);
+            load.setText(getDataObjects_load_grade[position]);
 
             return retval;
         }
