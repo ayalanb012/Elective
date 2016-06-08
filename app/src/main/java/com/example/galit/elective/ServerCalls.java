@@ -65,6 +65,20 @@ public class ServerCalls {
         return "error in signIn";
     }
 
+    static String recommendCall() {
+
+        myTaskRecommend T = new myTaskRecommend( );
+        T.execute();
+        try {
+            return T.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return "error in signIn";
+    }
+
     public static String getNameCall(String student) {
 
         myTaskgetUserName T = new myTaskgetUserName(student);
@@ -131,6 +145,77 @@ public class ServerCalls {
     }
 
 //----------------------------------------------------------------------------------------------------------------------------------//
+
+    private static class myTaskRecommend extends AsyncTask<Void, Void, String> {
+
+        String critiques;
+
+        public myTaskRecommend() {
+             critiques = MainActivity.recSession.getCritiques();;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "recommend");
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "critiques";
+            propertyInfo1.setValue(critiques);
+            request.addProperty(propertyInfo1);
+
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res;
+
+            try {
+                //httpTransport.call(SOAP_ACTION, envelope);
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/recommend", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                // tvData1.setText(response.toString());
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                // tvData1.setText(exception.toString() + "  Or enter number is not Available!");
+                res = exception.toString();
+            }
+
+            return res;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            //Toast toast = Toast.makeText(getApplicationContext(), "succsess", Toast.LENGTH_LONG);
+            //toast.show();
+        }
+
+
+    }
+
 
     private static class myTaskchangeUserPassword extends AsyncTask<Void, Void, String> {
 

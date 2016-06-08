@@ -7,7 +7,17 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class critiqueCourse extends AppCompatActivity {
+
+     String  title;
+     String  grade;
+     String  load;
+     String  diff;
+     String  lecturer;
+     String  interest;
+     String  comments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,18 +25,77 @@ public class critiqueCourse extends AppCompatActivity {
         setContentView(R.layout.activity_critique_course);
 
         Intent caller = getIntent();
-        final String  title  = caller.getStringExtra("title");
-        final String  grade  = caller.getStringExtra("grade");
-        final String  load  = caller.getStringExtra("load");
-        final String  diff  = caller.getStringExtra("diff");
-        final String  lecturer  = caller.getStringExtra("lecturer");
-        final String  interest  = caller.getStringExtra("interest");
-        final String  comments  = caller.getStringExtra("comments");
+          title  = caller.getStringExtra("title");
+          grade  = caller.getStringExtra("grade");
+          load  = caller.getStringExtra("load");
+          diff  = caller.getStringExtra("diff");
+         lecturer  = caller.getStringExtra("lecturer");
+         interest  = caller.getStringExtra("interest");
+         comments  = caller.getStringExtra("comments");
 
+        TextView name = (TextView) findViewById(R.id.course_name);
+        TextView t_diff = (TextView) findViewById(R.id.txt_diff);
+        TextView t_grade = (TextView) findViewById(R.id.txt_grade);
+        TextView t_lecture = (TextView) findViewById(R.id.txt_lecture);
+        TextView t_load = (TextView) findViewById(R.id.txt_load);
+        TextView t_comments = (TextView) findViewById(R.id.txt_commentNum);
+        TextView t_interest = (TextView) findViewById(R.id.txt_interest);
+
+        name.setText(title);
+        t_diff.setText(diff);
+        t_grade.setText(grade);
+        t_lecture.setText(lecturer);
+        t_load.setText(load);
+        t_comments.setText(comments);
+        t_interest.setText(interest);
     }
 
 
+    public void popularClicked(View V){
+        MainActivity.recSession.addCritique("popular: "+ comments + ","+ grade);
+        String critiques = MainActivity.recSession.getCritiques();
 
+        Toast toast = Toast.makeText(getApplicationContext(), critiques, Toast.LENGTH_LONG);
+        toast.show();
+
+
+      /*  Intent myintent = new Intent(getApplicationContext(), recommend_results.class);
+        ArrayList<String[]> list = new ArrayList<String[]>() {{
+            add(new String[] { "המוח 120 שנות מחקר", "יצירות מופת מעולם הספות","כדורעף מעורב" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
+
+        }};
+
+
+        myintent.putExtra("recommend results",list);
+        startActivity(myintent); */
+    }
+
+    public void loadClicked(View V){
+        MainActivity.recSession.addCritique("load: "+ load);
+
+    }
+
+    public void easyClicked(View V){
+        MainActivity.recSession.addCritique("easy: "+ diff );
+    }
+
+    public void lectureClicked(View V){
+        MainActivity.recSession.addCritique("lecture: "+ lecturer );
+    }
+
+    public void interestClicked(View V){
+        MainActivity.recSession.addCritique("interest: "+ interest );
+    }
+
+    public void surpriseClicked(View V){
+        MainActivity.recSession.addCritique("surprise");
+    }
 
 
 

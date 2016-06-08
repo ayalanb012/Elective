@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,13 +36,13 @@ public class recommendMain extends Activity {
         RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
         RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
 
-        title = (TextView) findViewById(R.id.title);
+    /*   title = (TextView) findViewById(R.id.title);
         grade = (TextView) findViewById(R.id.tv_grade);
         load = (TextView) findViewById(R.id.tv_load);
         diff = (TextView) findViewById(R.id.tv_diff);
         lecturer = (TextView) findViewById(R.id.tv_lecturer);
         interest = (TextView) findViewById(R.id.tv_interest);
-        comments = (TextView) findViewById(R.id.tv_comments);
+        comments = (TextView) findViewById(R.id.tv_comments); */
 
         listview.setAdapter(interestAdapter);
         listview1.setAdapter(easyAdapter);
@@ -48,13 +50,31 @@ public class recommendMain extends Activity {
 
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
             @Override
             public void onItemClick (AdapterView < ? > adapter, View view,int position, long arg){
-                // TODO Auto-generated method stub
+
                 //TextView v = (TextView) view.findViewById(R.id.txtLstItem);
                // View selectedCourse = adapter.getSelectedView();
               //  Object selectedCourse = listview.getItemAtPosition(position);
               //  View coursename = listview.getChildAt(position);
+
+
+
+              ListAdapter la = listview.getAdapter();
+               View selsected =  la.getView(position,view, (ViewGroup)view.getParent());
+
+                TextView title = (TextView)  selsected.findViewById(R.id.title);
+                TextView grade = (TextView)  selsected.findViewById(R.id.tv_grade);
+                TextView load = (TextView)  selsected.findViewById(R.id.tv_load);
+                TextView diff = (TextView)  selsected.findViewById(R.id.tv_diff);
+                TextView lecturer = (TextView)  selsected.findViewById(R.id.tv_lecturer);
+                TextView interest = (TextView)  selsected.findViewById(R.id.tv_interest);
+                TextView comments = (TextView)  selsected.findViewById(R.id.tv_comments);
+
+             //   Toast.makeText(getApplicationContext(), "selected Item Name is "+ title.getText() + " " + grade.getText(), Toast.LENGTH_LONG).show();
+
                 Intent myintent = new Intent(getApplicationContext(), critiqueCourse.class);
                 myintent.putExtra("title",title.getText());
                 myintent.putExtra("grade",grade.getText());
@@ -66,20 +86,23 @@ public class recommendMain extends Activity {
                 myintent.putExtra("caller_activity", "recommendMain");
                 startActivity(myintent);
                 //finish();
-                Toast.makeText(getApplicationContext(), "selected Item Name is "+ position , Toast.LENGTH_LONG).show();
+
             }
         });
 
 
-
-
     }
+
+
+
+
     private static String[] dataObjects_interest = new String[]{ "יצירות מופת מספרות העולם I","חברה ותרבות בסין המודרנית", "החוויה התיאטרונית","מבוא ללימודי אפריקה","אפריקה ואקטיביזם"};
     private static String[] getDataObjects_interest_grade = new String[]{"9.6/10","8.4/10","10/10","8.3/10","9.8/10" };
     private static String[] getDataObjects_interest_interest = new String[]{"9.6/10","9.7/10","9.4/10","9.3/10","9.8/10" };
     private static String[] getDataObjects_interest_diff = new String[]{"9.2/10","8.4/10","8.7/10","8.3/10","8.8/10" };
     private static String[] getDataObjects_interest_load = new String[]{"9.1/10","9.4/10","8.8/10","7.6/10","7.3/10" };
     private static String[] getDataObjects_interest_lecturer = new String[]{"7.6/10","8.4/10","8.8/10","7.3/10","6.8/10" };
+    private static String[] getDataObjects_interest_comments = new String[]{"15","23","7","3","8" };
 
     private static String[] dataObjects_sports = new String[]{ "טניס מתחילים", "פילאטיס", "כדורעף מעורב","קט רגל","סייף","חדר כושר"};
     private static String[] getDataObjects_sports_grade = new String[]{"7.6/10","8.2/10","8.8/10","8.3/10","9.4/10","8.5/10" };
@@ -116,6 +139,15 @@ public class recommendMain extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
+
+            TextView title = (TextView)  retval.findViewById(R.id.title);
+            TextView grade = (TextView)  retval.findViewById(R.id.tv_grade);
+            TextView load = (TextView)  retval.findViewById(R.id.tv_load);
+            TextView diff = (TextView)  retval.findViewById(R.id.tv_diff);
+            TextView lecturer = (TextView)  retval.findViewById(R.id.tv_lecturer);
+            TextView interest = (TextView)  retval.findViewById(R.id.tv_interest);
+            TextView comments = (TextView)  retval.findViewById(R.id.tv_comments);
+
            title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             grade.setText(getDataObjects_interest_grade[position]);
             diff.setText(getDataObjects_interest_diff[position]);
@@ -123,6 +155,7 @@ public class recommendMain extends Activity {
             load.setText(getDataObjects_interest_load[position]);
             lecturer.setText(getDataObjects_interest_lecturer[position]);
             interest.setText(getDataObjects_interest_interest[position]);
+            comments.setText(getDataObjects_interest_comments[position]);
             return retval;
         }
 

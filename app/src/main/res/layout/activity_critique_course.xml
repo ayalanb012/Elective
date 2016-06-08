@@ -75,16 +75,20 @@
 
         <TableRow
             android:gravity="right"
-            android:padding="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
 
             <TextView
                 android:text="2"
+                android:id="@+id/txt_commentNum"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
 
             <TextView
-                android:text="נקודות זכות"
+                android:text="מספר תגובות"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
@@ -96,17 +100,20 @@
 
             <TextView
                 android:text="7/10"
+                android:id="@+id/txt_grade"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
 
             <TextView
                 android:text="ציון כללי"
+                android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
         </TableRow>
 
         <TableRow
+            android:gravity="right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
@@ -122,9 +129,11 @@
 
         <TableRow
             android:gravity="right"
-            android:padding="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
                 android:text="2/10"
+                android:id="@+id/txt_diff"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
@@ -140,6 +149,7 @@
                 android:textColor="#6271b8" />
             <TextView
                 android:text="8/10"
+                android:id="@+id/txt_interest"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
@@ -164,9 +174,12 @@
 
         <TableRow
             android:gravity="right"
-            android:padding="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
             <TextView
                 android:text="5/10"
+                android:id="@+id/txt_load"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
@@ -182,6 +195,7 @@
                 android:textColor="#6271b8" />
             <TextView
                 android:text="6/10"
+                android:id="@+id/txt_lecture"
                 android:padding="5dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#6271b8" />
@@ -232,36 +246,18 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="8dp"
                     android:background="@drawable/btnshade"
-                    android:drawableTop="@drawable/turtle"
+                    android:drawableTop="@drawable/america"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="פופולרי יותר"
-                    android:textColor="#fff" />
+                    android:textColor="#fff"
+                    android:onClick="popularClicked" />
 
             </LinearLayout>
 
 
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="@drawable/btnshade"
-                    android:drawableTop="@drawable/desk"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="ללא מבחן"
-                    android:textColor="#fff" />
-
-            </LinearLayout>
-
-            <LinearLayout
+             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_marginRight="5dp"
@@ -276,6 +272,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="פחות עמוס"
+                    android:onClick="loadClicked"
                     android:textColor="#fff" />
 
             </LinearLayout>
@@ -295,6 +292,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="קל יותר"
+                    android:onClick="easyClicked"
                     android:textColor="#fff" />
             </LinearLayout>
 
@@ -313,26 +311,10 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="מרצה טוב"
+                    android:onClick="lectureClicked"
                     android:textColor="#fff" />
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="@drawable/btnshade"
-                    android:drawableTop="@drawable/bed"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="ללא נוכחות"
-                    android:textColor="#fff" />
-            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -349,8 +331,10 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="מעניין יותר"
+                    android:onClick="interestClicked"
                     android:textColor="#fff" />
             </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -362,10 +346,11 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="8dp"
                     android:background="@drawable/btnshade"
-                    android:drawableTop="@drawable/parts"
+                    android:drawableTop="@drawable/baloons"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="תפתיע אותי"
+                    android:onClick="surpriseClicked"
                     android:textColor="#fff" />
 
             </LinearLayout>

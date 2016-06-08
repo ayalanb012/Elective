@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView hello;
     public static Session session = null;
+    public static  critiqueSession recSession=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         signInBttn = (Button) findViewById(R.id.bttn_sign_in);
         if(session==null) {
             session = new Session(getApplicationContext()); //first time - need to create session
-
+            recSession = new critiqueSession(getApplicationContext());
           //  signInBttn.setText("התחברות");
 
         }
@@ -98,13 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void recommandClicked(View v)
     {
-        if (session.isLoggedIn().equals("True"))
+      //  if (session.isLoggedIn().equals("True"))
         //startActivity(new Intent(getApplicationContext(), recommend_results.class));
             startActivity(new Intent(getApplicationContext(), recommendMain.class));
-        else {
-            Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לקבל המלצה", Toast.LENGTH_LONG);
-            toast.show();
-        }
+      //  else {
+      //      Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לקבל המלצה", Toast.LENGTH_LONG);
+     //       toast.show();
+     //   }
         
     }
 
