@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollView01"
-    android:layout_width="fill_parent"
-    android:fillViewport="true"
-    android:layout_height="fill_parent" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/green2">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -24,23 +18,134 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton3"
-            android:src="@drawable/rsz_logo2"
-            android:background="#00000000"
+            android:src="@drawable/logologofinal"
             android:layout_marginBottom="10dp"
-            android:layout_weight="3" />
+            android:layout_weight="3"
+            android:background="#00FFFFFF" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/bttn_user_profile"
-            android:layout_weight="2"
-            android:background="#FFFFFF"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_menu"
             android:nestedScrollingEnabled="false"
-            android:onClick="userClicked" />
+            android:onClick="userClicked"
+            android:background="#00FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="שלום"
+            android:id="@+id/hello_txt"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true"
+            android:textColor="#6372b6"
+            android:typeface="serif"
+            android:textSize="28dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/linearLayout"
+            android:id="@+id/linearLayout8" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+
+            android:paddingRight="10dp">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:id="@+id/bttn_signIn"
+                android:layout_gravity="center"
+                android:text="התחברות"
+                android:layout_marginBottom="10dp"
+                android:onClick="SignInClicked"
+                android:background="@drawable/btnshade"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:layout_weight="1"
+                android:padding="1dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:id="@+id/bttn_register"
+                android:layout_gravity="center"
+                android:text="הרשמה"
+                android:layout_marginBottom="10dp"
+                android:onClick="RegisterClicked"
+                android:background="@drawable/btnshade"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/bttn_search"
+                android:layout_gravity="center"
+                android:text="חפש קורס"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btnshade"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:onClick="SearchClicked"
+                android:nestedScrollingEnabled="false"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/bttn_reccomand"
+                android:layout_gravity="center"
+                android:text="המלץ לי"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btnshade"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:onClick="recommandClicked"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -50,83 +155,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_below="@+id/linearLayout"
-        android:id="@+id/linearLayout2">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="77dp"
-        android:layout_marginBottom="77dp"
-        android:id="@+id/linearLayout4">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bttn_signIn"
-            android:layout_gravity="center"
-            android:text="התחברות"
-            android:layout_marginBottom="10dp"
-            android:onClick="SignInClicked"
-            android:background="@drawable/btnshade"
-            android:textSize="24dp"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bttn_register"
-            android:layout_gravity="center_horizontal"
-            android:onClick="RegisterClicked"
-            android:text="הרשמה"
-            android:background="@drawable/btnshade"
-            android:textSize="24dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bttn_search"
-            android:layout_gravity="center"
-            android:text="חפש קורס"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/btnshade"
-            android:textSize="24dp"
-            android:textColor="#FFFFFF"
-            android:onClick="SearchClicked"
-            android:nestedScrollingEnabled="false" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bttn_reccomand"
-            android:layout_gravity="center"
-            android:text="המלץ לי על קורס"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/btnshade"
-            android:textSize="24dp"
-            android:textColor="#FFFFFF"
-            android:onClick="recommandClicked" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="שלום"
-        android:id="@+id/hello_txt"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textColor="#6372b6"
-        android:typeface="serif"
-        android:textSize="28dp" />
+        android:id="@+id/linearLayout6" />
 
 </RelativeLayout>
-</ScrollView>

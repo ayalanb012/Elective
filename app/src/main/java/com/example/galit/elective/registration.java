@@ -13,7 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -360,6 +362,26 @@ public class registration extends AppCompatActivity  {
         else //the cell is blue
             tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
 
+    }
+
+    public void scheduleClicked(View v)
+    {
+        final TableLayout tl_schedule = (TableLayout) findViewById(R.id.registration_schedule);
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if (tl_schedule.getVisibility() == View.VISIBLE) {
+                    tl_schedule.setVisibility(View.GONE);
+
+                } else {
+                    tl_schedule.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+        });
     }
 
 

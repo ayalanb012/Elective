@@ -319,8 +319,9 @@ public class Search extends AppCompatActivity {
         ColorDrawable test = (ColorDrawable)tr.getBackground();
         int current = (test).getColor();
         if (current!=background) //if the cell is white
+
             tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
         else //the cell is blue
-            tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
+            tr.setBackgroundColor(Color.TRANSPARENT); //turn to white
     }
 }

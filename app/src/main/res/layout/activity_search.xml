@@ -12,6 +12,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/green2"
     tools:context="com.example.galit.elective.Search">
 
     <LinearLayout
@@ -26,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton3"
-            android:src="@drawable/ayalalogo"
+            android:src="@drawable/logologofinal"
             android:background="#00000000"
             android:layout_marginBottom="10dp"
             android:layout_weight="3" />
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/bttn_user_profile"
             android:layout_weight="2"
-            android:background="#FFFFFF"
+            android:background="#00FFFFFF"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -285,7 +286,7 @@
                     android:id="@+id/s_tr_fri_8"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -300,7 +301,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_8"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -315,7 +316,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_8"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -330,7 +331,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_8"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -345,7 +346,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_8"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -360,7 +361,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_8"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -374,7 +375,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -397,7 +399,7 @@
                     android:id="@+id/s_tr_fri_9"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -413,7 +415,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_9"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -428,7 +430,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_9"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -443,7 +445,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_9"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -458,7 +460,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_9"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -473,7 +475,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_9"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -509,7 +511,7 @@
                     android:id="@+id/s_tr_fri_10"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -525,7 +527,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_10"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -540,7 +542,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_10"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -555,7 +557,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_10"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -570,7 +572,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_10"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -585,7 +587,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_10"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -621,7 +623,7 @@
                     android:id="@+id/s_tr_fri_11"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -636,7 +638,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_11"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -651,7 +653,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_11"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -666,7 +668,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_11"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -681,7 +683,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_11"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -696,7 +698,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_11"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -732,7 +734,7 @@
                     android:id="@+id/s_tr_fri_12"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -747,7 +749,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_12"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -762,7 +764,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_12"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -777,7 +779,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_12"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -792,7 +794,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_12"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -807,7 +809,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_12"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -843,7 +845,7 @@
                     android:id="@+id/s_tr_fri_13"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -858,7 +860,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_13"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -873,7 +875,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_13"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -888,7 +890,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_13"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -903,7 +905,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_13"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -918,7 +920,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_13"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -954,7 +956,7 @@
                     android:id="@+id/s_tr_fri_14"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -969,7 +971,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_14"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -984,7 +986,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_14"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -999,7 +1001,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_14"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1014,7 +1016,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_14"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1029,7 +1031,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_14"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1065,7 +1067,7 @@
                     android:id="@+id/s_tr_fri_15"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1081,7 +1083,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_15"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1097,7 +1099,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_15"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1113,7 +1115,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_15"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1129,7 +1131,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_15"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1145,7 +1147,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_15"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1181,7 +1183,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_fri_16"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1197,7 +1199,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_16"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1213,7 +1215,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_16"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1230,7 +1232,7 @@
                     android:id="@+id/s_tr_tue_16"
                     android:nestedScrollingEnabled="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1246,7 +1248,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_16"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1262,7 +1264,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_16"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1298,7 +1300,7 @@
                     android:layout_weight="1"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_fri_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1315,7 +1317,7 @@
                     android:nestedScrollingEnabled="false"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_thu_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1331,7 +1333,7 @@
                     android:layout_weight="1"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_wed_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1347,7 +1349,7 @@
                     android:layout_weight="1"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_tue_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1363,7 +1365,7 @@
                     android:layout_weight="1"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_mon_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1379,7 +1381,7 @@
                     android:layout_weight="1"
                     android:onClick="table_row_clicked"
                     android:id="@+id/s_tr_sun_17"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1416,7 +1418,7 @@
                     android:id="@+id/s_tr_fri_18"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1431,13 +1433,14 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_18"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:id="@+id/s_textView103" />
+                        android:id="@+id/s_textView103"
+                        android:background="#00FFFFFF" />
                 </TableRow>
 
                 <TableRow
@@ -1446,7 +1449,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_18"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1461,7 +1464,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_18"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1476,7 +1479,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_18"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1491,7 +1494,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_18"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1527,7 +1530,7 @@
                     android:id="@+id/s_tr_fri_19"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1542,7 +1545,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_19"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1557,7 +1560,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_19"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1572,7 +1575,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_19"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1587,7 +1590,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_19"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1602,7 +1605,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_19"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1638,7 +1641,7 @@
                     android:id="@+id/s_tr_fri_20"
                     android:longClickable="false"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1653,7 +1656,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_thu_20"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1668,7 +1671,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_wed_20"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1683,7 +1686,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_tue_20"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1698,7 +1701,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_mon_20"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1713,7 +1716,7 @@
                     android:layout_weight="1"
                     android:id="@+id/s_tr_sun_20"
                     android:onClick="table_row_clicked"
-                    android:background="#ffffff">
+                    android:background="#00FFFFFF">
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -22,7 +22,7 @@ public class critiqueCourse extends AppCompatActivity {
         final String  lecturer  = caller.getStringExtra("lecturer");
         final String  interest  = caller.getStringExtra("interest");
         final String  comments  = caller.getStringExtra("comments");
-      
+
     }
 
 

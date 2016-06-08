@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton3"
-                android:src="@drawable/ayalalogo"
+                android:src="@drawable/logologofinal"
                 android:background="#00000000"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="3" />
