@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class recommendMain extends Activity {
 
@@ -20,13 +22,31 @@ public class recommendMain extends Activity {
 
         setContentView(R.layout.activity_recommend_main);
 
-        RecommandSearchAdapter listview = (RecommandSearchAdapter) findViewById(R.id.listview);
+        final RecommandSearchAdapter listview = (RecommandSearchAdapter) findViewById(R.id.listview);
         RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
         RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
 
         listview.setAdapter(interestAdapter);
         listview1.setAdapter(easyAdapter);
         listview2.setAdapter(sportsAdapter);
+
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick (AdapterView < ? > adapter, View view,int position, long arg){
+                // TODO Auto-generated method stub
+                //TextView v = (TextView) view.findViewById(R.id.txtLstItem);
+               // View selectedCourse = adapter.getSelectedView();
+              //  Object selectedCourse = listview.getItemAtPosition(position);
+              //  View coursename = listview.getChildAt(position);
+
+                Toast.makeText(getApplicationContext(), "selected Item Name is "+ position , Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
+
     }
     private static String[] dataObjects_interest = new String[]{ "יצירות מופת מספרות העולם I","חברה ותרבות בסין המודרנית", "החוויה התיאטרונית","מבוא ללימודי אפריקה","אפריקה ואקטיביזם"};
     private static String[] getDataObjects_interest_grade = new String[]{"9.6/10","8.4/10","10/10","8.3/10","9.8/10" };

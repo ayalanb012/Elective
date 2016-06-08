@@ -38,19 +38,19 @@ class yourAdapter extends BaseAdapter {
 
  @Override
  public int getCount() {
- // TODO Auto-generated method stub
+
  return names.length;
  }
 
  @Override
  public Object getItem(int position) {
- // TODO Auto-generated method stub
- return names[position];
+ String[] res = {names[position],grades[position],diffs[position],interests[position],lectures[position],comments[position],loads[position]};
+ return res;
  }
 
  @Override
  public long getItemId(int position) {
- // TODO Auto-generated method stub
+
  return position;
  }
 
