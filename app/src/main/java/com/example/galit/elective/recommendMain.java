@@ -2,6 +2,7 @@ package com.example.galit.elective;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class recommendMain extends Activity {
+    TextView grade;
+    TextView load;
+    TextView diff;
+    TextView lecturer;
+    TextView interest;
+    TextView comments;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,14 @@ public class recommendMain extends Activity {
         final RecommandSearchAdapter listview = (RecommandSearchAdapter) findViewById(R.id.listview);
         RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
         RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
+
+        title = (TextView) findViewById(R.id.title);
+        grade = (TextView) findViewById(R.id.tv_grade);
+        load = (TextView) findViewById(R.id.tv_load);
+        diff = (TextView) findViewById(R.id.tv_diff);
+        lecturer = (TextView) findViewById(R.id.tv_lecturer);
+        interest = (TextView) findViewById(R.id.tv_interest);
+        comments = (TextView) findViewById(R.id.tv_comments);
 
         listview.setAdapter(interestAdapter);
         listview1.setAdapter(easyAdapter);
@@ -39,7 +55,17 @@ public class recommendMain extends Activity {
                // View selectedCourse = adapter.getSelectedView();
               //  Object selectedCourse = listview.getItemAtPosition(position);
               //  View coursename = listview.getChildAt(position);
-
+                Intent myintent = new Intent(getApplicationContext(), critiqueCourse.class);
+                myintent.putExtra("title",title.getText());
+                myintent.putExtra("grade",grade.getText());
+                myintent.putExtra("load",load.getText());
+                myintent.putExtra("diff",diff.getText());
+                myintent.putExtra("lecturer",lecturer.getText());
+                myintent.putExtra("interest",interest.getText());
+                myintent.putExtra("comments",comments.getText());
+                myintent.putExtra("caller_activity", "recommendMain");
+                startActivity(myintent);
+                //finish();
                 Toast.makeText(getApplicationContext(), "selected Item Name is "+ position , Toast.LENGTH_LONG).show();
             }
         });
@@ -90,13 +116,7 @@ public class recommendMain extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
-            TextView title = (TextView) retval.findViewById(R.id.title);
-            title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            TextView grade = (TextView) retval.findViewById(R.id.grade);
-            TextView load = (TextView) retval.findViewById(R.id.load);
-            TextView diff = (TextView) retval.findViewById(R.id.diff);
-            TextView lecturer = (TextView) retval.findViewById(R.id.lecturer);
-            TextView interest = (TextView) retval.findViewById(R.id.interest);
+           title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             grade.setText(getDataObjects_interest_grade[position]);
             diff.setText(getDataObjects_interest_diff[position]);
             title.setText(dataObjects_interest[position]);
@@ -131,12 +151,12 @@ public class recommendMain extends Activity {
             View retval = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommandsearchcustomelayout, null);
             TextView title = (TextView) retval.findViewById(R.id.title);
             title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-            TextView grade = (TextView) retval.findViewById(R.id.grade);
-            TextView load = (TextView) retval.findViewById(R.id.load);
-            TextView diff = (TextView) retval.findViewById(R.id.diff);
-            TextView lecturer = (TextView) retval.findViewById(R.id.lecturer);
-            TextView interest = (TextView) retval.findViewById(R.id.interest);
+            TextView grade = (TextView) retval.findViewById(R.id.tv_grade);
+            TextView load = (TextView) retval.findViewById(R.id.tv_load);
+            TextView diff = (TextView) retval.findViewById(R.id.tv_diff);
+            TextView lecturer = (TextView) retval.findViewById(R.id.tv_lecturer);
+            TextView interest = (TextView) retval.findViewById(R.id.tv_interest);
+            TextView comments = (TextView) retval.findViewById(R.id.tv_comments);
             grade.setText(getDataObjects_sports_grade[position]);
             diff.setText(getDataObjects_sports_diff[position]);
             load.setText(getDataObjects_sports_load[position]);
@@ -172,18 +192,19 @@ public class recommendMain extends Activity {
             TextView title = (TextView) retval.findViewById(R.id.title);
             title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-            TextView grade = (TextView) retval.findViewById(R.id.grade);
-            TextView load = (TextView) retval.findViewById(R.id.load);
-            TextView diff = (TextView) retval.findViewById(R.id.diff);
-            TextView lecturer = (TextView) retval.findViewById(R.id.lecturer);
-            TextView interest = (TextView) retval.findViewById(R.id.interest);
+            TextView grade = (TextView) retval.findViewById(R.id.tv_grade);
+            TextView load = (TextView) retval.findViewById(R.id.tv_load);
+            TextView diff = (TextView) retval.findViewById(R.id.tv_diff);
+            TextView lecturer = (TextView) retval.findViewById(R.id.tv_lecturer);
+            TextView interest = (TextView) retval.findViewById(R.id.tv_interest);
+            TextView comments = (TextView) retval.findViewById(R.id.tv_comments);
+
             grade.setText(getDataObjects_easy_grade[position]);
             diff.setText(getDataObjects_easy_diff[position]);
             load.setText(getDataObjects_easy_load[position]);
             lecturer.setText(getDataObjects_easy_lecturer[position]);
             interest.setText(getDataObjects_easy_interest[position]);
             title.setText(dataObjects_easy[position]);
-
             return retval;
         }
 
