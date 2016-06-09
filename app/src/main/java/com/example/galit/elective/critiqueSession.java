@@ -39,6 +39,7 @@ public class critiqueSession {
 
         Map<String,?> keys = critiques.getAll();
         String[] res = new String[keys.size()];
+        //System.out.print("critique number: " + keys.size());
         int i=0;
         JSONObject json_res = new JSONObject();
         for(Map.Entry<String,?> entry : keys.entrySet()){
