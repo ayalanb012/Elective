@@ -101,7 +101,7 @@ public class User_Profile extends AppCompatActivity {
                     if (t.equals("True"))
                         td.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
                     else //the cell is blue
-                        td.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
+                        td.setBackgroundColor(Color.TRANSPARENT); //turn to white
                 }
             }
 
@@ -231,7 +231,7 @@ public class User_Profile extends AppCompatActivity {
         if (current!=background) //if the cell is white
             tr.setBackgroundColor(Color.rgb(100, 118, 182)); //turn to blue
         else //the cell is blue
-            tr.setBackgroundColor(Color.rgb(255, 255, 255)); //turn to white
+            tr.setBackgroundColor(Color.TRANSPARENT); //turn to white
     }
 
 
@@ -442,7 +442,7 @@ public class User_Profile extends AppCompatActivity {
             EditText name_ET =(EditText) findViewById(R.id.txt_name);
             String name = name_ET.getText().toString();
 
-           String res = ServerCalls.updateDetails(getApplicationContext(), name, MainActivity.session.getusename(), Faculty, Department, Schedule_Json_str); //server call to register the user
+            String res = ServerCalls.updateDetails(getApplicationContext(), name, MainActivity.session.getusename(), Faculty, Department, Schedule_Json_str); //server call to register the user
             Toast toast = Toast.makeText(getApplicationContext(),res, Toast.LENGTH_LONG);
             toast.show();
 

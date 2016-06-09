@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="100dp"
-    android:layout_height="fill_parent"
-    android:background="@drawable/selector2"
+    android:layout_height="wrap_content"
+    android:background="@drawable/courselistdesign"
     android:padding="7dp"
     android:paddingLeft="7dp"
     android:paddingTop="7dp"
@@ -14,7 +14,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="100dp"
-        android:layout_height="match_parent">
+
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/title"
@@ -26,7 +27,7 @@
     </LinearLayout>
     <TableLayout
         android:layout_width="match_parent"
-        android:background="#efefef"
+        android:background="#6271b8"
         android:layout_height="wrap_content">
 
         <TableRow
@@ -36,13 +37,13 @@
             <TextView
                 android:text="2"
                 android:padding="3dp"
-                android:textColor="#6271b8"
+                android:textColor="#ffff"
                 android:id="@+id/tv_comments" />
 
             <TextView
                 android:text="תגובות"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -61,12 +62,16 @@
             <TextView
                 android:text="7/10"
                 android:padding="3dp"
-                android:textColor="#6271b8"
+                android:textColor="#ffff"
                 android:id="@+id/tv_grade" />
 
             <TextView
                 android:text="ציון"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView" />
+
         </TableRow>
 
         <TableRow
@@ -89,12 +94,12 @@
             <TextView
                 android:text="2/10"
                 android:padding="3dp"
-                android:textColor="#6271b8"
+                android:textColor="#ffff"
                 android:id="@+id/tv_diff" />
             <TextView
                 android:text="קושי"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
 
         </TableRow>
         <TableRow
@@ -114,12 +119,13 @@
             <TextView
             android:text="8/10"
             android:padding="3dp"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
                 android:id="@+id/tv_interest" />
             <TextView
                 android:text="עניין"
                 android:padding="3dp"
-                android:textColor="#6271b8" /></TableRow>
+                android:textColor="#ffff"
+                android:autoText="false" /></TableRow>
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -139,12 +145,13 @@
             <TextView
                 android:text="5/10"
                 android:padding="3dp"
-                android:textColor="#6271b8"
+                android:textColor="#ffff"
                 android:id="@+id/tv_load" />
             <TextView
                 android:text="עומס"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff"
+                android:autoText="false" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -166,12 +173,12 @@
         <TextView
             android:text="6/10"
             android:padding="3dp"
-            android:textColor="#6271b8"
+            android:textColor="#ffff"
             android:id="@+id/tv_lecturer" />
         <TextView
             android:text="מרצה"
             android:padding="3dp"
-            android:textColor="#6271b8" />
+            android:textColor="#ffff" />
 
 </TableRow>
 
