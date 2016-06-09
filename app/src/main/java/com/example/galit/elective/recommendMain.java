@@ -33,16 +33,8 @@ public class recommendMain extends Activity {
         setContentView(R.layout.activity_recommend_main);
 
         final RecommandSearchAdapter listview = (RecommandSearchAdapter) findViewById(R.id.listview);
-        RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
-        RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
-
-    /*   title = (TextView) findViewById(R.id.title);
-        grade = (TextView) findViewById(R.id.tv_grade);
-        load = (TextView) findViewById(R.id.tv_load);
-        diff = (TextView) findViewById(R.id.tv_diff);
-        lecturer = (TextView) findViewById(R.id.tv_lecturer);
-        interest = (TextView) findViewById(R.id.tv_interest);
-        comments = (TextView) findViewById(R.id.tv_comments); */
+        final RecommandSearchAdapter listview1 = (RecommandSearchAdapter) findViewById(R.id.listview1);
+        final RecommandSearchAdapter listview2 = (RecommandSearchAdapter) findViewById(R.id.listview2);
 
         listview.setAdapter(interestAdapter);
         listview1.setAdapter(easyAdapter);
@@ -53,17 +45,44 @@ public class recommendMain extends Activity {
 
 
             @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
+
+                ListAdapter la = listview.getAdapter();
+                View selsected = la.getView(position, view, (ViewGroup) view.getParent());
+
+                TextView title = (TextView) selsected.findViewById(R.id.title);
+                TextView grade = (TextView) selsected.findViewById(R.id.tv_grade);
+                TextView load = (TextView) selsected.findViewById(R.id.tv_load);
+                TextView diff = (TextView) selsected.findViewById(R.id.tv_diff);
+                TextView lecturer = (TextView) selsected.findViewById(R.id.tv_lecturer);
+                TextView interest = (TextView) selsected.findViewById(R.id.tv_interest);
+                TextView comments = (TextView) selsected.findViewById(R.id.tv_comments);
+
+                //   Toast.makeText(getApplicationContext(), "selected Item Name is "+ title.getText() + " " + grade.getText(), Toast.LENGTH_LONG).show();
+
+                Intent myintent = new Intent(getApplicationContext(), critiqueCourse.class);
+                myintent.putExtra("title", title.getText());
+                myintent.putExtra("grade", grade.getText());
+                myintent.putExtra("load", load.getText());
+                myintent.putExtra("diff", diff.getText());
+                myintent.putExtra("lecturer", lecturer.getText());
+                myintent.putExtra("interest", interest.getText());
+                myintent.putExtra("comments", comments.getText());
+                myintent.putExtra("caller_activity", "recommendMain");
+                startActivity(myintent);
+                //finish();
+            }
+        });
+
+
+        listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+            @Override
             public void onItemClick (AdapterView < ? > adapter, View view,int position, long arg){
 
-                //TextView v = (TextView) view.findViewById(R.id.txtLstItem);
-               // View selectedCourse = adapter.getSelectedView();
-              //  Object selectedCourse = listview.getItemAtPosition(position);
-              //  View coursename = listview.getChildAt(position);
-
-
-
-              ListAdapter la = listview.getAdapter();
-               View selsected =  la.getView(position,view, (ViewGroup)view.getParent());
+                ListAdapter la = listview1.getAdapter();
+                View selsected =  la.getView(position,view, (ViewGroup)view.getParent());
 
                 TextView title = (TextView)  selsected.findViewById(R.id.title);
                 TextView grade = (TextView)  selsected.findViewById(R.id.tv_grade);
@@ -73,7 +92,7 @@ public class recommendMain extends Activity {
                 TextView interest = (TextView)  selsected.findViewById(R.id.tv_interest);
                 TextView comments = (TextView)  selsected.findViewById(R.id.tv_comments);
 
-             //   Toast.makeText(getApplicationContext(), "selected Item Name is "+ title.getText() + " " + grade.getText(), Toast.LENGTH_LONG).show();
+                //   Toast.makeText(getApplicationContext(), "selected Item Name is "+ title.getText() + " " + grade.getText(), Toast.LENGTH_LONG).show();
 
                 Intent myintent = new Intent(getApplicationContext(), critiqueCourse.class);
                 myintent.putExtra("title",title.getText());
@@ -86,9 +105,43 @@ public class recommendMain extends Activity {
                 myintent.putExtra("caller_activity", "recommendMain");
                 startActivity(myintent);
                 //finish();
-
             }
         });
+
+
+        listview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+            @Override
+            public void onItemClick (AdapterView < ? > adapter, View view,int position, long arg){
+
+                ListAdapter la = listview2.getAdapter();
+                View selsected =  la.getView(position,view, (ViewGroup)view.getParent());
+
+                TextView title = (TextView)  selsected.findViewById(R.id.title);
+                TextView grade = (TextView)  selsected.findViewById(R.id.tv_grade);
+                TextView load = (TextView)  selsected.findViewById(R.id.tv_load);
+                TextView diff = (TextView)  selsected.findViewById(R.id.tv_diff);
+                TextView lecturer = (TextView)  selsected.findViewById(R.id.tv_lecturer);
+                TextView interest = (TextView)  selsected.findViewById(R.id.tv_interest);
+                TextView comments = (TextView)  selsected.findViewById(R.id.tv_comments);
+
+                //   Toast.makeText(getApplicationContext(), "selected Item Name is "+ title.getText() + " " + grade.getText(), Toast.LENGTH_LONG).show();
+
+                Intent myintent = new Intent(getApplicationContext(), critiqueCourse.class);
+                myintent.putExtra("title",title.getText());
+                myintent.putExtra("grade",grade.getText());
+                myintent.putExtra("load",load.getText());
+                myintent.putExtra("diff",diff.getText());
+                myintent.putExtra("lecturer",lecturer.getText());
+                myintent.putExtra("interest",interest.getText());
+                myintent.putExtra("comments",comments.getText());
+                myintent.putExtra("caller_activity", "recommendMain");
+                startActivity(myintent);
+                //finish();
+            }
+        });
+
 
 
     }

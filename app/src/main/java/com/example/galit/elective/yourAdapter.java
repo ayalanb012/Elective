@@ -44,7 +44,7 @@ class yourAdapter extends BaseAdapter {
 
  @Override
  public Object getItem(int position) {
- String[] res = {names[position],grades[position],diffs[position],interests[position],lectures[position],comments[position],loads[position]};
+ String[] res = {names[position],grades[position],diffs[position],interests[position],lectures[position],loads[position],comments[position]};
  return res;
  }
 

@@ -149,9 +149,11 @@ public class ServerCalls {
     private static class myTaskRecommend extends AsyncTask<Void, Void, String> {
 
         String critiques;
+        String username;
 
         public myTaskRecommend() {
-             critiques = MainActivity.recSession.getCritiques();;
+            critiques = MainActivity.recSession.getCritiques();
+            username = MainActivity.session.getusename();
         }
 
         @Override
@@ -174,6 +176,13 @@ public class ServerCalls {
             propertyInfo1.name = "critiques";
             propertyInfo1.setValue(critiques);
             request.addProperty(propertyInfo1);
+
+
+            PropertyInfo propertyInfo2 = new PropertyInfo();
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "usermail";
+            propertyInfo2.setValue(username);
+            request.addProperty(propertyInfo2);
 
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(

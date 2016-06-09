@@ -52,11 +52,12 @@ public class critiqueCourse extends AppCompatActivity {
 
 
     public void popularClicked(View V){
-        MainActivity.recSession.addCritique("popular: "+ comments + ","+ grade);
+        MainActivity.recSession.addCritique("p: "+ comments + ","+ grade);
         String critiques = MainActivity.recSession.getCritiques();
 
-        Toast toast = Toast.makeText(getApplicationContext(), critiques, Toast.LENGTH_LONG);
-        toast.show();
+       // System.out.print(critiques);
+       // Toast toast = Toast.makeText(getApplicationContext(), critiques, Toast.LENGTH_LONG);
+       // toast.show();
 
 
       /*  Intent myintent = new Intent(getApplicationContext(), recommend_results.class);
@@ -77,27 +78,36 @@ public class critiqueCourse extends AppCompatActivity {
     }
 
     public void loadClicked(View V){
-        MainActivity.recSession.addCritique("load: "+ load);
+        MainActivity.recSession.addCritique("l: "+ load);
+        String critiques = MainActivity.recSession.getCritiques();
+        //System.out.print(critiques);
 
     }
 
     public void easyClicked(View V){
-        MainActivity.recSession.addCritique("easy: "+ diff );
+
+        MainActivity.recSession.addCritique("e: "+ diff );
+        String critiques = MainActivity.recSession.getCritiques();
+        System.out.print(critiques);
     }
 
     public void lectureClicked(View V){
-        MainActivity.recSession.addCritique("lecture: "+ lecturer );
+        MainActivity.recSession.addCritique("t: "+ lecturer );
+        String critiques = MainActivity.recSession.getCritiques();
+       // System.out.print(critiques);
     }
 
     public void interestClicked(View V){
-        MainActivity.recSession.addCritique("interest: "+ interest );
+        MainActivity.recSession.addCritique("i: "+ interest );
+        String critiques = MainActivity.recSession.getCritiques();
+       // System.out.print(critiques);
     }
 
     public void surpriseClicked(View V){
-        MainActivity.recSession.addCritique("surprise");
+        MainActivity.recSession.addCritique("s:");
+        String critiques = MainActivity.recSession.getCritiques();
+      //  System.out.print(critiques);
     }
-
-
 
 
     public void userClicked(View v)
