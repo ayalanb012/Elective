@@ -141,13 +141,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="שלח אימייל לאיפוס"
+                android:text="שלח"
                 android:id="@+id/bttn_forgot_mail"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:background="#1E99DD"
+
                 android:textColor="#ffffff"
                 android:textSize="24dp"
+                android:background="@drawable/btnshade"
+                android:drawableTop="@drawable/email_send"
                 android:visibility="invisible"
                 android:onClick="SubmitForgotPassword" />
         </LinearLayout>

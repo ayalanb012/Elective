@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:padding="5dp">
 
         <ImageButton
             android:layout_width="match_parent"
@@ -23,18 +24,18 @@
             android:layout_weight="3"
             android:background="#00FFFFFF" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
             android:id="@+id/bttn_user_profile"
+            android:layout_weight="2"
+            android:background="@drawable/btnshade"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_menu"
+            android:drawableTop="@drawable/t"
             android:nestedScrollingEnabled="false"
-            android:onClick="userClicked"
-            android:background="#00FFFFFF" />
-
+            android:onClick="userClicked" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,6 +85,7 @@
                 android:layout_marginBottom="10dp"
                 android:onClick="SignInClicked"
                 android:background="@drawable/btnshade"
+                android:drawableTop="@drawable/android_clipboard"
                 android:textSize="24dp"
                 android:textColor="#FFFFFF"
                 android:layout_weight="1"
@@ -95,6 +97,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:id="@+id/bttn_register"
+                android:drawableTop="@drawable/scroll"
                 android:layout_gravity="center"
                 android:text="הרשמה"
                 android:layout_marginBottom="10dp"
@@ -122,6 +125,7 @@
                 android:text="חפש קורס"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btnshade"
+                android:drawableTop="@drawable/androidsearch"
                 android:textSize="24dp"
                 android:textColor="#FFFFFF"
                 android:onClick="SearchClicked"
@@ -138,6 +142,7 @@
                 android:text="המלץ לי"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btnshade"
+                android:drawableTop="@drawable/near"
                 android:textSize="24dp"
                 android:textColor="#FFFFFF"
                 android:onClick="recommandClicked"
