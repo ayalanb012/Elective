@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 //this class represents adding a comment for a certain course.
 // this class calls ServerCalls which connects to the server and adds the comment
 public class Comment extends Activity {
@@ -21,6 +23,7 @@ public class Comment extends Activity {
     TextView lecture;
     TextView diff;
     TextView comment;
+    TextView load;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class Comment extends Activity {
         interest = (TextView) findViewById(R.id.interest);
         diff = (TextView) findViewById(R.id.diff);
         comment = (TextView) findViewById(R.id.comment);
+        lecture = (TextView) findViewById(R.id.lecture);
+        load = (TextView) findViewById(R.id.load);
+
         Intent caller = getIntent();
         final String  course_num  = caller.getStringExtra("Selected_course_num");
         //validation of grade
@@ -85,12 +91,14 @@ public class Comment extends Activity {
                 String grade_string = grade.getText().toString();
                 String interest_string = interest.getText().toString();
                 //lecture = (TextView) findViewById(R.id.lecture);
-                //String lecture_string = lecture.getText().toString();
+                String lecture_string = lecture.getText().toString();
                 String diff_string = diff.getText().toString();
                 String comment_string = comment.getText().toString();
+                String load_string = load.getText().toString();
+
                 Context c = getApplicationContext();
                // TextView tvData1 = (TextView) findViewById(R.id.textView23);
-                courses_controller.commentCall(mail, course_num, comment_string, interest_string, diff_string, grade_string, c);
+                courses_controller.commentCall(mail, course_num, comment_string, interest_string, diff_string, grade_string,lecture_string,load_string, c);
                 Intent myintent = new Intent(getApplicationContext(), course_page.class);
                 myintent.putExtra("caller_activity", "Commment");
                 myintent.putExtra("Selected_course_num",course_num);

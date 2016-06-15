@@ -30,6 +30,8 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         TextView txtInterest;
         TextView txtDiff;
         TextView txtGrade;
+        TextView txtLoad;
+        TextView txtLecture;
 
     }
 
@@ -48,6 +50,8 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
                holder.txtDiff = (TextView) convertView.findViewById(R.id.txt_diff);
                holder.txtGrade = (TextView) convertView.findViewById(R.id.txt_grade);
                holder.txtInterest = (TextView) convertView.findViewById(R.id.txt_interest);
+               holder.txtLoad = (TextView) convertView.findViewById(R.id.txtLoad);
+               holder.txtLecture = (TextView) convertView.findViewById(R.id.txt_lecture);
                convertView.setTag(holder);
            } else
                holder = (ViewHolder) convertView.getTag();
@@ -57,6 +61,8 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
            holder.txtInterest.setText(rowItem.getInterest());
            holder.txtGrade.setText(rowItem.getGrade());
            holder.txtDiff.setText(rowItem.getDiff());
+           holder.txtLoad.setText(rowItem.getLoad());
+           holder.txtLecture.setText(rowItem.getLecture());
        }
        catch (Exception e)
        {

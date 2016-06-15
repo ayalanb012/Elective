@@ -10,15 +10,19 @@ public class RowItem {
     private String grade;
     private String interest;
     private String diff;
+    private String load;
+    private String lecture;
 
 
-    public RowItem(String title, String desc,String grade,String interest,String diff) {
+    public RowItem(String title, String desc,String grade,String interest,String diff,String load,String lecture) {
 
         this.title = title;
         this.desc = desc;
         this.diff= diff;
         this.grade = grade;
         this.interest = interest;
+        this.load = load;
+        this.lecture = lecture;
     }
 
 
@@ -44,6 +48,8 @@ public class RowItem {
     public String getInterest() {
         return interest;
     }
+    public  String getLoad(){return load;}
+    public  String getLecture(){return  lecture;}
 
     @Override
     public String toString() {

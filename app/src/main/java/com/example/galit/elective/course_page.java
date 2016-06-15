@@ -174,7 +174,9 @@ public int parseJson (String json) throws JSONException {
         String diff = jObject.getJSONObject(key).getString("diff");
         String interest = jObject.getJSONObject(key).getString("interest");
         String rating = jObject.getJSONObject(key).getString("rating");
-        RowItem item = new RowItem(key, feedback, rating, interest, diff);
+        String load = jObject.getJSONObject(key).getString("load");
+        String lecture = jObject.getJSONObject(key).getString("lecture");
+        RowItem item = new RowItem(key, feedback, rating, interest, diff,load,lecture);
         rowItems.add(item);
 
         //   Toast toast = Toast.makeText(context, "json: "+key+" "+value, Toast.LENGTH_LONG);

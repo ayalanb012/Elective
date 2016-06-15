@@ -56,9 +56,9 @@ public class courses_controller {
         T.execute();
     }//
 
-    public static void commentCall(String mail, String course, String feedback, String interest, String diff, String rating, Context t) {
+    public static void commentCall(String mail, String course, String feedback, String interest, String diff, String rating,String lecture,String load, Context t) {
 
-        myTaskComments T = new myTaskComments(mail, course, feedback, interest, diff, rating, t);
+        myTaskComments T = new myTaskComments(mail, course, feedback, interest, diff, rating,lecture,load, t);
         T.execute();
     }
 
@@ -459,10 +459,12 @@ public class courses_controller {
         String interest;
         String diff;
         String rating;
+        String lecture;
+        String load;
         Context t;
 
 
-        public myTaskComments(String mail, String course, String feedback, String interest, String diff, String rating, Context t) {
+        public myTaskComments(String mail, String course, String feedback, String interest, String diff, String rating,String lecture,String load, Context t) {
             this.mail = mail;
             this.course = course;
             this.feedback = feedback;
@@ -470,6 +472,8 @@ public class courses_controller {
             this.diff = diff;
             this.rating = rating;
             this.t = t;
+            this.lecture = lecture;
+            this.load = load;
         }
 
         @Override
@@ -517,12 +521,24 @@ public class courses_controller {
             propertyInfo6.name = "rating";
             propertyInfo6.setValue(Integer.parseInt(rating));
 
+            PropertyInfo propertyInfo7 = new PropertyInfo();
+            propertyInfo7.type = PropertyInfo.INTEGER_CLASS;
+            propertyInfo7.name = "load";
+            propertyInfo7.setValue(Integer.parseInt(load));
+
+            PropertyInfo propertyInfo8 = new PropertyInfo();
+            propertyInfo8.type = PropertyInfo.INTEGER_CLASS;
+            propertyInfo8.name = "lecture_grade";
+            propertyInfo8.setValue(Integer.parseInt(lecture));
+
             request.addProperty(propertyInfo1);
             request.addProperty(propertyInfo2);
             request.addProperty(propertyInfo3);
             request.addProperty(propertyInfo4);
             request.addProperty(propertyInfo5);
             request.addProperty(propertyInfo6);
+            request.addProperty(propertyInfo7);
+            request.addProperty(propertyInfo8);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                     SoapEnvelope.VER11);
