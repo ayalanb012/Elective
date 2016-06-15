@@ -74,6 +74,17 @@ public class courses_controller {
     } //
 
 
+    public static String getPopularcall(Context ctx) {
+        myTaskGetPopular T = new myTaskGetPopular(ctx);
+        T.execute();
+        try {
+            return T.get().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+    } //
+
     public static void getCourseDetails(String courseNum, Context context) {
         myTaskGetCourseDetails T = new myTaskGetCourseDetails(courseNum, context);
         T.execute();
@@ -185,6 +196,84 @@ public class courses_controller {
                 e.printStackTrace();
             }
 
+            // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
+            // toast.show();
+        }
+    }
+
+    private static class myTaskGetPopular extends AsyncTask<Void, Void, String> {
+
+        String usermail;
+        Context context;
+
+        public myTaskGetPopular(Context ctx) {
+            usermail = MainActivity.session.getusename();
+            context=ctx;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+           // Toast.makeText(context, "from server: "+ popular + " " + grade.getText(), Toast.LENGTH_LONG).show();
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "getPopulaCourses");
+
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "username";
+            propertyInfo1.setValue(usermail);
+
+            request.addProperty(propertyInfo1);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            // envelope.setOutputSoapObject(request);
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res;
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/getPopulaCourses", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+         /*   try {
+                JSONObject J0bject = new JSONObject(result);
+                JSONArray JList = J0bject.optJSONArray("Table");
+                JSONObject d = JList.getJSONObject(0);
+                course_page.course_name.setText(d.getString("COURSE_NAME"));
+
+                course_page.description.setText(d.getString("Course_Description"));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            System.out.println(result);*/
             // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
             // toast.show();
         }
