@@ -24,6 +24,7 @@ public class critiqueCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_critique_course);
 
+
         Intent caller = getIntent();
           title  = caller.getStringExtra("title");
           grade  = caller.getStringExtra("grade");

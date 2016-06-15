@@ -40,7 +40,6 @@ public class recommendMain extends Activity {
         listview1.setAdapter(easyAdapter);
         listview2.setAdapter(sportsAdapter);
 
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 

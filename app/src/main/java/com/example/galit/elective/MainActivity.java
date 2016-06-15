@@ -99,9 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void recommandClicked(View v)
     {
-        if (session.isLoggedIn().equals("True"))
+        if (session.isLoggedIn().equals("True")){
        // startActivity(new Intent(getApplicationContext(), recommend_results.class));
-       startActivity(new Intent(getApplicationContext(), recommendMain.class));
+            MainActivity.recSession.clearCritiques();
+       startActivity(new Intent(getApplicationContext(), recommendMain.class)); }
        else {
            Toast toast = Toast.makeText(getApplicationContext(), "צריך להיות מחובר כדי לקבל המלצה", Toast.LENGTH_LONG);
            toast.show();

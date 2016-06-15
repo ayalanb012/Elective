@@ -257,37 +257,66 @@ public class courses_controller {
                 course_page.course_name.setText(d.getString("COURSE_NAME"));
 
                 course_page.description.setText(d.getString("Course_Description"));
-                if(!d.getString("DIFFICULTY_AVG").equals("null"))
-                    course_page.diff.setText(d.getString("DIFFICULTY_AVG")+"/10");
+
+                if(!d.getString("DIFFICULTY_AVG").equals("null")) {
+                    String t1 = d.getString("DIFFICULTY_AVG");
+                    if(t1.length()>4)
+                        course_page.diff.setText(t1.substring(0,3) + "/10");
+                    else course_page.diff.setText(t1 + "/10");
+                }
                 else
                     course_page.diff.setText("לא ידוע");
-                if(!d.getString("AVG_RATING").equals("null"))
-                    course_page.general.setText(d.getString("AVG_RATING")+"/10");
+
+                if(!d.getString("AVG_RATING").equals("null")) {
+                    String t2 = d.getString("AVG_RATING");
+                    if (t2.length() > 4)
+                        course_page.general.setText(t2.substring(0, 3) + "/10");
+                    else
+                        course_page.general.setText(t2 + "/10");
+                }
                 else
                     course_page.general.setText("לא ידוע");
-                if(!d.getString("INTEREST_AVG").equals("null"))
-                    course_page.interest.setText(d.getString("INTEREST_AVG")+"/10");
+
+                if(!d.getString("INTEREST_AVG").equals("null")) {
+                    String t3 = d.getString("INTEREST_AVG");
+                    if(t3.length() >4)
+                        course_page.interest.setText( t3.substring(0,3)+ "/10");
+                    else  course_page.interest.setText( t3 + "/10");
+                }
                 else
                     course_page.interest.setText("לא ידוע");
+
                 if(!d.getString("Credit_Points").equals("null"))
                     course_page.credit_points.setText(d.getString("Credit_Points"));
                 else
                     course_page.credit_points.setText("לא ידוע");
+
                 String s = d.getString("Location");
                 if(!d.getString("Location").equals("null"))
                     course_page.location.setText(d.getString("Location"));
                 else
                     course_page.location.setText("             לא ידוע");
+
                 if(!d.getString("lecture_name").equals("null"))
                     course_page.lecture_name.setText(d.getString("lecture_name"));
                 else
                     course_page.lecture_name.setText("לא ידוע");
-                if(!d.getString("load_AVG").equals("null"))
-                    course_page.load_avg.setText(d.getString("load_AVG"));
+
+                if(!d.getString("load_AVG").equals("null")) {
+                    String t4 = d.getString("load_AVG");
+                    if(t4.length()>4)
+                    course_page.load_avg.setText(t4.substring(0,3) + "/10");
+                    else course_page.load_avg.setText(t4 + "/10");
+                }
                 else
                     course_page.load_avg.setText("לא ידוע");
-                if(!d.getString("lecture_AVG").equals("null"))
-                    course_page.lecture.setText(d.getString("lecture_AVG"));
+
+                if(!d.getString("lecture_AVG").equals("null")) {
+                    String t5 = d.getString("lecture_AVG");
+                    if(t5.length()>4)
+                    course_page.lecture.setText(t5.substring(0,3) + "/10");
+                    else  course_page.lecture.setText(t5 + "/10");
+                }
                 else
                     course_page.lecture.setText("לא ידוע");
 
