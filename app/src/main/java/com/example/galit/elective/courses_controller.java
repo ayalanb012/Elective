@@ -74,8 +74,8 @@ public class courses_controller {
         return "error";
     } //
 
-    public static String critiquecall(Context ctx) {
-        myTaskcritique T = new myTaskcritique(ctx);
+    public static String critiquecall(String u, String c) {
+        myTaskcritique T = new myTaskcritique(u,c);
         T.execute();
         try {
             return T.get().toString();
@@ -215,11 +215,13 @@ public class courses_controller {
 
     private static class myTaskcritique extends AsyncTask<Void, Void, String> {
 
-        Context Appcontext;
+        String usermail;
+        String critiques;
 
-        public myTaskcritique(Context ctx) {
+        public myTaskcritique(String user, String crtititq) {
+            usermail=user;
+            critiques=crtititq;
 
-            Appcontext = ctx;
         }
 
         @Override

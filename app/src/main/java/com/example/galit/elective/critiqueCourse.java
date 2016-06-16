@@ -24,9 +24,16 @@ public class critiqueCourse extends AppCompatActivity {
      String  comments;
 
     private void criqitiqueHelper(){
-        String result = courses_controller.critiquecall(getApplicationContext());
-         Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
+
+        String u = MainActivity.session.getusename();
+        String c = MainActivity.recSession.getCritiques();
+
+        Toast toast = Toast.makeText(getApplicationContext(),"user-"+ u + " critique" +c, Toast.LENGTH_LONG);
         toast.show();
+
+        String result = courses_controller.critiquecall(u,c);
+         Toast toast1 = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
+        toast1.show();
 
         JSONObject easy = null;
         try {
