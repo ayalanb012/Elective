@@ -80,8 +80,6 @@ public class recommendMain extends Activity {
                 s_e_names[i]=e_names.getString(i);
             }
 
-            dataObjects_easy = s_e_names;
-
             JSONArray e_grades = easy.optJSONArray("grades");
             String[] s_e_grades = new String[e_names.length()];
             for(int i = 0; i < e_names.length(); i++){

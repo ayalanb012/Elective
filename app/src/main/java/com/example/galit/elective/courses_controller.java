@@ -1,5 +1,6 @@
 package com.example.galit.elective;
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -64,6 +65,17 @@ public class courses_controller {
 
     public static String allcommentscall(String courseNum, Context context, ListView ls) {
         myTaskAllComments T = new myTaskAllComments(courseNum, context, ls);
+        T.execute();
+        try {
+            return T.get().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+    } //
+
+    public static String critiquecall(Context ctx) {
+        myTaskcritique T = new myTaskcritique(ctx);
         T.execute();
         try {
             return T.get().toString();
@@ -196,6 +208,91 @@ public class courses_controller {
                 e.printStackTrace();
             }
 
+            // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
+            // toast.show();
+        }
+    }
+
+    private static class myTaskcritique extends AsyncTask<Void, Void, String> {
+
+        Context Appcontext;
+
+        public myTaskcritique(Context ctx) {
+
+            Appcontext = ctx;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            // setProgressPercent(progress[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+          //   Toast.makeText(Appcontext, MainActivity.recSession.getCritiques(), Toast.LENGTH_LONG).show();
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, "recommend");
+
+            PropertyInfo propertyInfo1 = new PropertyInfo();
+            propertyInfo1.type = PropertyInfo.STRING_CLASS;
+            propertyInfo1.name = "usermail";
+            propertyInfo1.setValue(MainActivity.session.getusename());
+
+            request.addProperty(propertyInfo1);
+
+            PropertyInfo propertyInfo2 = new PropertyInfo();
+            propertyInfo2.type = PropertyInfo.STRING_CLASS;
+            propertyInfo2.name = "critiques";
+            propertyInfo2.setValue(MainActivity.recSession.getCritiques());
+
+            request.addProperty(propertyInfo2);
+
+           // Toast toast = Toast.makeText(Appcontext,usermail +" " +ctitiques , Toast.LENGTH_LONG);
+             //toast.show();
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+            envelope.bodyOut = request;
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS, 60000);
+
+            String res;
+
+            try {
+                httpTransport.call(WSDL_TARGET_NAMESPACE + "/recommend", envelope);
+
+                Object response = envelope.getResponse();
+                res = response.toString();
+                httpTransport.getConnection().disconnect();
+
+            } catch (Exception exception) {
+                res = exception.toString();
+            }
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+         /*   try {
+                JSONObject J0bject = new JSONObject(result);
+                JSONArray JList = J0bject.optJSONArray("Table");
+                JSONObject d = JList.getJSONObject(0);
+                course_page.course_name.setText(d.getString("COURSE_NAME"));
+
+                course_page.description.setText(d.getString("Course_Description"));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            System.out.println(result);*/
             // Toast toast = Toast.makeText(Appcontext,result, Toast.LENGTH_LONG);
             // toast.show();
         }

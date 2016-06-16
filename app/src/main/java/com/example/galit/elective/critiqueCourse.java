@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class critiqueCourse extends AppCompatActivity {
@@ -19,11 +23,77 @@ public class critiqueCourse extends AppCompatActivity {
      String  interest;
      String  comments;
 
+    private void criqitiqueHelper(){
+        String result = courses_controller.critiquecall(getApplicationContext());
+         Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
+        toast.show();
+
+        JSONObject easy = null;
+        try {
+            easy = new JSONObject(result);
+
+            JSONArray e_names = easy.optJSONArray("names");
+            final String[] s_e_names = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_names[i]=e_names.getString(i);
+            }
+
+            JSONArray e_grades = easy.optJSONArray("grades");
+            final String[] s_e_grades = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_grades[i]=e_grades.getString(i)+"/10";
+            }
+            JSONArray e_diifs = easy.optJSONArray("diffs");
+            final String[] s_e_diifs = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_diifs[i]=e_diifs.getString(i)+"/10";
+            }
+            JSONArray e_interes = easy.optJSONArray("interes");
+            final String[] s_e_interes = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_interes[i]=e_interes.getString(i)+"/10";
+            }
+            JSONArray e_lectures = easy.optJSONArray("lectures");
+            final String[] s_e_lectures = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_lectures[i]=e_lectures.getString(i)+"/10";
+            }
+            JSONArray e_load = easy.optJSONArray("load");
+            final String[] s_e_load = new String[e_names.length()];
+            for(int i = 0; i < e_load.length(); i++){
+                s_e_load[i]=e_load.getString(i)+"/10";
+            }
+            JSONArray e_comments = easy.optJSONArray("comments");
+            final String[] s_e_comments = new String[e_names.length()];
+            for(int i = 0; i < e_names.length(); i++){
+                s_e_comments[i]=e_comments.getString(i);
+            }
+
+            ArrayList<String[]> list = new ArrayList<String[]>() {{
+                add(s_e_names);
+                add(s_e_grades);
+                add(s_e_diifs);
+                add(s_e_interes);
+                add(s_e_lectures);
+                add(s_e_comments);
+                add(s_e_load);
+
+            }};
+
+            Intent myintent = new Intent(getApplicationContext(), recommend_results.class);
+            myintent.putExtra("recommend results",list);
+            startActivity(myintent);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_critique_course);
-
 
         Intent caller = getIntent();
           title  = caller.getStringExtra("title");
@@ -54,60 +124,42 @@ public class critiqueCourse extends AppCompatActivity {
 
     public void popularClicked(View V){
         MainActivity.recSession.addCritique("p: "+ comments + ","+ grade);
-        String critiques = MainActivity.recSession.getCritiques();
+        Toast toast = Toast.makeText(getApplicationContext(), MainActivity.recSession.getCritiques(), Toast.LENGTH_LONG);
+        toast.show();
+        criqitiqueHelper();
 
        // System.out.print(critiques);
        // Toast toast = Toast.makeText(getApplicationContext(), critiques, Toast.LENGTH_LONG);
        // toast.show();
 
-
-      /*  Intent myintent = new Intent(getApplicationContext(), recommend_results.class);
-        ArrayList<String[]> list = new ArrayList<String[]>() {{
-            add(new String[] { "המוח 120 שנות מחקר", "יצירות מופת מעולם הספות","כדורעף מעורב" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-            add(new String[] { "7.3/10", "5.5/10","6.8/10" });
-
-        }};
-
-
-        myintent.putExtra("recommend results",list);
-        startActivity(myintent); */
     }
 
     public void loadClicked(View V){
         MainActivity.recSession.addCritique("l: "+ load);
-        String critiques = MainActivity.recSession.getCritiques();
         //System.out.print(critiques);
+        criqitiqueHelper();
 
     }
 
     public void easyClicked(View V){
 
         MainActivity.recSession.addCritique("e: "+ diff );
-        String critiques = MainActivity.recSession.getCritiques();
-        System.out.print(critiques);
+        criqitiqueHelper();
     }
 
     public void lectureClicked(View V){
         MainActivity.recSession.addCritique("t: "+ lecturer );
-        String critiques = MainActivity.recSession.getCritiques();
-       // System.out.print(critiques);
+        criqitiqueHelper();
     }
 
     public void interestClicked(View V){
         MainActivity.recSession.addCritique("i: "+ interest );
-        String critiques = MainActivity.recSession.getCritiques();
-       // System.out.print(critiques);
+        criqitiqueHelper();
     }
 
     public void surpriseClicked(View V){
         MainActivity.recSession.addCritique("s:");
-        String critiques = MainActivity.recSession.getCritiques();
-      //  System.out.print(critiques);
+        criqitiqueHelper();
     }
 
 
