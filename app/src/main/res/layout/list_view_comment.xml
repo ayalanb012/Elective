@@ -1,175 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/btnshade"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:gravity="center" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_email"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="180sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/textView46"
+            <TextView
+                android:id="@+id/txt_diff"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="קושי"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="90sp"
-            android:textStyle="bold"
-            android:text="מייל"
-            android:layout_gravity="center"
-            android:textColor="#6271b8" />
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txt_grade"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ציון"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_weight="2" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_grade"
-            android:paddingLeft="15sp"
-            android:layout_width="180sp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/textView39"
-            android:paddingLeft="15sp"
-            android:layout_width="90sp"
+            <TextView
+                android:id="@+id/txt_interest"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="עניין"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ציון"
-            android:layout_gravity="center"
-            android:textColor="#6271b8"
-            android:textStyle="bold" />
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txtLoad"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/textView74"
+                android:paddingLeft="15sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="עומס"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_weight="2" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/txt_diff"
-            android:paddingLeft="15sp"
-            android:layout_width="180sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/textView23"
-            android:paddingLeft="15sp"
-            android:layout_width="90sp"
-            android:layout_height="wrap_content"
-            android:text="קושי"
-            android:layout_gravity="center"
-            android:textColor="#6271b8"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/txt_interest"
-            android:paddingLeft="15sp"
-            android:layout_width="180sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/textView29"
-            android:paddingLeft="15sp"
-            android:layout_width="90sp"
-            android:layout_height="wrap_content"
-            android:text="עניין"
-            android:layout_gravity="center"
-            android:textColor="#6271b8"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/txtLoad"
-            android:paddingLeft="15sp"
-            android:layout_width="180sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/textView74"
-            android:paddingLeft="15sp"
-            android:layout_width="90sp"
-            android:layout_height="wrap_content"
-            android:text="עומס"
-            android:layout_gravity="center"
-            android:textColor="#6271b8"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp">
 
         <TextView
             android:id="@+id/txt_lecture"
             android:paddingLeft="15sp"
-            android:layout_width="180sp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#000000" />
+            android:textColor="#fff"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:text="1"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/textView109"
             android:paddingLeft="15sp"
-            android:layout_width="90sp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="מרצה"
             android:layout_gravity="center"
-            android:textColor="#6271b8"
-            android:textStyle="bold" />
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_weight="2.3" />
     </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-    </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_below="@+id/linearLayout"
-        android:id="@+id/linearLayout10" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp">
 
         <TextView
             android:layout_width="180sp"
@@ -177,22 +197,15 @@
             android:text="תגובה"
             android:id="@+id/txt_feedback"
             android:layout_gravity="right"
-            android:textColor="#000000" />
+            android:textColor="#fff" />
 
         <TextView
             android:layout_width="90sp"
             android:layout_height="wrap_content"
             android:text="תגובה"
             android:id="@+id/textView53"
-            android:textColor="#6271b8"
+            android:textColor="#fff"
             android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
     </LinearLayout>
 
 </LinearLayout>
