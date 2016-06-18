@@ -74,8 +74,8 @@ public class courses_controller {
         return "error";
     } //
 
-    public static String critiquecall(String u, String c) {
-        myTaskcritique T = new myTaskcritique(u,c);
+    public static String critiquecall() {
+        myTaskcritique T = new myTaskcritique();
         T.execute();
         try {
             return T.get().toString();
@@ -84,7 +84,6 @@ public class courses_controller {
         }
         return "error";
     } //
-
 
     public static String getPopularcall(Context ctx) {
         myTaskGetPopular T = new myTaskGetPopular(ctx);
@@ -215,13 +214,8 @@ public class courses_controller {
 
     private static class myTaskcritique extends AsyncTask<Void, Void, String> {
 
-        String usermail;
-        String critiques;
 
-        public myTaskcritique(String user, String crtititq) {
-            usermail=user;
-            critiques=crtititq;
-
+        public myTaskcritique() {
         }
 
         @Override
@@ -255,6 +249,14 @@ public class courses_controller {
             propertyInfo2.setValue(MainActivity.recSession.getCritiques());
 
             request.addProperty(propertyInfo2);
+
+
+            PropertyInfo propertyInfo3 = new PropertyInfo();
+            propertyInfo3.type = PropertyInfo.STRING_CLASS;
+            propertyInfo3.name = "courses";
+            propertyInfo3.setValue(MainActivity.recSession.getCourses());
+
+            request.addProperty(propertyInfo3);
 
            // Toast toast = Toast.makeText(Appcontext,usermail +" " +ctitiques , Toast.LENGTH_LONG);
              //toast.show();

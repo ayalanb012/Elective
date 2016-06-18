@@ -25,15 +25,10 @@ public class critiqueCourse extends AppCompatActivity {
 
     private void criqitiqueHelper(){
 
-        String u = MainActivity.session.getusename();
-        String c = MainActivity.recSession.getCritiques();
+      //  Toast toast = Toast.makeText(getApplicationContext(), "user-" + u + " critique" + c, Toast.LENGTH_LONG);
+       // toast.show();
 
-        Toast toast = Toast.makeText(getApplicationContext(),"user-"+ u + " critique" +c, Toast.LENGTH_LONG);
-        toast.show();
-
-        String result = courses_controller.critiquecall(u,c);
-         Toast toast1 = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
-        toast1.show();
+        String result = courses_controller.critiquecall();
 
         JSONObject easy = null;
         try {
@@ -130,9 +125,9 @@ public class critiqueCourse extends AppCompatActivity {
 
 
     public void popularClicked(View V){
-        MainActivity.recSession.addCritique("p: "+ comments + ","+ grade);
-        Toast toast = Toast.makeText(getApplicationContext(), MainActivity.recSession.getCritiques(), Toast.LENGTH_LONG);
-        toast.show();
+        MainActivity.recSession.addCritique("p: "+ comments + ","+ grade,title);
+      //  Toast toast = Toast.makeText(getApplicationContext(), MainActivity.recSession.getCritiques(), Toast.LENGTH_LONG);
+        //toast.show();
         criqitiqueHelper();
 
        // System.out.print(critiques);
@@ -142,7 +137,7 @@ public class critiqueCourse extends AppCompatActivity {
     }
 
     public void loadClicked(View V){
-        MainActivity.recSession.addCritique("l: "+ load);
+        MainActivity.recSession.addCritique("l: "+ load,title);
         //System.out.print(critiques);
         criqitiqueHelper();
 
@@ -150,22 +145,22 @@ public class critiqueCourse extends AppCompatActivity {
 
     public void easyClicked(View V){
 
-        MainActivity.recSession.addCritique("e: "+ diff );
+        MainActivity.recSession.addCritique("e: "+ diff ,title);
         criqitiqueHelper();
     }
 
     public void lectureClicked(View V){
-        MainActivity.recSession.addCritique("t: "+ lecturer );
+        MainActivity.recSession.addCritique("t: "+ lecturer,title );
         criqitiqueHelper();
     }
 
     public void interestClicked(View V){
-        MainActivity.recSession.addCritique("i: "+ interest );
+        MainActivity.recSession.addCritique("i: "+ interest,title );
         criqitiqueHelper();
     }
 
     public void surpriseClicked(View V){
-        MainActivity.recSession.addCritique("s:");
+        MainActivity.recSession.addCritique("s:",title);
         criqitiqueHelper();
     }
 

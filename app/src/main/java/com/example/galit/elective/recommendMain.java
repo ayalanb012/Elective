@@ -220,9 +220,6 @@ public class recommendMain extends Activity {
             Toast.makeText(getApplicationContext(), e.toString(),  Toast.LENGTH_LONG).show();
         }
 
-
-
-
         listview.setAdapter(interestAdapter);
         listview1.setAdapter(easyAdapter);
         listview2.setAdapter(sportsAdapter);
