@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/selector2"
+    android:background="@drawable/courselistdesign"
    >
 
     <LinearLayout
@@ -25,7 +25,7 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:background="#efefef"
+        android:background="@drawable/courselistdesign"
         android:layout_height="wrap_content">
 
         <TableRow
@@ -36,26 +36,26 @@
                 android:text="2"
                 android:id="@+id/txt_commentNum"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
 
             <TextView
                 android:text="מספר תגובות"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text=""
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
 
             <TextView
                 android:text="7/10"
                 android:id="@+id/txt_grade"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
 
             <TextView
                 android:text="ציון כללי"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
         </TableRow>
 
         <TableRow
@@ -79,24 +79,24 @@
                 android:text="2/10"
                 android:id="@+id/txt_diff"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="רמת קושי"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text=""
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="8/10"
                 android:id="@+id/txt_interest"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="רמת עניין"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -118,24 +118,24 @@
                 android:text="5/10"
                 android:id="@+id/txt_load"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="רמת עומס"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="         "
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="6/10"
                 android:id="@+id/txt_lecture"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
             <TextView
                 android:text="דירוג מרצה"
                 android:padding="3dp"
-                android:textColor="#6271b8" />
+                android:textColor="#ffff" />
         </TableRow>
 
     </TableLayout>

@@ -104,10 +104,9 @@ public class course_page extends Activity {
     //this method is activated when logo is clicked. the method return to main activity
     public void HomeClicked(View v)
     {
-
-        ImageButton button = (ImageButton) v;
-        // startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     public void userClicked(View v)

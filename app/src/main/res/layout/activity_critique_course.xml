@@ -27,7 +27,8 @@
             android:src="@drawable/logologofinal"
             android:background="#00000000"
             android:layout_marginBottom="10dp"
-            android:layout_weight="3" />
+            android:layout_weight="3"
+            android:onClick="HomeClicked" />
 
         <ImageButton
 
@@ -38,11 +39,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/t"
             android:scaleType="fitXY"
 
-            android:layout_width="80dip"
-            android:layout_height="50dip"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
 
             android:nestedScrollingEnabled="false"
             android:onClick="userClicked" />
