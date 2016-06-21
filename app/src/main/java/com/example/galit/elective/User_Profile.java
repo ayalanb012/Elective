@@ -481,4 +481,11 @@ public class User_Profile extends AppCompatActivity {
         });
     }
 
+    //this method is activated when logo is clicked. the method return to main activity
+    public void HomeClicked(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }

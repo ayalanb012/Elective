@@ -9,14 +9,15 @@
         android:layout_height="wrap_content"
         android:layout_width="240sp"
 
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#ffff" />
 
     <TextView
         android:id="@+id/course_number"
         android:paddingLeft="15sp"
         android:layout_width="90sp"
         android:layout_height="wrap_content"
-         />
+        android:textColor="#ffff" />
 
 
 </LinearLayout>
