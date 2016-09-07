@@ -50,7 +50,7 @@ public class courses_controller {
     private static final String SOAP_ACTION = "http://tempuri.org/isRegistered";
     private static final String OPERATION_NAME = "isRegistered";// your webservice web method name
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org";
-    private static final String SOAP_ADDRESS = "http://proj.ise.bgu.ac.il/1155/webservice.asmx";
+    private static final String SOAP_ADDRESS = "--";
 
     public static void addCourseToWishList(String Email, String courseNum, Context context) {
         myTaskAddToWishList T = new myTaskAddToWishList(Email, courseNum, context);
